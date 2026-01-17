@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "iris-agent"
-version = "0.1.0"
-description = "Lightweight, provider-agnostic agent framework with tool decorators and code-defined prompts."
+version = "0.1.1"
+description = "A lightweight Python AI agent framework for building autonomous agents."
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
