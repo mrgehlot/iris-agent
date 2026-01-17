@@ -1,7 +1,6 @@
 # Iris Agent Framework
 
-A lightweight, provider-agnostic mini framework for building AI agents with tool
-decorators and code-defined prompts.
+A lightweight Python AI agent framework for building autonomous agents.
 
 ## Features
 
@@ -15,7 +14,7 @@ decorators and code-defined prompts.
 
 ## Installation
 
-### From PyPI (when published)
+### From PyPI
 ```bash
 pip install iris-agent
 ```
