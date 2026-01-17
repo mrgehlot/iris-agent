@@ -1,0 +1,72 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "iris-agent"
+version = "0.1.0"
+description = "Lightweight, provider-agnostic agent framework with tool decorators and code-defined prompts."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Abhishek Gehlot", email = "abhigehlot123@gmail.com"}
+]
+keywords = ["ai", "agent", "llm", "openai", "framework", "tools", "prompts"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = []
+
+[project.optional-dependencies]
+openai = ["openai>=1.0.0"]
+rich = ["rich>=13.0.0"]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+]
+all = [
+    "openai>=1.0.0",
+    "rich>=13.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/mrgehlot/iris-agent"
+Documentation = "https://github.com/mrgehlot/iris-agent#readme"
+Repository = "https://github.com/mrgehlot/iris-agent"
+Issues = "https://github.com/mrgehlot/iris-agent/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+iris_agent = ["py.typed"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311", "py312"]
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+markers = [
+    "integration: marks tests as integration tests (require API keys)",
+]
+asyncio_mode = "auto"
