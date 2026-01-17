@@ -5,7 +5,7 @@ Get started with Iris Agent in 5 minutes!
 ## Installation
 
 ```bash
-pip install iris-agent[openai]
+pip install iris-agent
 ```
 
 ## Basic Usage
@@ -111,8 +111,6 @@ asyncio.run(main())
 
 ```python
 from iris_agent import Agent, BaseLLMClient, LLMConfig, LLMProvider, PromptRegistry
-
-# Install: pip install iris-agent[rich]
 
 prompts = PromptRegistry()
 prompts.add_prompt("assistant", "You are helpful.")

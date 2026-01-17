@@ -18,7 +18,7 @@ Use this checklist to ensure your package is ready for distribution.
 - [x] `pyproject.toml` with:
   - [x] Build system (setuptools)
   - [x] Project metadata (name, version, description)
-  - [x] Dependencies and optional dependencies
+  - [x] Dependencies (core packages required for runtime)
   - [x] Package discovery configuration
   - [x] Tool configurations (black, isort, pytest)
 

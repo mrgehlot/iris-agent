@@ -5,13 +5,14 @@ from typing import Any, Optional
 
 
 class LLMProvider:
+    """Supported provider identifiers."""
     OPENAI = "openai"
     GOOGLE = "google"
-    ANTHROPIC = "anthropic"
 
 
 @dataclass
 class LLMConfig:
+    """Configuration for the LLM client."""
     provider: str
     model: str
     api_key: str | None = None
@@ -21,18 +22,26 @@ class LLMConfig:
 
 
 class BaseLLMClient:
+    """OpenAI-backed LLM client with tool support."""
     def __init__(self, config: LLMConfig) -> None:
-        self.config = config
-        try:
-            from openai import AsyncOpenAI
-        except ImportError as exc:
-            raise ImportError(
-                "Install openai optional dependency: pip install iris-agent-framework[openai]"
-            ) from exc
+        """
+        Create a client from configuration.
 
+        Args:
+            config: LLM configuration including provider, model, and credentials.
+        """
+        from openai import AsyncOpenAI
+
+        self.config = config
         self._client = AsyncOpenAI(api_key=config.api_key, base_url=config.base_url)
 
     def _supports_json_response(self) -> bool:
+        """
+        Return True if response_format=json_object is supported.
+
+        Returns:
+            True when JSON response format is supported by the base URL.
+        """
         if not self.config.base_url:
             return True
         return "googleapis" not in self.config.base_url
@@ -48,6 +57,22 @@ class BaseLLMClient:
         reasoning_effort: str | None = None,
         web_search_options: dict | None = None,
     ) -> dict:
+        """
+        Call chat completions and return a normalized response.
+
+        Args:
+            messages: Conversation history list of message dicts.
+            tools: Optional OpenAI-compatible tool schemas.
+            temperature: Sampling temperature.
+            json_response: Request JSON-only response when supported.
+            max_completion_tokens: Cap the completion token count.
+            seed: Optional seed for deterministic sampling.
+            reasoning_effort: Optional reasoning effort hint for supported models.
+            web_search_options: Optional web search options for supported models.
+
+        Returns:
+            A dict with content, tool_calls, message, and finish_reason.
+        """
         completion_object: dict[str, Any] = {
             "model": self.config.model,
             "messages": messages,
@@ -88,6 +113,22 @@ class BaseLLMClient:
         reasoning_effort: str | None = None,
         web_search_options: dict | None = None,
     ):
+        """
+        Stream chat completions from the provider.
+
+        Args:
+            messages: Conversation history list of message dicts.
+            tools: Optional OpenAI-compatible tool schemas.
+            temperature: Sampling temperature.
+            json_response: Request JSON-only response when supported.
+            max_tokens: Cap the streamed completion tokens.
+            seed: Optional seed for deterministic sampling.
+            reasoning_effort: Optional reasoning effort hint for supported models.
+            web_search_options: Optional web search options for supported models.
+
+        Yields:
+            Streaming chunks from the provider client.
+        """
         completion_object: dict[str, Any] = {
             "model": self.config.model,
             "messages": messages,

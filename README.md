@@ -9,7 +9,7 @@ decorators and code-defined prompts.
 - 🛠️ **Tool Decorators** - Expose Python functions as LLM tools with automatic schema inference
 - 🔌 **Provider Agnostic** - Support for OpenAI, Google Gemini, and more
 - 📝 **Code-Defined Prompts** - Manage prompts in code, no database needed
-- 🎨 **Rich Logging** - Beautiful step-by-step logging with Rich (optional)
+- 🎨 **Rich Logging** - Beautiful step-by-step logging with Rich
 - 🔄 **Streaming Support** - Built-in streaming for real-time responses
 - ✅ **Type Safe** - Full type hints and validation
 
@@ -20,32 +20,11 @@ decorators and code-defined prompts.
 pip install iris-agent
 ```
 
-### With optional dependencies
-```bash
-# With OpenAI support
-pip install iris-agent[openai]
-
-# With Google Gemini support
-pip install iris-agent[google]
-
-# With Rich logging
-pip install iris-agent[rich]
-
-# With all optional dependencies
-pip install iris-agent[all]
-
-# Development dependencies
-pip install iris-agent[dev]
-```
-
 ### From source
 ```bash
 git clone https://github.com/yourusername/iris-agent.git
 cd iris-agent
 pip install -e .
-
-# Or with dependencies
-pip install -e ".[openai,rich]"
 ```
 
 ## Quick Start
@@ -152,10 +131,7 @@ agent = Agent(
 )
 ```
 
-Install the optional dependency:
-```bash
-pip install iris-agent[rich]
-```
+Rich logging is included by default.
 
 ## Testing
 

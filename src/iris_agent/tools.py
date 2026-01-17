@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import asyncio
 import inspect
 from dataclasses import dataclass
 from typing import Any, Callable, Dict, Optional, get_args, get_origin, Mapping, Sequence
@@ -7,6 +8,7 @@ from typing import Any, Callable, Dict, Optional, get_args, get_origin, Mapping,
 
 @dataclass
 class ToolSpec:
+    """Metadata for a registered tool."""
     name: str
     description: str
     parameters: Dict[str, Any]
@@ -14,6 +16,12 @@ class ToolSpec:
     is_async: bool
 
     def to_openai_tool(self) -> Dict[str, Any]:
+        """
+        Serialize to OpenAI tool schema.
+
+        Returns:
+            A dict compatible with OpenAI tool schemas.
+        """
         return {
             "type": "function",
             "function": {
@@ -25,6 +33,15 @@ class ToolSpec:
 
 
 def _schema_for_type(tp: Any) -> Dict[str, Any]:
+    """
+    Map a Python type annotation to a JSON schema fragment.
+
+    Args:
+        tp: Type annotation to convert.
+
+    Returns:
+        JSON schema fragment.
+    """
     if tp is Any:
         return {}
 
@@ -68,6 +85,15 @@ def _schema_for_type(tp: Any) -> Dict[str, Any]:
 
 
 def _infer_parameters_schema(func: Callable[..., Any]) -> Dict[str, Any]:
+    """
+    Infer JSON schema from function signature annotations.
+
+    Args:
+        func: Function whose parameters should be inferred.
+
+    Returns:
+        JSON schema describing the function parameters.
+    """
     sig = inspect.signature(func)
     properties: Dict[str, Any] = {}
     required = []
@@ -91,7 +117,27 @@ def tool(
     description: Optional[str] = None,
     parameters: Optional[Dict[str, Any]] = None,
 ):
+    """
+    Decorator to mark a function as a tool with schema metadata.
+
+    Args:
+        name: Optional tool name override.
+        description: Optional tool description override.
+        parameters: Optional JSON schema for parameters.
+
+    Returns:
+        Decorator that attaches a ToolSpec to the function.
+    """
     def decorator(func: Callable[..., Any]):
+        """
+        Attach ToolSpec metadata to the wrapped function.
+
+        Args:
+            func: Function to register as a tool.
+
+        Returns:
+            The original function with ToolSpec metadata.
+        """
         tool_name = name or func.__name__
         tool_description = description or (func.__doc__ or "").strip() or tool_name
         tool_parameters = parameters or _infer_parameters_schema(func)
@@ -110,10 +156,21 @@ def tool(
 
 
 class ToolRegistry:
+    """Register, validate, and call tools."""
     def __init__(self) -> None:
+        """Initialize empty tool registry."""
         self._tools: Dict[str, ToolSpec] = {}
 
     def register(self, func: Callable[..., Any]) -> ToolSpec:
+        """
+        Register a function as a tool and return its spec.
+
+        Args:
+            func: Callable to register.
+
+        Returns:
+            ToolSpec for the registered function.
+        """
         spec = getattr(func, "_tool_spec", None)
         if spec is None:
             spec = ToolSpec(
@@ -127,17 +184,42 @@ class ToolRegistry:
         return spec
 
     def register_from(self, obj: Any) -> None:
+        """
+        Register all decorated tools on an object.
+
+        Args:
+            obj: Object to scan for decorated tools.
+        """
         for _, member in inspect.getmembers(obj):
             if callable(member) and hasattr(member, "_tool_spec"):
                 self.register(member)
 
     def list_tools(self) -> Dict[str, ToolSpec]:
+        """
+        Return a copy of the tool mapping.
+
+        Returns:
+            Dict of tool name to ToolSpec.
+        """
         return dict(self._tools)
 
     def schemas(self) -> list[Dict[str, Any]]:
+        """
+        Return OpenAI-compatible schemas for all tools.
+
+        Returns:
+            List of OpenAI tool schema dicts.
+        """
         return [tool.to_openai_tool() for tool in self._tools.values()]
 
     def validate_args(self, name: str, args: Dict[str, Any]) -> None:
+        """
+        Validate tool arguments against the tool schema.
+
+        Args:
+            name: Registered tool name.
+            args: Arguments to validate.
+        """
         if name not in self._tools:
             raise KeyError(f"Tool '{name}' not registered.")
         spec = self._tools[name]
@@ -156,6 +238,16 @@ class ToolRegistry:
                 raise ValueError(f"Argument '{key}' does not match schema.")
 
     def _is_valid_value(self, value: Any, schema: Dict[str, Any]) -> bool:
+        """
+        Return True when value conforms to a schema snippet.
+
+        Args:
+            value: Value to validate.
+            schema: JSON schema fragment.
+
+        Returns:
+            True if value conforms to schema.
+        """
         if not schema:
             return True
 
@@ -196,7 +288,40 @@ class ToolRegistry:
 
         return True
 
-    async def call(self, name: str, **kwargs) -> Any:
+    def call(self, name: str, **kwargs) -> Any:
+        """
+        Call a tool synchronously (runs async tools outside event loop).
+
+        Args:
+            name: Registered tool name.
+            **kwargs: Tool arguments.
+
+        Returns:
+            Tool result.
+        """
+        if name not in self._tools:
+            raise KeyError(f"Tool '{name}' not registered.")
+        self.validate_args(name, kwargs)
+        spec = self._tools[name]
+        if spec.is_async:
+            try:
+                asyncio.get_running_loop()
+            except RuntimeError:
+                return asyncio.run(spec.func(**kwargs))
+            raise RuntimeError("Tool is async. Use await ToolRegistry.call_async().")
+        return spec.func(**kwargs)
+
+    async def call_async(self, name: str, **kwargs) -> Any:
+        """
+        Call a tool in async contexts.
+
+        Args:
+            name: Registered tool name.
+            **kwargs: Tool arguments.
+
+        Returns:
+            Tool result.
+        """
         if name not in self._tools:
             raise KeyError(f"Tool '{name}' not registered.")
         self.validate_args(name, kwargs)

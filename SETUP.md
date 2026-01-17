@@ -17,11 +17,6 @@ cd iris-agent-framework
 # Install in editable mode
 pip install -e .
 
-# Or with optional dependencies
-pip install -e ".[openai,rich]"
-
-# Or with all dependencies
-pip install -e ".[all]"
 ```
 
 ### 2. Verify Installation
@@ -128,24 +123,6 @@ pip show iris-agent
 
 # Verify imports
 python -c "import iris_agent; print(iris_agent.__file__)"
-```
-
-### Issue: Missing optional dependencies
-
-Install them explicitly:
-
-```bash
-# For OpenAI support
-pip install iris-agent[openai]
-
-# For Google Gemini support
-pip install iris-agent[google]
-
-# For Rich logging
-pip install iris-agent[rich]
-
-# For all optional dependencies
-pip install iris-agent[all]
 ```
 
 ## Development Workflow

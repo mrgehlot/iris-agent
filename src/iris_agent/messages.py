@@ -14,6 +14,15 @@ def create_message(
     """
     Create a message object compatible with chat completions.
     Mirrors the Iris.create_message behavior from iris/flexibles/async_agent.py.
+
+    Args:
+        role: The chat role ("system", "developer", "user", "assistant", "tool").
+        content: Text content for the message. Use "" for image-only messages.
+        name: Optional name for multi-user contexts; spaces are converted to underscores.
+        images: Optional list of image URLs for multimodal messages.
+
+    Returns:
+        A message dict ready to be sent to the LLM client.
     """
     message: dict = {"role": role}
     if name:

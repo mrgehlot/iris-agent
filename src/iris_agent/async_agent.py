@@ -2,10 +2,7 @@ import asyncio
 import logging
 from typing import Any, AsyncGenerator, List, Optional
 
-try:
-    from rich.logging import RichHandler
-except ImportError:  # pragma: no cover - optional dependency
-    RichHandler = None
+from rich.logging import RichHandler
 
 from .llm import BaseLLMClient
 from .messages import create_message
@@ -15,6 +12,7 @@ from .types import Role
 
 
 class AsyncAgent:
+    """Async agent that manages memory, tools, and LLM calls."""
     def __init__(
         self,
         llm_client: BaseLLMClient,
@@ -24,6 +22,17 @@ class AsyncAgent:
         enable_logging: bool = False,
         logger: Optional[logging.Logger] = None,
     ) -> None:
+        """
+        Initialize async agent with registries and optional logging.
+
+        Args:
+            llm_client: LLM client instance for chat completions.
+            prompt_registry: Optional prompt registry; defaults to a new one.
+            tool_registry: Optional tool registry; defaults to a new one.
+            system_prompt_name: Prompt key used to seed system instructions.
+            enable_logging: Enable Rich logging if True.
+            logger: Optional custom logger instance.
+        """
         self.llm_client = llm_client
         self.prompt_registry = prompt_registry or PromptRegistry()
         self.tool_registry = tool_registry or ToolRegistry()
@@ -33,10 +42,21 @@ class AsyncAgent:
         self._ensure_system_prompt()
 
     @staticmethod
-    def create_message(role: str, content: str) -> dict:
+    def create_message(role: str, content: str | None) -> dict:
+        """
+        Create a standard message dict.
+
+        Args:
+            role: Message role string.
+            content: Message content.
+
+        Returns:
+            A message dict with role and content.
+        """
         return create_message(role=role, content=content)
 
     def _ensure_system_prompt(self) -> None:
+        """Ensure the system prompt is at the start of memory."""
         prompt = self.prompt_registry.render(self.system_prompt_name)
         if not prompt:
             return
@@ -45,11 +65,28 @@ class AsyncAgent:
         else:
             self.memory[0] = self.create_message(Role.DEVELOPER, prompt)
 
+    @staticmethod
+    def _normalize_user_message(message: str | dict) -> dict:
+        """
+        Normalize a user input into a message dict.
+
+        Args:
+            message: Raw text or a pre-built message dict.
+
+        Returns:
+            A message dict compatible with chat completions.
+        """
+        if isinstance(message, dict):
+            return message
+        return create_message(role=Role.USER, content=message)
+
     def _setup_logger(self) -> logging.Logger:
-        if RichHandler is None:
-            raise ImportError(
-                "Install rich optional dependency: pip install iris-agent-framework[rich]"
-            )
+        """
+        Configure Rich logger for step-by-step output.
+
+        Returns:
+            Configured logger instance.
+        """
         logger = logging.getLogger("iris_agent")
         logger.setLevel(logging.INFO)
         if not logger.handlers:
@@ -60,11 +97,27 @@ class AsyncAgent:
         return logger
 
     def _log(self, message: str) -> None:
+        """
+        Emit a log message when logging is enabled.
+
+        Args:
+            message: Formatted log message.
+        """
         if self.logger:
             self.logger.info(message)
 
     @staticmethod
     def _truncate(value: Any, limit: int = 200) -> str:
+        """
+        Truncate long values for log readability.
+
+        Args:
+            value: Value to truncate.
+            limit: Maximum length before truncation.
+
+        Returns:
+            Truncated string representation.
+        """
         text = str(value)
         if len(text) <= limit:
             return text
@@ -72,24 +125,38 @@ class AsyncAgent:
 
     async def run(
         self,
-        user_message: str,
-        temperature: float = 1.0,
+        user_message: str | dict,
         json_response: bool = False,
         max_completion_tokens: int | None = None,
         seed: int | None = None,
         reasoning_effort: str | None = None,
         web_search_options: dict | None = None,
     ) -> str:
-        self.memory.append(self.create_message(Role.USER, user_message))
+        """
+        Run a single turn, handling tool calls until completion.
+
+        Args:
+            user_message: User input text or a pre-built message dict.
+            json_response: Request JSON-only response when supported.
+            max_completion_tokens: Cap the completion token count.
+            seed: Optional seed for deterministic sampling.
+            reasoning_effort: Optional reasoning effort hint for supported models.
+            web_search_options: Optional web search options for supported models.
+
+        Returns:
+            The assistant response content.
+        """
+        message = self._normalize_user_message(user_message)
+        self.memory.append(message)
         tools = self.tool_registry.schemas() if self.tool_registry else None
-        self._log(f"[bold cyan]User[/]: {self._truncate(user_message)}")
+        self._log(f"[bold cyan]User[/]: {self._truncate(message.get('content'))}")
 
         while True:
             self._log("[dim]Calling LLM...[/]")
             result = await self.llm_client.chat_completion(
                 messages=self.memory,
                 tools=tools,
-                temperature=temperature,
+                temperature=1.0,
                 json_response=json_response,
                 max_completion_tokens=max_completion_tokens,
                 seed=seed,
@@ -136,7 +203,7 @@ class AsyncAgent:
                     )
                     tool_kwargs = self._safe_json_loads(tool_args)
                     try:
-                        tool_response = await self.tool_registry.call(tool_name, **tool_kwargs)
+                        tool_response = await self.tool_registry.call_async(tool_name, **tool_kwargs)
                     except Exception as exc:
                         tool_response = f"Tool error: {exc}"
                     self._log(
@@ -166,17 +233,31 @@ class AsyncAgent:
 
     async def run_stream(
         self,
-        user_message: str,
-        temperature: float = 1.0,
+        user_message: str | dict,
         json_response: bool = False,
         max_tokens: int | None = None,
         seed: int | None = None,
         reasoning_effort: str | None = None,
         web_search_options: dict | None = None,
     ) -> AsyncGenerator[str, None]:
-        self.memory.append(self.create_message(Role.USER, user_message))
+        """
+        Stream a response, handling tool calls between turns.
+
+        Args:
+            user_message: User input text or a pre-built message dict.
+            json_response: Request JSON-only response when supported.
+            max_tokens: Cap the streamed completion tokens.
+            seed: Optional seed for deterministic sampling.
+            reasoning_effort: Optional reasoning effort hint for supported models.
+            web_search_options: Optional web search options for supported models.
+
+        Yields:
+            Response text chunks as they stream in.
+        """
+        message = self._normalize_user_message(user_message)
+        self.memory.append(message)
         tools = self.tool_registry.schemas() if self.tool_registry else None
-        self._log(f"[bold cyan]User[/]: {self._truncate(user_message)}")
+        self._log(f"[bold cyan]User[/]: {self._truncate(message.get('content'))}")
 
         while True:
             tool_call_chunks: dict[int, dict] = {}
@@ -186,7 +267,7 @@ class AsyncAgent:
             async for chunk in self.llm_client.chat_completion_stream(
                 messages=self.memory,
                 tools=tools,
-                temperature=temperature,
+                temperature=1.0,
                 json_response=json_response,
                 max_tokens=max_tokens,
                 seed=seed,
@@ -241,7 +322,7 @@ class AsyncAgent:
                 )
                 tool_kwargs = self._safe_json_loads(tool_args)
                 try:
-                    tool_response = await self.tool_registry.call(tool_name, **tool_kwargs)
+                    tool_response = await self.tool_registry.call_async(tool_name, **tool_kwargs)
                 except Exception as exc:
                     tool_response = f"Tool error: {exc}"
                 self._log(
@@ -258,10 +339,29 @@ class AsyncAgent:
                 )
 
     async def call_tool(self, name: str, **kwargs) -> Any:
-        return await self.tool_registry.call(name, **kwargs)
+        """
+        Call a registered tool directly.
+
+        Args:
+            name: Registered tool name.
+            **kwargs: Tool arguments.
+
+        Returns:
+            The tool result.
+        """
+        return await self.tool_registry.call_async(name, **kwargs)
 
     @staticmethod
     def _safe_json_loads(value: str) -> dict:
+        """
+        Parse tool arguments safely, returning empty dict on errors.
+
+        Args:
+            value: JSON string of tool arguments.
+
+        Returns:
+            Parsed dict or empty dict if parsing fails.
+        """
         try:
             import json
 
