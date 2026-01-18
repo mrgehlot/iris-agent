@@ -1,0 +1,1389 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lightweight, provider-agnostic framework for building AI agents.">
+      
+      
+      
+        <link rel="canonical" href="https://mrgehlot.github.io/iris-agent/how-to/">
+      
+      
+        <link rel="prev" href="../concepts/">
+      
+      
+        <link rel="next" href="../modules/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>How-To Guides - Iris Agent</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#how-to-guides" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Iris Agent" class="md-header__button md-logo" aria-label="Iris Agent" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Iris Agent
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              How-To Guides
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mrgehlot/iris-agent" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    mrgehlot/iris-agent
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Iris Agent" class="md-nav__button md-logo" aria-label="Iris Agent" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Iris Agent
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mrgehlot/iris-agent" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    mrgehlot/iris-agent
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How-To Guides
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How-To Guides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-define-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Define Tools
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to Define Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-simple-function-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Simple Function Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-tool-with-complex-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Tool with Complex Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-registering-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Registering Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-stream-responses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Stream Responses
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-json-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Use JSON Mode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-handle-images-multimodal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Handle Images (Multimodal)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-gemini-openai-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Use Gemini OpenAI Compatibility
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-prompt-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Use Prompt Registry
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to Use Prompt Registry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-use-promptregistry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Use PromptRegistry?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-static-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Static Prompts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-template-prompts-string-formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Template Prompts (String Formatting)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-callable-prompts-function-based" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Callable Prompts (Function-Based)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-using-multiple-prompts-with-different-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Using Multiple Prompts with Different Agents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-advanced-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Advanced Use Cases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Advanced Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-tenant-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Tenant Applications
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ab-testing-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A/B Testing Prompts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context-aware-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context-Aware Prompts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prompt-rendering-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt Rendering Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modules Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-define-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Define Tools
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to Define Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-simple-function-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Simple Function Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-tool-with-complex-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Tool with Complex Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-registering-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Registering Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-stream-responses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Stream Responses
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-json-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Use JSON Mode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-handle-images-multimodal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Handle Images (Multimodal)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-gemini-openai-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Use Gemini OpenAI Compatibility
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-prompt-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Use Prompt Registry
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to Use Prompt Registry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-use-promptregistry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Use PromptRegistry?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-static-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Static Prompts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-template-prompts-string-formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Template Prompts (String Formatting)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-callable-prompts-function-based" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Callable Prompts (Function-Based)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-using-multiple-prompts-with-different-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Using Multiple Prompts with Different Agents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-advanced-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Advanced Use Cases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Advanced Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-tenant-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Tenant Applications
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ab-testing-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A/B Testing Prompts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context-aware-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context-Aware Prompts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prompt-rendering-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt Rendering Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="how-to-guides">How-To Guides<a class="headerlink" href="#how-to-guides" title="Permanent link">&para;</a></h1>
+<p>This section provides practical guides for common tasks.</p>
+<h2 id="how-to-define-tools">How to Define Tools<a class="headerlink" href="#how-to-define-tools" title="Permanent link">&para;</a></h2>
+<p>Tools are the primary way your agent interacts with the world.</p>
+<h3 id="1-simple-function-tool">1. Simple Function Tool<a class="headerlink" href="#1-simple-function-tool" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">tool</span>
+
+<span class="nd">@tool</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add two numbers.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</code></pre></div>
+<h3 id="2-tool-with-complex-types">2. Tool with Complex Types<a class="headerlink" href="#2-tool-with-complex-types" title="Permanent link">&para;</a></h3>
+<p>Iris Agent supports <code>List</code>, <code>Dict</code>, and <code>Literal</code> for validation.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">tool</span>
+
+<span class="nd">@tool</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">search_products</span><span class="p">(</span>
+    <span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">category</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;electronics&quot;</span><span class="p">,</span> <span class="s2">&quot;clothing&quot;</span><span class="p">,</span> <span class="s2">&quot;books&quot;</span><span class="p">],</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Search for products in a specific category.&quot;&quot;&quot;</span>
+    <span class="c1"># Implementation...</span>
+    <span class="k">return</span> <span class="s2">&quot;Found 5 items&quot;</span>
+</code></pre></div>
+<h3 id="3-registering-tools">3. Registering Tools<a class="headerlink" href="#3-registering-tools" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">ToolRegistry</span>
+
+<span class="n">registry</span> <span class="o">=</span> <span class="n">ToolRegistry</span><span class="p">()</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">search_products</span><span class="p">)</span>
+
+<span class="c1"># Pass registry to Agent</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">tool_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="how-to-stream-responses">How to Stream Responses<a class="headerlink" href="#how-to-stream-responses" title="Permanent link">&para;</a></h2>
+<p>Streaming is essential for a responsive UI. You can stream with <code>AsyncAgent</code>
+or use <code>Agent.run_stream()</code> for a sync-friendly iterator.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">AsyncAgent</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">stream_chat</span><span class="p">():</span>
+    <span class="n">agent</span> <span class="o">=</span> <span class="n">AsyncAgent</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+    <span class="c1"># run_stream yields chunks of text</span>
+    <span class="k">async</span> <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">agent</span><span class="o">.</span><span class="n">run_stream</span><span class="p">(</span><span class="s2">&quot;Tell me a story&quot;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">chunk</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">stream_chat</span><span class="p">())</span>
+</code></pre></div>
+<p>Sync usage:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">Agent</span>
+
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">agent</span><span class="o">.</span><span class="n">run_stream</span><span class="p">(</span><span class="s2">&quot;Tell me a story&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">chunk</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="how-to-use-json-mode">How to Use JSON Mode<a class="headerlink" href="#how-to-use-json-mode" title="Permanent link">&para;</a></h2>
+<p>If you need the agent to output strict JSON, use the <code>json_response</code> parameter.</p>
+<div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_json_data</span><span class="p">():</span>
+    <span class="n">agent</span> <span class="o">=</span> <span class="n">AsyncAgent</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+    <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Generate a list of 3 cities with lat/long.&quot;</span>
+
+    <span class="c1"># Ensure you mention JSON in the prompt as well for best results</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+        <span class="n">prompt</span> <span class="o">+</span> <span class="s2">&quot; Output JSON.&quot;</span><span class="p">,</span>
+        <span class="n">json_response</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+    <span class="c1"># Output: {&quot;cities&quot;: [...]}</span>
+</code></pre></div>
+<h2 id="how-to-handle-images-multimodal">How to Handle Images (Multimodal)<a class="headerlink" href="#how-to-handle-images-multimodal" title="Permanent link">&para;</a></h2>
+<p>Use <code>create_message</code> to send images to models like GPT-4o or Gemini 1.5 Pro.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_message</span><span class="p">,</span> <span class="n">Role</span>
+
+<span class="n">msg</span> <span class="o">=</span> <span class="n">create_message</span><span class="p">(</span>
+    <span class="n">role</span><span class="o">=</span><span class="n">Role</span><span class="o">.</span><span class="n">USER</span><span class="p">,</span>
+    <span class="n">content</span><span class="o">=</span><span class="s2">&quot;What is in this image?&quot;</span><span class="p">,</span>
+    <span class="n">images</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;https://example.com/photo.jpg&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="how-to-use-gemini-openai-compatibility">How to Use Gemini OpenAI Compatibility<a class="headerlink" href="#how-to-use-gemini-openai-compatibility" title="Permanent link">&para;</a></h2>
+<p>Gemini models are accessible through the OpenAI-compatible endpoint. When you set
+<code>provider=LLMProvider.GOOGLE</code>, Iris Agent defaults to the Gemini OpenAI base URL
+and reads <code>GEMINI_API_KEY</code> if <code>api_key</code> is not provided.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">BaseLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="n">LLMConfig</span><span class="p">(</span>
+    <span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">GOOGLE</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gemini-3-flash-preview&quot;</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;GEMINI_API_KEY&quot;</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">BaseLLMClient</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;Explain how AI works.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</code></pre></div>
+<p>To send Gemini-specific fields (like <code>thinking_config</code>), pass <code>extra_body</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+    <span class="s2">&quot;Explain how AI works.&quot;</span><span class="p">,</span>
+    <span class="n">extra_body</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;google&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;thinking_config&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;thinking_budget&quot;</span><span class="p">:</span> <span class="s2">&quot;low&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;include_thoughts&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+<span class="p">)</span>
+</code></pre></div>
+<h2 id="how-to-use-prompt-registry">How to Use Prompt Registry<a class="headerlink" href="#how-to-use-prompt-registry" title="Permanent link">&para;</a></h2>
+<p>The <code>PromptRegistry</code> is a powerful system for managing system instructions, personas, and dynamic prompt generation. It supports three types of prompts: static strings, template strings with placeholders, and callable functions.</p>
+<h3 id="why-use-promptregistry">Why Use PromptRegistry?<a class="headerlink" href="#why-use-promptregistry" title="Permanent link">&para;</a></h3>
+<p>Instead of hardcoding system prompts in your agent initialization, the <code>PromptRegistry</code> provides:</p>
+<ul>
+<li><strong>Centralized Management</strong>: All prompts in one place, easy to update and version.</li>
+<li><strong>Dynamic Generation</strong>: Create prompts on-the-fly based on context, user data, or configuration.</li>
+<li><strong>Reusability</strong>: Share the same registry across multiple agents with different personas.</li>
+<li><strong>Template Support</strong>: Use Python's <code>.format()</code> syntax for simple variable substitution.</li>
+</ul>
+<h3 id="1-static-prompts">1. Static Prompts<a class="headerlink" href="#1-static-prompts" title="Permanent link">&para;</a></h3>
+<p>The simplest form is a static string prompt:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">PromptRegistry</span><span class="p">,</span> <span class="n">Agent</span>
+
+<span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a helpful AI assistant.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Use it with an agent</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span> <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;assistant&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="2-template-prompts-string-formatting">2. Template Prompts (String Formatting)<a class="headerlink" href="#2-template-prompts-string-formatting" title="Permanent link">&para;</a></h3>
+<p>You can use Python's <code>.format()</code> syntax to create dynamic prompts:</p>
+<div class="highlight"><pre><span></span><code><span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;personal_assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;You are </span><span class="si">{name}</span><span class="s2">&#39;s personal assistant. Today is </span><span class="si">{date}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Render with variables</span>
+<span class="n">prompt_text</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;personal_assistant&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="s2">&quot;2024-01-15&quot;</span><span class="p">)</span>
+<span class="c1"># Result: &quot;You are Alice&#39;s personal assistant. Today is 2024-01-15.&quot;</span>
+
+<span class="c1"># Use with agent</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span> <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;personal_assistant&quot;</span><span class="p">)</span>
+<span class="c1"># Note: For templates with variables, you may need to pre-render or use callable prompts</span>
+</code></pre></div>
+<h3 id="3-callable-prompts-function-based">3. Callable Prompts (Function-Based)<a class="headerlink" href="#3-callable-prompts-function-based" title="Permanent link">&para;</a></h3>
+<p>For maximum flexibility, you can register a function that generates the prompt dynamically:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">create_assistant_prompt</span><span class="p">(</span><span class="n">user_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate a personalized assistant prompt.&quot;&quot;&quot;</span>
+    <span class="n">base</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;You are </span><span class="si">{</span><span class="n">user_name</span><span class="si">}</span><span class="s2">&#39;s assistant.&quot;</span>
+    <span class="k">if</span> <span class="n">context</span><span class="p">:</span>
+        <span class="n">base</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; Context: </span><span class="si">{</span><span class="n">context</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">return</span> <span class="n">base</span>
+
+<span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="n">create_assistant_prompt</span><span class="p">)</span>
+
+<span class="c1"># Render with arguments</span>
+<span class="n">prompt</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="n">user_name</span><span class="o">=</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="s2">&quot;coding session&quot;</span><span class="p">)</span>
+<span class="c1"># Result: &quot;You are Bob&#39;s assistant. Context: coding session&quot;</span>
+</code></pre></div>
+<h3 id="4-using-multiple-prompts-with-different-agents">4. Using Multiple Prompts with Different Agents<a class="headerlink" href="#4-using-multiple-prompts-with-different-agents" title="Permanent link">&para;</a></h3>
+<p>The <code>PromptRegistry</code> integrates seamlessly with agents, allowing you to create multiple agents with different personas:</p>
+<div class="highlight"><pre><span></span><code><span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;coder&quot;</span><span class="p">,</span> <span class="s2">&quot;You are an expert Python developer.&quot;</span><span class="p">)</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;writer&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a creative writing assistant.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Agent 1: Uses &quot;coder&quot; prompt</span>
+<span class="n">dev_agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span>
+    <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;coder&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Agent 2: Uses &quot;writer&quot; prompt</span>
+<span class="n">writer_agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span>
+    <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;writer&quot;</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>The agent automatically:
+1. Looks up the prompt by <code>system_prompt_name</code>
+2. Renders it (if it's a template or callable, you may need to provide kwargs)
+3. Inserts it as the first message in memory (role: "developer")</p>
+<h3 id="5-advanced-use-cases">5. Advanced Use Cases<a class="headerlink" href="#5-advanced-use-cases" title="Permanent link">&para;</a></h3>
+<h4 id="multi-tenant-applications">Multi-Tenant Applications<a class="headerlink" href="#multi-tenant-applications" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">tenant_prompt</span><span class="p">(</span><span class="n">tenant_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">tenant_config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate prompt based on tenant configuration.&quot;&quot;&quot;</span>
+    <span class="n">style</span> <span class="o">=</span> <span class="n">tenant_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;style&quot;</span><span class="p">,</span> <span class="s2">&quot;professional&quot;</span><span class="p">)</span>
+    <span class="n">domain</span> <span class="o">=</span> <span class="n">tenant_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;domain&quot;</span><span class="p">,</span> <span class="s2">&quot;general&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;You are a </span><span class="si">{</span><span class="n">style</span><span class="si">}</span><span class="s2"> assistant specializing in </span><span class="si">{</span><span class="n">domain</span><span class="si">}</span><span class="s2"> for tenant </span><span class="si">{</span><span class="n">tenant_id</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+<span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;tenant&quot;</span><span class="p">,</span> <span class="n">tenant_prompt</span><span class="p">)</span>
+
+<span class="c1"># Use in a web application</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_agent_for_tenant</span><span class="p">(</span><span class="n">tenant_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">get_tenant_config</span><span class="p">(</span><span class="n">tenant_id</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Agent</span><span class="p">(</span>
+        <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+        <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span>
+        <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;tenant&quot;</span>
+    <span class="p">)</span>
+</code></pre></div>
+<h4 id="ab-testing-prompts">A/B Testing Prompts<a class="headerlink" href="#ab-testing-prompts" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;variant_a&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a concise assistant.&quot;</span><span class="p">)</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;variant_b&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a detailed, thorough assistant.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Switch between variants based on user</span>
+<span class="n">variant</span> <span class="o">=</span> <span class="s2">&quot;variant_a&quot;</span> <span class="k">if</span> <span class="n">user_id</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;variant_b&quot;</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span> <span class="n">system_prompt_name</span><span class="o">=</span><span class="n">variant</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="context-aware-prompts">Context-Aware Prompts<a class="headerlink" href="#context-aware-prompts" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">contextual_prompt</span><span class="p">(</span><span class="n">current_time</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">user_location</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;You are a helpful assistant.</span>
+<span class="s2">Current time: </span><span class="si">{</span><span class="n">current_time</span><span class="si">}</span>
+<span class="s2">User location: </span><span class="si">{</span><span class="n">user_location</span><span class="si">}</span>
+<span class="s2">Adjust your responses based on timezone and location.&quot;&quot;&quot;</span>
+
+<span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;contextual&quot;</span><span class="p">,</span> <span class="n">contextual_prompt</span><span class="p">)</span>
+
+<span class="c1"># Render with current context</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="n">prompt</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">render</span><span class="p">(</span>
+    <span class="s2">&quot;contextual&quot;</span><span class="p">,</span>
+    <span class="n">current_time</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span>
+    <span class="n">user_location</span><span class="o">=</span><span class="s2">&quot;New York&quot;</span>
+<span class="p">)</span>
+</code></pre></div>
+<h3 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Name Your Prompts Clearly</strong>: Use descriptive names like <code>"customer_support"</code> instead of <code>"prompt1"</code>.</li>
+<li><strong>Keep Prompts Focused</strong>: Each prompt should define a single persona or role.</li>
+<li><strong>Use Callables for Complex Logic</strong>: If you need database lookups, API calls, or complex string manipulation, use callable prompts.</li>
+<li><strong>Document Your Prompts</strong>: Consider maintaining a separate file or docstring explaining what each prompt does.</li>
+<li><strong>Version Your Prompts</strong>: For production systems, consider adding version numbers to prompt names (e.g., <code>"assistant_v2"</code>).</li>
+</ol>
+<h3 id="prompt-rendering-flow">Prompt Rendering Flow<a class="headerlink" href="#prompt-rendering-flow" title="Permanent link">&para;</a></h3>
+<p>When an agent is initialized or when you manually render:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Lookup</span>
+<span class="n">prompt_template</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">get_prompt</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">)</span>
+
+<span class="c1"># 2. Render (if needed)</span>
+<span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">prompt_template</span><span class="p">):</span>
+    <span class="n">rendered</span> <span class="o">=</span> <span class="n">prompt_template</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># Call the function</span>
+<span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">prompt_template</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">:</span>
+    <span class="n">rendered</span> <span class="o">=</span> <span class="n">prompt_template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># Format string</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">rendered</span> <span class="o">=</span> <span class="n">prompt_template</span>  <span class="c1"># Use as-is</span>
+
+<span class="c1"># 3. Use in agent memory</span>
+<span class="n">agent</span><span class="o">.</span><span class="n">memory</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;developer&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">rendered</span><span class="p">}</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy", "navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.top", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="../js/mermaid-init.js"></script>
+      
+    
+  </body>
+</html>
