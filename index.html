@@ -282,6 +282,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#motivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motivation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Motivation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architectures-as-blueprints-for-thought" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architectures as Blueprints for Thought
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-iris-difference-transparency-type-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Iris Difference: Transparency &amp; Type Safety
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#key-features" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -614,6 +653,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#motivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motivation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Motivation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architectures-as-blueprints-for-thought" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architectures as Blueprints for Thought
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-iris-difference-transparency-type-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Iris Difference: Transparency &amp; Type Safety
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#key-features" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -691,6 +769,28 @@
 <h1 id="iris-agent-documentation">Iris Agent Documentation<a class="headerlink" href="#iris-agent-documentation" title="Permanent link">&para;</a></h1>
 <p>Welcome to the documentation for <strong>Iris Agent</strong>!</p>
 <p>Iris Agent is a lightweight, flexible, and provider-agnostic framework for building AI agents in Python. It simplifies the process of creating agents that can use tools, manage memory, and interact with various LLM providers.</p>
+<h2 id="motivation">Motivation<a class="headerlink" href="#motivation" title="Permanent link">&para;</a></h2>
+<p>In the rapidly evolving landscape of AI development, many frameworks have grown increasingly complex, introducing heavy abstractions, custom DSLs (Domain Specific Languages), and "magic" that can obscure what's actually happening under the hood. While powerful, these "batteries-included" approaches often lead to:</p>
+<ul>
+<li><strong>Bloat</strong>: Including massive dependencies and logic for features you don't use.</li>
+<li><strong>Opacity</strong>: Making it difficult to debug prompts or understand exactly what is being sent to the LLM.</li>
+<li><strong>Rigidity</strong>: Locking you into specific orchestration patterns (chains, DAGs) that may not fit your use case.</li>
+</ul>
+<p><strong>Iris Agent</strong> was built to be the antidote to framework fatigue. We encourage developers to <strong>build only what you need</strong>.</p>
+<h3 id="architectures-as-blueprints-for-thought">Architectures as Blueprints for Thought<a class="headerlink" href="#architectures-as-blueprints-for-thought" title="Permanent link">&para;</a></h3>
+<p>We believe that <strong>an agent's architecture is effectively the blueprint of its thought process</strong>. </p>
+<p>Different problems require different modes of cognition:
+- <strong>Simple Tasks</strong>: Might need a straightforward <code>Prompt -&gt; Response</code> chain.
+- <strong>Complex Reasoning</strong>: Might require a <code>ReAct</code> (Reason+Act) loop or <code>Plan-and-Solve</code> strategy.
+- <strong>Creative Work</strong>: Might benefit from a <code>Brainstorm -&gt; Critique -&gt; Refine</code> workflow.</p>
+<p>Frameworks that lock you into a specific "Graph" or "Chain" structure often constrain how you can model this decision-making process. Iris Agent provides the primitive components—LLM clients, tool registries, memory stores—and lets <strong>you</strong> determine the cognitive architecture. </p>
+<p>Whether you are building a simple chatbot or a complex multi-step reasoning agent, the flow of control remains in standard, readable Python code.</p>
+<h3 id="the-iris-difference-transparency-type-safety">The Iris Difference: Transparency &amp; Type Safety<a class="headerlink" href="#the-iris-difference-transparency-type-safety" title="Permanent link">&para;</a></h3>
+<p>The key thing that separates Iris Agent from other major frameworks is its <strong>commitment to zero-overhead abstractions</strong>. </p>
+<p>Instead of wrapping simple API calls in complex "Chains" or "Runnables", Iris Agent exposes the raw power of Python:
+1.  <strong>Standard Python Types</strong>: Tools are defined using standard Python type hints, not complex configuration objects.
+2.  <strong>Direct Control</strong>: You have full visibility into the message history and prompt construction.
+3.  <strong>No Hidden Magic</strong>: If you want to customize the loop, you can. The framework gets out of your way.</p>
 <h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Provider Agnostic</strong>: Works with OpenAI, Google Gemini, or any OpenAI-compatible API (like LocalAI or vLLM).</li>
