@@ -1,0 +1,50 @@
+site_name: Iris Agent
+site_description: Lightweight, provider-agnostic framework for building AI agents.
+site_url: https://mrgehlot.github.io/iris-agent/
+repo_url: https://github.com/mrgehlot/iris-agent
+repo_name: mrgehlot/iris-agent
+
+theme:
+  name: material
+  features:
+    - content.code.copy
+    - navigation.expand
+    - navigation.indexes
+    - navigation.instant
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - search.suggest
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      check_paths: true
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Installation: installation.md
+  - Core Concepts: concepts.md
+  - How-To Guides: how-to.md
+  - Modules Reference: modules.md
+  - API Reference: api.md
+  - Examples: examples.md
+  - Troubleshooting: troubleshooting.md
+  - FAQ: faq.md
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
+  - js/mermaid-init.js

@@ -3,6 +3,7 @@
 These examples show common ways to use `iris-agent`:
 
 - Basic agent usage (sync, async, streaming)
+- Sync streaming with `Agent.run_stream`
 - Prompt registry (static and dynamic prompts)
 - Tool registry (sync and async tools, custom schemas)
 - Memory usage (reading, seeding, and clearing)
@@ -19,6 +20,12 @@ Most examples require:
 - `OPENAI_API_KEY`
 - Optional: `OPENAI_MODEL` (defaults are set in examples)
 - Optional: `OPENAI_BASE_URL`
+
+Gemini example requires:
+
+- `GEMINI_API_KEY`
+- Optional: `GEMINI_MODEL`
+- Optional: `GEMINI_BASE_URL`
 
 ### Run an example
 

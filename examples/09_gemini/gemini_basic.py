@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Gemini usage via OpenAI-compatible endpoint.
-Set GEMINI_API_KEY, GEMINI_BASE_URL, and GEMINI_MODEL.
+Set GEMINI_API_KEY and optionally GEMINI_BASE_URL/GEMINI_MODEL.
 """
 
 import os
@@ -12,10 +12,10 @@ from iris_agent import Agent, BaseLLMClient, LLMConfig, LLMProvider, PromptRegis
 def main() -> int:
     api_key = os.getenv("GEMINI_API_KEY")
     base_url = os.getenv("GEMINI_BASE_URL")
-    model = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+    model = os.getenv("GEMINI_MODEL", "gemini-3-flash-preview")
 
-    if not api_key or not base_url:
-        print("Set GEMINI_API_KEY and GEMINI_BASE_URL before running this example.")
+    if not api_key:
+        print("Set GEMINI_API_KEY before running this example.")
         return 1
 
     prompts = PromptRegistry()

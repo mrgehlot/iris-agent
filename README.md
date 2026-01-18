@@ -67,6 +67,15 @@ response = agent.run("What is 2 + 3?")
 print(response)
 ```
 
+## Sync Streaming
+```python
+agent = Agent(llm_client=client)
+
+for chunk in agent.run_stream("Tell me a short story."):
+    print(chunk, end="", flush=True)
+print()
+```
+
 ## Tool Decorators
 Use `@tool` to expose any function as a tool. The framework will infer a JSON
 schema from function annotations, or you can pass a schema explicitly.
@@ -111,6 +120,12 @@ agent = Agent(
 ```
 
 See `examples/system_prompt_example.py` for more detailed examples.
+
+## Documentation
+
+The project documentation is available on:
+
+- `https://mrgehlot.github.io/iris-agent/`
 
 ## Providers
 `LLMConfig` supports multiple providers:

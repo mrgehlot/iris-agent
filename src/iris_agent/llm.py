@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import os
 from typing import Any, Optional
 
 
@@ -19,6 +20,17 @@ class LLMConfig:
     base_url: str | None = None
     reasoning_effort: Optional[str] = None
     web_search_options: Optional[dict] = None
+    extra_body: Optional[dict] = None
+
+    def __post_init__(self) -> None:
+        """
+        Provider-specific defaults for OpenAI-compatible Gemini endpoints.
+        """
+        if self.provider == LLMProvider.GOOGLE:
+            if not self.base_url:
+                self.base_url = "https://generativelanguage.googleapis.com/v1beta/openai/"
+            if not self.api_key:
+                self.api_key = os.getenv("GEMINI_API_KEY")
 
 
 class BaseLLMClient:
@@ -56,6 +68,7 @@ class BaseLLMClient:
         seed: int | None = None,
         reasoning_effort: str | None = None,
         web_search_options: dict | None = None,
+        extra_body: dict | None = None,
     ) -> dict:
         """
         Call chat completions and return a normalized response.
@@ -92,6 +105,8 @@ class BaseLLMClient:
             completion_object["reasoning_effort"] = reasoning_effort or self.config.reasoning_effort
         if web_search_options or self.config.web_search_options:
             completion_object["web_search_options"] = web_search_options or self.config.web_search_options
+        if extra_body or self.config.extra_body:
+            completion_object["extra_body"] = extra_body or self.config.extra_body
 
         response = await self._client.chat.completions.create(**completion_object)
         message = response.choices[0].message
@@ -112,6 +127,7 @@ class BaseLLMClient:
         seed: int | None = None,
         reasoning_effort: str | None = None,
         web_search_options: dict | None = None,
+        extra_body: dict | None = None,
     ):
         """
         Stream chat completions from the provider.
@@ -148,6 +164,8 @@ class BaseLLMClient:
             completion_object["reasoning_effort"] = reasoning_effort or self.config.reasoning_effort
         if web_search_options or self.config.web_search_options:
             completion_object["web_search_options"] = web_search_options or self.config.web_search_options
+        if extra_body or self.config.extra_body:
+            completion_object["extra_body"] = extra_body or self.config.extra_body
 
         response = await self._client.chat.completions.create(**completion_object)
         async for chunk in response:

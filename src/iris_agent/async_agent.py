@@ -131,6 +131,7 @@ class AsyncAgent:
         seed: int | None = None,
         reasoning_effort: str | None = None,
         web_search_options: dict | None = None,
+        extra_body: dict | None = None,
     ) -> str:
         """
         Run a single turn, handling tool calls until completion.
@@ -142,6 +143,7 @@ class AsyncAgent:
             seed: Optional seed for deterministic sampling.
             reasoning_effort: Optional reasoning effort hint for supported models.
             web_search_options: Optional web search options for supported models.
+            extra_body: Optional provider-specific request body overrides.
 
         Returns:
             The assistant response content.
@@ -162,6 +164,7 @@ class AsyncAgent:
                 seed=seed,
                 reasoning_effort=reasoning_effort,
                 web_search_options=web_search_options,
+                extra_body=extra_body,
             )
             content = result.get("content")
             tool_calls = result.get("tool_calls", [])
@@ -239,6 +242,7 @@ class AsyncAgent:
         seed: int | None = None,
         reasoning_effort: str | None = None,
         web_search_options: dict | None = None,
+        extra_body: dict | None = None,
     ) -> AsyncGenerator[str, None]:
         """
         Stream a response, handling tool calls between turns.
@@ -250,6 +254,7 @@ class AsyncAgent:
             seed: Optional seed for deterministic sampling.
             reasoning_effort: Optional reasoning effort hint for supported models.
             web_search_options: Optional web search options for supported models.
+            extra_body: Optional provider-specific request body overrides.
 
         Yields:
             Response text chunks as they stream in.
@@ -273,6 +278,7 @@ class AsyncAgent:
                 seed=seed,
                 reasoning_effort=reasoning_effort,
                 web_search_options=web_search_options,
+                extra_body=extra_body,
             ):
                 delta = chunk.choices[0].delta
                 if delta.content:

@@ -1,6 +1,6 @@
 import asyncio
 import logging
-from typing import Any, AsyncGenerator, Optional
+from typing import Any, Generator, Optional
 
 from .async_agent import AsyncAgent
 from .llm import BaseLLMClient, LLMConfig
@@ -67,29 +67,100 @@ class Agent:
             return asyncio.run(coro)
         return loop.create_task(coro)
 
-    def run(self, user_message: str | dict) -> str:
+    def run(
+        self,
+        user_message: str | dict,
+        json_response: bool = False,
+        max_completion_tokens: int | None = None,
+        seed: int | None = None,
+        reasoning_effort: str | None = None,
+        web_search_options: dict | None = None,
+        extra_body: dict | None = None,
+    ) -> str:
         """
         Send a message and return the assistant response.
 
         Args:
             user_message: User input text or a pre-built message dict.
+            json_response: Request JSON-only response when supported.
+            max_completion_tokens: Cap the completion token count.
+            seed: Optional seed for deterministic sampling.
+            reasoning_effort: Optional reasoning effort hint for supported models.
+            web_search_options: Optional web search options for supported models.
+            extra_body: Optional provider-specific request body overrides.
 
         Returns:
             The assistant response content.
         """
-        result = self._run_async(self._async_agent.run(user_message))
+        result = self._run_async(
+            self._async_agent.run(
+                user_message,
+                json_response=json_response,
+                max_completion_tokens=max_completion_tokens,
+                seed=seed,
+                reasoning_effort=reasoning_effort,
+                web_search_options=web_search_options,
+                extra_body=extra_body,
+            )
+        )
         if asyncio.isfuture(result):
             raise RuntimeError("Agent.run called inside an event loop. Use AsyncAgent.")
         return result
 
-    def run_stream(self, user_message: str | dict) -> AsyncGenerator[str, None]:
+    def run_stream(
+        self,
+        user_message: str | dict,
+        json_response: bool = False,
+        max_tokens: int | None = None,
+        seed: int | None = None,
+        reasoning_effort: str | None = None,
+        web_search_options: dict | None = None,
+        extra_body: dict | None = None,
+    ) -> Generator[str, None, None]:
         """
-        Streaming is not supported on the sync Agent interface.
+        Stream responses from the async agent in a sync-friendly way.
 
         Args:
             user_message: User input text or a pre-built message dict.
+            json_response: Request JSON-only response when supported.
+            max_tokens: Cap the streamed completion tokens.
+            seed: Optional seed for deterministic sampling.
+            reasoning_effort: Optional reasoning effort hint for supported models.
+            web_search_options: Optional web search options for supported models.
+            extra_body: Optional provider-specific request body overrides.
         """
-        raise RuntimeError("Use AsyncAgent.run_stream for streaming responses.")
+        try:
+            asyncio.get_running_loop()
+        except RuntimeError:
+            pass
+        else:
+            raise RuntimeError("Agent.run_stream called inside an event loop. Use AsyncAgent.")
+
+        async_gen = self._async_agent.run_stream(
+            user_message,
+            json_response=json_response,
+            max_tokens=max_tokens,
+            seed=seed,
+            reasoning_effort=reasoning_effort,
+            web_search_options=web_search_options,
+            extra_body=extra_body,
+        )
+
+        def _iterator() -> Generator[str, None, None]:
+            loop = asyncio.new_event_loop()
+            try:
+                while True:
+                    try:
+                        chunk = loop.run_until_complete(async_gen.__anext__())
+                    except StopAsyncIteration:
+                        break
+                    else:
+                        yield chunk
+            finally:
+                loop.run_until_complete(async_gen.aclose())
+                loop.close()
+
+        return _iterator()
 
     def call_tool(self, name: str, **kwargs) -> Any:
         """
