@@ -22,7 +22,7 @@
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../assets/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
@@ -86,8 +86,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="Iris Agent" class="md-header__button md-logo" aria-label="Iris Agent" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -198,8 +197,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Iris Agent" class="md-nav__button md-logo" aria-label="Iris Agent" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../assets/logo.png" alt="logo">
 
     </a>
     Iris Agent
@@ -428,10 +426,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-registering-tools" class="md-nav__link">
+  <a href="#3-registering-multiple-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Registering Tools
+        3. Registering Multiple Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-registering-tools-from-a-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Registering Tools from a Class
       
     </span>
   </a>
@@ -452,6 +461,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="How to Stream Responses">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#async-streaming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Async Streaming
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sync-streaming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sync Streaming
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -462,6 +499,34 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="How to Use JSON Mode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#async-json-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Async JSON Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sync-json-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sync JSON Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -474,6 +539,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="How to Handle Images (Multimodal)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multiple-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiple Images
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-only-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image-Only Messages
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -484,6 +577,34 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="How to Use Gemini OpenAI Compatibility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-gemini-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Gemini Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gemini-with-thinking-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gemini with Thinking Config
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -620,6 +741,95 @@
     <span class="md-ellipsis">
       
         Prompt Rendering Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-manage-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Manage Memory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to Manage Memory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inspecting-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inspecting Memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seeding-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seeding Memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clearing-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clearing Memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-enable-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Enable Logging
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to Enable Logging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Logging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-logger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Logger
       
     </span>
   </a>
@@ -835,10 +1045,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-registering-tools" class="md-nav__link">
+  <a href="#3-registering-multiple-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Registering Tools
+        3. Registering Multiple Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-registering-tools-from-a-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Registering Tools from a Class
       
     </span>
   </a>
@@ -859,6 +1080,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="How to Stream Responses">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#async-streaming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Async Streaming
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sync-streaming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sync Streaming
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -869,6 +1118,34 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="How to Use JSON Mode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#async-json-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Async JSON Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sync-json-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sync JSON Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -881,6 +1158,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="How to Handle Images (Multimodal)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multiple-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiple Images
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-only-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image-Only Messages
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -891,6 +1196,34 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="How to Use Gemini OpenAI Compatibility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-gemini-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Gemini Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gemini-with-thinking-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gemini with Thinking Config
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1038,6 +1371,95 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#how-to-manage-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Manage Memory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to Manage Memory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inspecting-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inspecting Memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seeding-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seeding Memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clearing-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clearing Memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-enable-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Enable Logging
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to Enable Logging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Logging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-logger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Logger
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1063,17 +1485,42 @@
 <h2 id="how-to-define-tools">How to Define Tools<a class="headerlink" href="#how-to-define-tools" title="Permanent link">&para;</a></h2>
 <p>Tools are the primary way your agent interacts with the world.</p>
 <h3 id="1-simple-function-tool">1. Simple Function Tool<a class="headerlink" href="#1-simple-function-tool" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">tool</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">tool</span><span class="p">,</span> <span class="n">ToolRegistry</span><span class="p">,</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span><span class="p">,</span> <span class="n">PromptRegistry</span>
 
 <span class="nd">@tool</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Add two numbers.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="c1"># Register the tool</span>
+<span class="n">tool_registry</span> <span class="o">=</span> <span class="n">ToolRegistry</span><span class="p">()</span>
+<span class="n">tool_registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
+
+<span class="c1"># Create client and agent</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">LLMConfig</span><span class="p">(</span>
+    <span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">OPENAI</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">)</span>
+<span class="p">))</span>
+<span class="n">prompt_registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<span class="n">prompt_registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a helpful math assistant.&quot;</span><span class="p">)</span>
+
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">prompt_registry</span><span class="p">,</span>
+    <span class="n">tool_registry</span><span class="o">=</span><span class="n">tool_registry</span>
+<span class="p">)</span>
+
+<span class="c1"># Use the agent with tools</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;What is 12 + 30? Use the add tool.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="2-tool-with-complex-types">2. Tool with Complex Types<a class="headerlink" href="#2-tool-with-complex-types" title="Permanent link">&para;</a></h3>
 <p>Iris Agent supports <code>List</code>, <code>Dict</code>, and <code>Literal</code> for validation.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">List</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">tool</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">tool</span><span class="p">,</span> <span class="n">ToolRegistry</span><span class="p">,</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span><span class="p">,</span> <span class="n">PromptRegistry</span>
 
 <span class="nd">@tool</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">search_products</span><span class="p">(</span>
@@ -1083,45 +1530,209 @@
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Search for products in a specific category.&quot;&quot;&quot;</span>
     <span class="c1"># Implementation...</span>
-    <span class="k">return</span> <span class="s2">&quot;Found 5 items&quot;</span>
-</code></pre></div>
-<h3 id="3-registering-tools">3. Registering Tools<a class="headerlink" href="#3-registering-tools" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">ToolRegistry</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Found 5 items in </span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2"> matching &#39;</span><span class="si">{</span><span class="n">query</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
 
-<span class="n">registry</span> <span class="o">=</span> <span class="n">ToolRegistry</span><span class="p">()</span>
-<span class="n">registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
-<span class="n">registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">search_products</span><span class="p">)</span>
+<span class="c1"># Register the tool</span>
+<span class="n">tool_registry</span> <span class="o">=</span> <span class="n">ToolRegistry</span><span class="p">()</span>
+<span class="n">tool_registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">search_products</span><span class="p">)</span>
 
-<span class="c1"># Pass registry to Agent</span>
-<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">tool_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">)</span>
+<span class="c1"># Create client and agent</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">LLMConfig</span><span class="p">(</span>
+    <span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">OPENAI</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">)</span>
+<span class="p">))</span>
+<span class="n">prompt_registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<span class="n">prompt_registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a helpful shopping assistant.&quot;</span><span class="p">)</span>
+
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">prompt_registry</span><span class="p">,</span>
+    <span class="n">tool_registry</span><span class="o">=</span><span class="n">tool_registry</span>
+<span class="p">)</span>
+
+<span class="c1"># Use the agent with tools</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;Search for laptops in electronics category.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
 </code></pre></div>
+<h3 id="3-registering-multiple-tools">3. Registering Multiple Tools<a class="headerlink" href="#3-registering-multiple-tools" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">ToolRegistry</span><span class="p">,</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span><span class="p">,</span> <span class="n">PromptRegistry</span><span class="p">,</span> <span class="n">tool</span>
+
+<span class="nd">@tool</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add two numbers.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="nd">@tool</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Multiply two numbers.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+
+<span class="c1"># Register all tools</span>
+<span class="n">tool_registry</span> <span class="o">=</span> <span class="n">ToolRegistry</span><span class="p">()</span>
+<span class="n">tool_registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
+<span class="n">tool_registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">multiply</span><span class="p">)</span>
+
+<span class="c1"># Create client and agent</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">LLMConfig</span><span class="p">(</span>
+    <span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">OPENAI</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">)</span>
+<span class="p">))</span>
+<span class="n">prompt_registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<span class="n">prompt_registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a helpful math assistant.&quot;</span><span class="p">)</span>
+
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">prompt_registry</span><span class="p">,</span>
+    <span class="n">tool_registry</span><span class="o">=</span><span class="n">tool_registry</span>
+<span class="p">)</span>
+
+<span class="c1"># Use the agent with multiple tools</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;Calculate 5 * 7 and then add 10 to the result.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="4-registering-tools-from-a-class">4. Registering Tools from a Class<a class="headerlink" href="#4-registering-tools-from-a-class" title="Permanent link">&para;</a></h3>
+<p>You can organize tools in a class and register all of them at once using <code>register_from()</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">ToolRegistry</span><span class="p">,</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span><span class="p">,</span> <span class="n">PromptRegistry</span><span class="p">,</span> <span class="n">tool</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MathTools</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A class containing math-related tools.&quot;&quot;&quot;</span>
+
+    <span class="nd">@tool</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add two numbers.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+    <span class="nd">@tool</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Multiply two numbers.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+
+    <span class="nd">@tool</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">subtract</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Subtract b from a.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+
+    <span class="nd">@tool</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">divide</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Divide a by b.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot divide by zero&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+
+<span class="c1"># Create an instance of the class</span>
+<span class="n">math_tools</span> <span class="o">=</span> <span class="n">MathTools</span><span class="p">()</span>
+
+<span class="c1"># Register all tools from the class at once</span>
+<span class="n">tool_registry</span> <span class="o">=</span> <span class="n">ToolRegistry</span><span class="p">()</span>
+<span class="n">tool_registry</span><span class="o">.</span><span class="n">register_from</span><span class="p">(</span><span class="n">math_tools</span><span class="p">)</span>
+
+<span class="c1"># Create client and agent</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">LLMConfig</span><span class="p">(</span>
+    <span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">OPENAI</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">)</span>
+<span class="p">))</span>
+<span class="n">prompt_registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<span class="n">prompt_registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a helpful math assistant with access to various math operations.&quot;</span><span class="p">)</span>
+
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">prompt_registry</span><span class="p">,</span>
+    <span class="n">tool_registry</span><span class="o">=</span><span class="n">tool_registry</span>
+<span class="p">)</span>
+
+<span class="c1"># Use the agent with all the class tools</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;Calculate (10 + 5) * 3 - 7, then divide the result by 2.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Note:</strong> <code>register_from()</code> automatically scans the object for all methods decorated with <code>@tool</code> and registers them. This is useful for organizing related tools together.</p>
 <h2 id="how-to-stream-responses">How to Stream Responses<a class="headerlink" href="#how-to-stream-responses" title="Permanent link">&para;</a></h2>
 <p>Streaming is essential for a responsive UI. You can stream with <code>AsyncAgent</code>
 or use <code>Agent.run_stream()</code> for a sync-friendly iterator.</p>
+<h3 id="async-streaming">Async Streaming<a class="headerlink" href="#async-streaming" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">AsyncAgent</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">AsyncAgent</span><span class="p">,</span> <span class="n">AsyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span><span class="p">,</span> <span class="n">PromptRegistry</span>
 
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">stream_chat</span><span class="p">():</span>
-    <span class="n">agent</span> <span class="o">=</span> <span class="n">AsyncAgent</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="c1"># Create client</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">AsyncLLMClient</span><span class="p">(</span><span class="n">LLMConfig</span><span class="p">(</span>
+        <span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">OPENAI</span><span class="p">,</span>
+        <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span>
+        <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">)</span>
+    <span class="p">))</span>
+
+    <span class="c1"># Create prompt registry</span>
+    <span class="n">prompt_registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+    <span class="n">prompt_registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a helpful assistant.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Create agent</span>
+    <span class="n">agent</span> <span class="o">=</span> <span class="n">AsyncAgent</span><span class="p">(</span>
+        <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+        <span class="n">prompt_registry</span><span class="o">=</span><span class="n">prompt_registry</span>
+    <span class="p">)</span>
 
     <span class="c1"># run_stream yields chunks of text</span>
-    <span class="k">async</span> <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">agent</span><span class="o">.</span><span class="n">run_stream</span><span class="p">(</span><span class="s2">&quot;Tell me a story&quot;</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">agent</span><span class="o">.</span><span class="n">run_stream</span><span class="p">(</span><span class="s2">&quot;Tell me a short story about a robot.&quot;</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">chunk</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>  <span class="c1"># New line after streaming</span>
 
 <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">stream_chat</span><span class="p">())</span>
 </code></pre></div>
-<p>Sync usage:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">Agent</span>
+<h3 id="sync-streaming">Sync Streaming<a class="headerlink" href="#sync-streaming" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span><span class="p">,</span> <span class="n">PromptRegistry</span>
 
-<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="c1"># Create client</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">LLMConfig</span><span class="p">(</span>
+    <span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">OPENAI</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">)</span>
+<span class="p">))</span>
 
-<span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">agent</span><span class="o">.</span><span class="n">run_stream</span><span class="p">(</span><span class="s2">&quot;Tell me a story&quot;</span><span class="p">):</span>
+<span class="c1"># Create prompt registry</span>
+<span class="n">prompt_registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<span class="n">prompt_registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a helpful assistant.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create agent</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">prompt_registry</span>
+<span class="p">)</span>
+
+<span class="c1"># Stream responses</span>
+<span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">agent</span><span class="o">.</span><span class="n">run_stream</span><span class="p">(</span><span class="s2">&quot;Tell me a short story about a robot.&quot;</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">chunk</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>  <span class="c1"># New line after streaming</span>
 </code></pre></div>
 <h2 id="how-to-use-json-mode">How to Use JSON Mode<a class="headerlink" href="#how-to-use-json-mode" title="Permanent link">&para;</a></h2>
 <p>If you need the agent to output strict JSON, use the <code>json_response</code> parameter.</p>
-<div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_json_data</span><span class="p">():</span>
-    <span class="n">agent</span> <span class="o">=</span> <span class="n">AsyncAgent</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<h3 id="async-json-mode">Async JSON Mode<a class="headerlink" href="#async-json-mode" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">AsyncAgent</span><span class="p">,</span> <span class="n">AsyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span><span class="p">,</span> <span class="n">PromptRegistry</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_json_data</span><span class="p">():</span>
+    <span class="c1"># Create client</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">AsyncLLMClient</span><span class="p">(</span><span class="n">LLMConfig</span><span class="p">(</span>
+        <span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">OPENAI</span><span class="p">,</span>
+        <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span>
+        <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">)</span>
+    <span class="p">))</span>
+
+    <span class="c1"># Create prompt registry</span>
+    <span class="n">prompt_registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+    <span class="n">prompt_registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a helpful assistant that outputs JSON.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Create agent</span>
+    <span class="n">agent</span> <span class="o">=</span> <span class="n">AsyncAgent</span><span class="p">(</span>
+        <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+        <span class="n">prompt_registry</span><span class="o">=</span><span class="n">prompt_registry</span>
+    <span class="p">)</span>
 
     <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Generate a list of 3 cities with lat/long.&quot;</span>
 
@@ -1132,39 +1743,149 @@ or use <code>Agent.run_stream()</code> for a sync-friendly iterator.</p>
     <span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
     <span class="c1"># Output: {&quot;cities&quot;: [...]}</span>
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">get_json_data</span><span class="p">())</span>
+</code></pre></div>
+<h3 id="sync-json-mode">Sync JSON Mode<a class="headerlink" href="#sync-json-mode" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span><span class="p">,</span> <span class="n">PromptRegistry</span>
+
+<span class="c1"># Create client</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">LLMConfig</span><span class="p">(</span>
+    <span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">OPENAI</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">)</span>
+<span class="p">))</span>
+
+<span class="c1"># Create prompt registry</span>
+<span class="n">prompt_registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<span class="n">prompt_registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a helpful assistant that outputs JSON.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create agent</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">prompt_registry</span>
+<span class="p">)</span>
+
+<span class="c1"># Use JSON mode</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+    <span class="s2">&quot;Generate a list of 3 cities with lat/long. Output JSON.&quot;</span><span class="p">,</span>
+    <span class="n">json_response</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="how-to-handle-images-multimodal">How to Handle Images (Multimodal)<a class="headerlink" href="#how-to-handle-images-multimodal" title="Permanent link">&para;</a></h2>
 <p>Use <code>create_message</code> to send images to models like GPT-4o or Gemini 1.5 Pro.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_message</span><span class="p">,</span> <span class="n">Role</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_message</span><span class="p">,</span> <span class="n">Role</span><span class="p">,</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span><span class="p">,</span> <span class="n">PromptRegistry</span>
 
+<span class="c1"># Create client (GPT-4o or Gemini 1.5 Pro support images)</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">LLMConfig</span><span class="p">(</span>
+    <span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">OPENAI</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o&quot;</span><span class="p">,</span>  <span class="c1"># Use gpt-4o for image support</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">)</span>
+<span class="p">))</span>
+
+<span class="c1"># Create prompt registry</span>
+<span class="n">prompt_registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<span class="n">prompt_registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a helpful assistant that can analyze images.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create agent</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">prompt_registry</span>
+<span class="p">)</span>
+
+<span class="c1"># Create a message with an image</span>
 <span class="n">msg</span> <span class="o">=</span> <span class="n">create_message</span><span class="p">(</span>
     <span class="n">role</span><span class="o">=</span><span class="n">Role</span><span class="o">.</span><span class="n">USER</span><span class="p">,</span>
     <span class="n">content</span><span class="o">=</span><span class="s2">&quot;What is in this image?&quot;</span><span class="p">,</span>
     <span class="n">images</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;https://example.com/photo.jpg&quot;</span><span class="p">]</span>
 <span class="p">)</span>
 
+<span class="c1"># Send the message to the agent</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="multiple-images">Multiple Images<a class="headerlink" href="#multiple-images" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># You can also send multiple images</span>
+<span class="n">msg</span> <span class="o">=</span> <span class="n">create_message</span><span class="p">(</span>
+    <span class="n">role</span><span class="o">=</span><span class="n">Role</span><span class="o">.</span><span class="n">USER</span><span class="p">,</span>
+    <span class="n">content</span><span class="o">=</span><span class="s2">&quot;Compare these two images.&quot;</span><span class="p">,</span>
+    <span class="n">images</span><span class="o">=</span><span class="p">[</span>
+        <span class="s2">&quot;https://example.com/image1.jpg&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;https://example.com/image2.jpg&quot;</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="image-only-messages">Image-Only Messages<a class="headerlink" href="#image-only-messages" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># For image-only messages (no text), use empty content</span>
+<span class="n">msg</span> <span class="o">=</span> <span class="n">create_message</span><span class="p">(</span>
+    <span class="n">role</span><span class="o">=</span><span class="n">Role</span><span class="o">.</span><span class="n">USER</span><span class="p">,</span>
+    <span class="n">content</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># Empty string for image-only</span>
+    <span class="n">images</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;https://example.com/chart.png&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="how-to-use-gemini-openai-compatibility">How to Use Gemini OpenAI Compatibility<a class="headerlink" href="#how-to-use-gemini-openai-compatibility" title="Permanent link">&para;</a></h2>
 <p>Gemini models are accessible through the OpenAI-compatible endpoint. When you set
 <code>provider=LLMProvider.GOOGLE</code>, Iris Agent defaults to the Gemini OpenAI base URL
 and reads <code>GEMINI_API_KEY</code> if <code>api_key</code> is not provided.</p>
+<h3 id="basic-gemini-usage">Basic Gemini Usage<a class="headerlink" href="#basic-gemini-usage" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">BaseLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">PromptRegistry</span>
 
+<span class="c1"># Create Gemini client</span>
 <span class="n">config</span> <span class="o">=</span> <span class="n">LLMConfig</span><span class="p">(</span>
     <span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">GOOGLE</span><span class="p">,</span>
     <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gemini-3-flash-preview&quot;</span><span class="p">,</span>
     <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;GEMINI_API_KEY&quot;</span><span class="p">),</span>
 <span class="p">)</span>
-<span class="n">client</span> <span class="o">=</span> <span class="n">BaseLLMClient</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
-<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">)</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
+<span class="c1"># Create prompt registry</span>
+<span class="n">prompt_registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<span class="n">prompt_registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a helpful assistant.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create agent</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">prompt_registry</span>
+<span class="p">)</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;Explain how AI works.&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
 </code></pre></div>
+<h3 id="gemini-with-thinking-config">Gemini with Thinking Config<a class="headerlink" href="#gemini-with-thinking-config" title="Permanent link">&para;</a></h3>
 <p>To send Gemini-specific fields (like <code>thinking_config</code>), pass <code>extra_body</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">PromptRegistry</span>
+
+<span class="c1"># Create Gemini client</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">LLMConfig</span><span class="p">(</span>
+    <span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">GOOGLE</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gemini-2.0-flash-exp&quot;</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;GEMINI_API_KEY&quot;</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
+<span class="c1"># Create prompt registry</span>
+<span class="n">prompt_registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<span class="n">prompt_registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a helpful assistant.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create agent</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">prompt_registry</span>
+<span class="p">)</span>
+
+<span class="c1"># Use with thinking config</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
     <span class="s2">&quot;Explain how AI works.&quot;</span><span class="p">,</span>
     <span class="n">extra_body</span><span class="o">=</span><span class="p">{</span>
         <span class="s2">&quot;google&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -1175,6 +1896,7 @@ and reads <code>GEMINI_API_KEY</code> if <code>api_key</code> is not provided.</
         <span class="p">}</span>
     <span class="p">},</span>
 <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="how-to-use-prompt-registry">How to Use Prompt Registry<a class="headerlink" href="#how-to-use-prompt-registry" title="Permanent link">&para;</a></h2>
 <p>The <code>PromptRegistry</code> is a powerful system for managing system instructions, personas, and dynamic prompt generation. It supports three types of prompts: static strings, template strings with placeholders, and callable functions.</p>
@@ -1188,30 +1910,105 @@ and reads <code>GEMINI_API_KEY</code> if <code>api_key</code> is not provided.</
 </ul>
 <h3 id="1-static-prompts">1. Static Prompts<a class="headerlink" href="#1-static-prompts" title="Permanent link">&para;</a></h3>
 <p>The simplest form is a static string prompt:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">PromptRegistry</span><span class="p">,</span> <span class="n">Agent</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">PromptRegistry</span><span class="p">,</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span>
 
 <span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
 <span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a helpful AI assistant.&quot;</span><span class="p">)</span>
 
-<span class="c1"># Use it with an agent</span>
-<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span> <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;assistant&quot;</span><span class="p">)</span>
+<span class="c1"># Create client and agent</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">LLMConfig</span><span class="p">(</span>
+    <span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">OPENAI</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">)</span>
+<span class="p">))</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span>
+    <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;assistant&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Use the agent</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;Hello, how are you?&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="2-template-prompts-string-formatting">2. Template Prompts (String Formatting)<a class="headerlink" href="#2-template-prompts-string-formatting" title="Permanent link">&para;</a></h3>
-<p>You can use Python's <code>.format()</code> syntax to create dynamic prompts:</p>
-<div class="highlight"><pre><span></span><code><span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<p>You can use Python's <code>.format()</code> syntax to create dynamic prompts. Since agents render prompts without arguments, you need to pre-render template prompts:</p>
+<p><strong>Option A: Pre-render and add to registry</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">PromptRegistry</span><span class="p">,</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span>
+
+<span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
 <span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;personal_assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;You are </span><span class="si">{name}</span><span class="s2">&#39;s personal assistant. Today is </span><span class="si">{date}</span><span class="s2">.&quot;</span><span class="p">)</span>
 
 <span class="c1"># Render with variables</span>
 <span class="n">prompt_text</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;personal_assistant&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="s2">&quot;2024-01-15&quot;</span><span class="p">)</span>
 <span class="c1"># Result: &quot;You are Alice&#39;s personal assistant. Today is 2024-01-15.&quot;</span>
 
-<span class="c1"># Use with agent</span>
-<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span> <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;personal_assistant&quot;</span><span class="p">)</span>
-<span class="c1"># Note: For templates with variables, you may need to pre-render or use callable prompts</span>
+<span class="c1"># Add the rendered prompt back to the registry</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;alice_assistant&quot;</span><span class="p">,</span> <span class="n">prompt_text</span><span class="p">)</span>
+
+<span class="c1"># Create client and agent</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">LLMConfig</span><span class="p">(</span>
+    <span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">OPENAI</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">)</span>
+<span class="p">))</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span>
+    <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;alice_assistant&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Use the agent</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;What can you help me with today?&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Option B: Use callable prompts (recommended)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">PromptRegistry</span><span class="p">,</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">personal_assistant_prompt</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;User&quot;</span><span class="p">,</span> <span class="n">date</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate personalized assistant prompt.&quot;&quot;&quot;</span>
+    <span class="n">date_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot; Today is </span><span class="si">{</span><span class="n">date</span><span class="si">}</span><span class="s2">.&quot;</span> <span class="k">if</span> <span class="n">date</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;You are </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;s personal assistant.</span><span class="si">{</span><span class="n">date_str</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;personal_assistant&quot;</span><span class="p">,</span> <span class="n">personal_assistant_prompt</span><span class="p">)</span>
+
+<span class="c1"># Create client</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">LLMConfig</span><span class="p">(</span>
+    <span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">OPENAI</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">)</span>
+<span class="p">))</span>
+
+<span class="c1"># Option 1: Use with defaults (if function has defaults)</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span>
+    <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;personal_assistant&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Option 2: Render with specific values and add to registry</span>
+<span class="n">rendered</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;personal_assistant&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="s2">&quot;2024-01-15&quot;</span><span class="p">)</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;alice_assistant&quot;</span><span class="p">,</span> <span class="n">rendered</span><span class="p">)</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span>
+    <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;alice_assistant&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Use the agent</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;What can you help me with?&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="3-callable-prompts-function-based">3. Callable Prompts (Function-Based)<a class="headerlink" href="#3-callable-prompts-function-based" title="Permanent link">&para;</a></h3>
 <p>For maximum flexibility, you can register a function that generates the prompt dynamically:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">create_assistant_prompt</span><span class="p">(</span><span class="n">user_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">PromptRegistry</span><span class="p">,</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">create_assistant_prompt</span><span class="p">(</span><span class="n">user_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate a personalized assistant prompt.&quot;&quot;&quot;</span>
     <span class="n">base</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;You are </span><span class="si">{</span><span class="n">user_name</span><span class="si">}</span><span class="s2">&#39;s assistant.&quot;</span>
     <span class="k">if</span> <span class="n">context</span><span class="p">:</span>
@@ -1224,12 +2021,41 @@ and reads <code>GEMINI_API_KEY</code> if <code>api_key</code> is not provided.</
 <span class="c1"># Render with arguments</span>
 <span class="n">prompt</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="n">user_name</span><span class="o">=</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="s2">&quot;coding session&quot;</span><span class="p">)</span>
 <span class="c1"># Result: &quot;You are Bob&#39;s assistant. Context: coding session&quot;</span>
+
+<span class="c1"># Add the rendered prompt to registry</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;bob_assistant&quot;</span><span class="p">,</span> <span class="n">prompt</span><span class="p">)</span>
+
+<span class="c1"># Create client and agent</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">LLMConfig</span><span class="p">(</span>
+    <span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">OPENAI</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">)</span>
+<span class="p">))</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span>
+    <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;bob_assistant&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Use the agent</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;What can you help me with?&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="4-using-multiple-prompts-with-different-agents">4. Using Multiple Prompts with Different Agents<a class="headerlink" href="#4-using-multiple-prompts-with-different-agents" title="Permanent link">&para;</a></h3>
 <p>The <code>PromptRegistry</code> integrates seamlessly with agents, allowing you to create multiple agents with different personas:</p>
-<div class="highlight"><pre><span></span><code><span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">PromptRegistry</span><span class="p">,</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span>
+
+<span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
 <span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;coder&quot;</span><span class="p">,</span> <span class="s2">&quot;You are an expert Python developer.&quot;</span><span class="p">)</span>
 <span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;writer&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a creative writing assistant.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create client</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">LLMConfig</span><span class="p">(</span>
+    <span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">OPENAI</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">)</span>
+<span class="p">))</span>
 
 <span class="c1"># Agent 1: Uses &quot;coder&quot; prompt</span>
 <span class="n">dev_agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
@@ -1244,6 +2070,13 @@ and reads <code>GEMINI_API_KEY</code> if <code>api_key</code> is not provided.</
     <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span>
     <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;writer&quot;</span>
 <span class="p">)</span>
+
+<span class="c1"># Use the agents</span>
+<span class="n">code_response</span> <span class="o">=</span> <span class="n">dev_agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;Write a Python function to calculate factorial.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Coder:&quot;</span><span class="p">,</span> <span class="n">code_response</span><span class="p">)</span>
+
+<span class="n">story_response</span> <span class="o">=</span> <span class="n">writer_agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;Write a short story about a robot.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Writer:&quot;</span><span class="p">,</span> <span class="n">story_response</span><span class="p">)</span>
 </code></pre></div>
 <p>The agent automatically:
 1. Looks up the prompt by <code>system_prompt_name</code>
@@ -1251,7 +2084,10 @@ and reads <code>GEMINI_API_KEY</code> if <code>api_key</code> is not provided.</
 3. Inserts it as the first message in memory (role: "developer")</p>
 <h3 id="5-advanced-use-cases">5. Advanced Use Cases<a class="headerlink" href="#5-advanced-use-cases" title="Permanent link">&para;</a></h3>
 <h4 id="multi-tenant-applications">Multi-Tenant Applications<a class="headerlink" href="#multi-tenant-applications" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">tenant_prompt</span><span class="p">(</span><span class="n">tenant_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">tenant_config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">PromptRegistry</span><span class="p">,</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">tenant_prompt</span><span class="p">(</span><span class="n">tenant_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">tenant_config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate prompt based on tenant configuration.&quot;&quot;&quot;</span>
     <span class="n">style</span> <span class="o">=</span> <span class="n">tenant_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;style&quot;</span><span class="p">,</span> <span class="s2">&quot;professional&quot;</span><span class="p">)</span>
     <span class="n">domain</span> <span class="o">=</span> <span class="n">tenant_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;domain&quot;</span><span class="p">,</span> <span class="s2">&quot;general&quot;</span><span class="p">)</span>
@@ -1260,26 +2096,69 @@ and reads <code>GEMINI_API_KEY</code> if <code>api_key</code> is not provided.</
 <span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
 <span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;tenant&quot;</span><span class="p">,</span> <span class="n">tenant_prompt</span><span class="p">)</span>
 
+<span class="c1"># Create client</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">LLMConfig</span><span class="p">(</span>
+    <span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">OPENAI</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">)</span>
+<span class="p">))</span>
+
 <span class="c1"># Use in a web application</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_tenant_config</span><span class="p">(</span><span class="n">tenant_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="c1"># Mock function - replace with actual config retrieval</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;style&quot;</span><span class="p">:</span> <span class="s2">&quot;professional&quot;</span><span class="p">,</span> <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;e-commerce&quot;</span><span class="p">}</span>
+
 <span class="k">def</span><span class="w"> </span><span class="nf">get_agent_for_tenant</span><span class="p">(</span><span class="n">tenant_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">get_tenant_config</span><span class="p">(</span><span class="n">tenant_id</span><span class="p">)</span>
+    <span class="c1"># Render prompt with tenant-specific config</span>
+    <span class="n">rendered</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;tenant&quot;</span><span class="p">,</span> <span class="n">tenant_id</span><span class="o">=</span><span class="n">tenant_id</span><span class="p">,</span> <span class="n">tenant_config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+    <span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tenant_</span><span class="si">{</span><span class="n">tenant_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">rendered</span><span class="p">)</span>
+
     <span class="k">return</span> <span class="n">Agent</span><span class="p">(</span>
         <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
         <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span>
-        <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;tenant&quot;</span>
+        <span class="n">system_prompt_name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;tenant_</span><span class="si">{</span><span class="n">tenant_id</span><span class="si">}</span><span class="s2">&quot;</span>
     <span class="p">)</span>
+
+<span class="c1"># Use it</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">get_agent_for_tenant</span><span class="p">(</span><span class="s2">&quot;tenant_123&quot;</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;How can you help me?&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
 </code></pre></div>
 <h4 id="ab-testing-prompts">A/B Testing Prompts<a class="headerlink" href="#ab-testing-prompts" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">PromptRegistry</span><span class="p">,</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span>
+
+<span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
 <span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;variant_a&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a concise assistant.&quot;</span><span class="p">)</span>
 <span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;variant_b&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a detailed, thorough assistant.&quot;</span><span class="p">)</span>
 
+<span class="c1"># Create client</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">LLMConfig</span><span class="p">(</span>
+    <span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">OPENAI</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">)</span>
+<span class="p">))</span>
+
 <span class="c1"># Switch between variants based on user</span>
+<span class="n">user_id</span> <span class="o">=</span> <span class="mi">123</span>  <span class="c1"># Example user ID</span>
 <span class="n">variant</span> <span class="o">=</span> <span class="s2">&quot;variant_a&quot;</span> <span class="k">if</span> <span class="n">user_id</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;variant_b&quot;</span>
-<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span> <span class="n">system_prompt_name</span><span class="o">=</span><span class="n">variant</span><span class="p">)</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span>
+    <span class="n">system_prompt_name</span><span class="o">=</span><span class="n">variant</span>
+<span class="p">)</span>
+
+<span class="c1"># Use the agent</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;Explain quantum computing.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
 </code></pre></div>
 <h4 id="context-aware-prompts">Context-Aware Prompts<a class="headerlink" href="#context-aware-prompts" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">contextual_prompt</span><span class="p">(</span><span class="n">current_time</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">user_location</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">PromptRegistry</span><span class="p">,</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">contextual_prompt</span><span class="p">(</span><span class="n">current_time</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">user_location</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;You are a helpful assistant.</span>
 <span class="s2">Current time: </span><span class="si">{</span><span class="n">current_time</span><span class="si">}</span>
 <span class="s2">User location: </span><span class="si">{</span><span class="n">user_location</span><span class="si">}</span>
@@ -1289,12 +2168,30 @@ and reads <code>GEMINI_API_KEY</code> if <code>api_key</code> is not provided.</
 <span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;contextual&quot;</span><span class="p">,</span> <span class="n">contextual_prompt</span><span class="p">)</span>
 
 <span class="c1"># Render with current context</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
 <span class="n">prompt</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">render</span><span class="p">(</span>
     <span class="s2">&quot;contextual&quot;</span><span class="p">,</span>
     <span class="n">current_time</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span>
     <span class="n">user_location</span><span class="o">=</span><span class="s2">&quot;New York&quot;</span>
 <span class="p">)</span>
+
+<span class="c1"># Add rendered prompt to registry</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;contextual_ny&quot;</span><span class="p">,</span> <span class="n">prompt</span><span class="p">)</span>
+
+<span class="c1"># Create client and agent</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">LLMConfig</span><span class="p">(</span>
+    <span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">OPENAI</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">)</span>
+<span class="p">))</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span>
+    <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;contextual_ny&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Use the agent</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;What&#39;s the weather like?&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h3>
 <ol>
@@ -1319,6 +2216,163 @@ and reads <code>GEMINI_API_KEY</code> if <code>api_key</code> is not provided.</
 
 <span class="c1"># 3. Use in agent memory</span>
 <span class="n">agent</span><span class="o">.</span><span class="n">memory</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;developer&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">rendered</span><span class="p">}</span>
+</code></pre></div>
+<h2 id="how-to-manage-memory">How to Manage Memory<a class="headerlink" href="#how-to-manage-memory" title="Permanent link">&para;</a></h2>
+<p>Iris Agent automatically manages conversation history in the <code>memory</code> attribute. You can inspect, seed, and clear memory as needed.</p>
+<h3 id="inspecting-memory">Inspecting Memory<a class="headerlink" href="#inspecting-memory" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span><span class="p">,</span> <span class="n">PromptRegistry</span>
+
+<span class="c1"># Create client and agent</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">LLMConfig</span><span class="p">(</span>
+    <span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">OPENAI</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">)</span>
+<span class="p">))</span>
+<span class="n">prompt_registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<span class="n">prompt_registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a helpful assistant.&quot;</span><span class="p">)</span>
+
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">prompt_registry</span>
+<span class="p">)</span>
+
+<span class="c1"># Check initial memory (contains system prompt)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Initial memory:&quot;</span><span class="p">,</span> <span class="n">agent</span><span class="o">.</span><span class="n">memory</span><span class="p">)</span>
+
+<span class="c1"># Run a conversation</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Response:&quot;</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+
+<span class="c1"># Check memory after conversation</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Memory after conversation:&quot;</span><span class="p">,</span> <span class="n">agent</span><span class="o">.</span><span class="n">memory</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Memory size:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">agent</span><span class="o">.</span><span class="n">memory</span><span class="p">))</span>
+</code></pre></div>
+<h3 id="seeding-memory">Seeding Memory<a class="headerlink" href="#seeding-memory" title="Permanent link">&para;</a></h3>
+<p>You can add messages to memory before starting a conversation:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span><span class="p">,</span> <span class="n">PromptRegistry</span><span class="p">,</span> <span class="n">Role</span><span class="p">,</span> <span class="n">create_message</span>
+
+<span class="c1"># Create client and agent</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">LLMConfig</span><span class="p">(</span>
+    <span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">OPENAI</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">)</span>
+<span class="p">))</span>
+<span class="n">prompt_registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<span class="n">prompt_registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a helpful assistant.&quot;</span><span class="p">)</span>
+
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">prompt_registry</span>
+<span class="p">)</span>
+
+<span class="c1"># Seed memory with previous context</span>
+<span class="n">agent</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">create_message</span><span class="p">(</span><span class="n">Role</span><span class="o">.</span><span class="n">USER</span><span class="p">,</span> <span class="s2">&quot;My name is Alice and I love Python.&quot;</span><span class="p">))</span>
+<span class="n">agent</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">create_message</span><span class="p">(</span><span class="n">Role</span><span class="o">.</span><span class="n">ASSISTANT</span><span class="p">,</span> <span class="s2">&quot;Nice to meet you, Alice!&quot;</span><span class="p">))</span>
+
+<span class="c1"># Now continue the conversation</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;What&#39;s my favorite programming language?&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>  <span class="c1"># The agent will remember Alice loves Python</span>
+</code></pre></div>
+<h3 id="clearing-memory">Clearing Memory<a class="headerlink" href="#clearing-memory" title="Permanent link">&para;</a></h3>
+<p>You can clear the conversation history while keeping the system prompt:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span><span class="p">,</span> <span class="n">PromptRegistry</span>
+
+<span class="c1"># Create client and agent</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">LLMConfig</span><span class="p">(</span>
+    <span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">OPENAI</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">)</span>
+<span class="p">))</span>
+<span class="n">prompt_registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<span class="n">prompt_registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a helpful assistant.&quot;</span><span class="p">)</span>
+
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">prompt_registry</span>
+<span class="p">)</span>
+
+<span class="c1"># Have a conversation</span>
+<span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">)</span>
+<span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;How are you?&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Memory before clear:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">agent</span><span class="o">.</span><span class="n">memory</span><span class="p">))</span>
+
+<span class="c1"># Clear conversation history (system prompt remains)</span>
+<span class="n">agent</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+<span class="c1"># Re-add system prompt if needed</span>
+<span class="n">agent</span><span class="o">.</span><span class="n">_ensure_system_prompt</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Memory after clear:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">agent</span><span class="o">.</span><span class="n">memory</span><span class="p">))</span>
+</code></pre></div>
+<h2 id="how-to-enable-logging">How to Enable Logging<a class="headerlink" href="#how-to-enable-logging" title="Permanent link">&para;</a></h2>
+<p>Iris Agent includes built-in Rich logging for beautiful, colorized terminal output showing the agent's step-by-step process.</p>
+<h3 id="basic-logging">Basic Logging<a class="headerlink" href="#basic-logging" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span><span class="p">,</span> <span class="n">PromptRegistry</span>
+
+<span class="c1"># Create client</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">LLMConfig</span><span class="p">(</span>
+    <span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">OPENAI</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">)</span>
+<span class="p">))</span>
+
+<span class="c1"># Create prompt registry</span>
+<span class="n">prompt_registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<span class="n">prompt_registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a helpful assistant.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Enable logging by setting enable_logging=True</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">prompt_registry</span><span class="p">,</span>
+    <span class="n">enable_logging</span><span class="o">=</span><span class="kc">True</span>  <span class="c1"># Enable Rich logging</span>
+<span class="p">)</span>
+
+<span class="c1"># Run the agent - you&#39;ll see colorized output showing:</span>
+<span class="c1"># - User messages (cyan)</span>
+<span class="c1"># - LLM calls (dim)</span>
+<span class="c1"># - Tool calls (magenta)</span>
+<span class="c1"># - Tool responses (green)</span>
+<span class="c1"># - Assistant responses (bold green)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;Summarize the benefits of good logging in one sentence.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="custom-logger">Custom Logger<a class="headerlink" href="#custom-logger" title="Permanent link">&para;</a></h3>
+<p>You can also provide a custom logger instance:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span><span class="p">,</span> <span class="n">PromptRegistry</span>
+
+<span class="c1"># Create a custom logger</span>
+<span class="n">custom_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;my_agent&quot;</span><span class="p">)</span>
+<span class="n">custom_logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+<span class="n">handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+<span class="n">handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(name)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">))</span>
+<span class="n">custom_logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
+
+<span class="c1"># Create client and agent</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">LLMConfig</span><span class="p">(</span>
+    <span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">OPENAI</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">)</span>
+<span class="p">))</span>
+<span class="n">prompt_registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<span class="n">prompt_registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a helpful assistant.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Use custom logger</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">prompt_registry</span><span class="p">,</span>
+    <span class="n">enable_logging</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">logger</span><span class="o">=</span><span class="n">custom_logger</span>
+<span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
 </code></pre></div>
 
 

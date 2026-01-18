@@ -20,7 +20,7 @@
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../assets/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
@@ -84,8 +84,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="Iris Agent" class="md-header__button md-logo" aria-label="Iris Agent" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -196,8 +195,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Iris Agent" class="md-nav__button md-logo" aria-label="Iris Agent" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../assets/logo.png" alt="logo">
 
     </a>
     Iris Agent
@@ -560,17 +558,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#can-i-use-this-with-anthropic-claude" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Can I use this with Anthropic Claude?
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -694,17 +681,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#can-i-use-this-with-anthropic-claude" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Can I use this with Anthropic Claude?
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -786,8 +762,6 @@
 <p><strong>Yes.</strong> You can use any OpenAI-compatible API (Ollama, vLLM, LocalAI) by setting the <code>base_url</code> in <code>LLMConfig</code>.</p>
 <h3 id="is-conversation-history-persisted-to-disk">Is conversation history persisted to disk?<a class="headerlink" href="#is-conversation-history-persisted-to-disk" title="Permanent link">&para;</a></h3>
 <p><strong>No.</strong> By default, memory is stored in a Python list (<code>agent.memory</code>). If you restart the script, memory is lost. You can easily implement persistence by saving/loading <code>agent.memory</code> to a JSON file or database.</p>
-<h3 id="can-i-use-this-with-anthropic-claude">Can I use this with Anthropic Claude?<a class="headerlink" href="#can-i-use-this-with-anthropic-claude" title="Permanent link">&para;</a></h3>
-<p><strong>Yes</strong>, but you currently need an adapter or a proxy that provides an OpenAI-compatible endpoint, OR you can implement a custom <code>BaseLLMClient</code> that calls the Anthropic SDK.</p>
 <h2 id="technical">Technical<a class="headerlink" href="#technical" title="Permanent link">&para;</a></h2>
 <h3 id="how-do-i-clear-the-agents-memory">How do I clear the agent's memory?<a class="headerlink" href="#how-do-i-clear-the-agents-memory" title="Permanent link">&para;</a></h3>
 <p>Simply assign a new list or call clear on the existing one, but remember to keep the system prompt if you want it to persist.</p>

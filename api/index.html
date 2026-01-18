@@ -22,7 +22,7 @@
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../assets/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
@@ -86,8 +86,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="Iris Agent" class="md-header__button md-logo" aria-label="Iris Agent" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -198,8 +197,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Iris Agent" class="md-nav__button md-logo" aria-label="Iris Agent" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../assets/logo.png" alt="logo">
 
     </a>
     Iris Agent
@@ -531,6 +529,28 @@
   
     <nav class="md-nav" aria-label="LLM Client">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iris_agentsyncllmclient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iris_agent.SyncLLMClient
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iris_agentasyncllmclient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iris_agent.AsyncLLMClient
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#iris_agentbasellmclient" class="md-nav__link">
@@ -889,6 +909,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#iris_agentsyncllmclient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iris_agent.SyncLLMClient
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iris_agentasyncllmclient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iris_agent.AsyncLLMClient
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#iris_agentbasellmclient" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1067,11 +1109,11 @@
 <h1 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Permanent link">&para;</a></h1>
 <h2 id="agent">Agent<a class="headerlink" href="#agent" title="Permanent link">&para;</a></h2>
 <h3 id="iris_agentagent"><code>iris_agent.Agent</code><a class="headerlink" href="#iris_agentagent" title="Permanent link">&para;</a></h3>
-<p>Synchronous wrapper around <code>AsyncAgent</code> for non-async usage.</p>
+<p>Synchronous agent for non-async usage.</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Agent</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">llm_client</span><span class="p">:</span> <span class="n">BaseLLMClient</span><span class="p">,</span>
+        <span class="n">llm_client</span><span class="p">:</span> <span class="n">SyncLLMClient</span><span class="p">,</span>
         <span class="n">prompt_registry</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">PromptRegistry</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">tool_registry</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ToolRegistry</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">system_prompt_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;assistant&quot;</span><span class="p">,</span>
@@ -1081,7 +1123,7 @@
 </code></pre></div>
 <p><strong>Parameters:</strong></p>
 <ul>
-<li><code>llm_client</code> (<code>BaseLLMClient</code>): The initialized LLM client instance.</li>
+<li><code>llm_client</code> (<code>SyncLLMClient</code>): The initialized sync LLM client instance.</li>
 <li><code>prompt_registry</code> (<code>PromptRegistry</code>, optional): Registry for system prompts. Defaults to a new empty registry.</li>
 <li><code>tool_registry</code> (<code>ToolRegistry</code>, optional): Registry for tools. Defaults to a new empty registry.</li>
 <li><code>system_prompt_name</code> (<code>str</code>, default="assistant"): The key to look up in the prompt registry for the initial system message.</li>
@@ -1106,7 +1148,7 @@
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">AsyncAgent</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">llm_client</span><span class="p">:</span> <span class="n">BaseLLMClient</span><span class="p">,</span>
+        <span class="n">llm_client</span><span class="p">:</span> <span class="n">AsyncLLMClient</span><span class="p">,</span>
         <span class="n">prompt_registry</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">PromptRegistry</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">tool_registry</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ToolRegistry</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">system_prompt_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;assistant&quot;</span><span class="p">,</span>
@@ -1133,11 +1175,18 @@
 <p>Sync streaming helper on <code>Agent</code> that yields chunks by driving the async stream
 under the hood. This cannot be called from within an active event loop.</p>
 <h2 id="llm-client">LLM Client<a class="headerlink" href="#llm-client" title="Permanent link">&para;</a></h2>
-<h3 id="iris_agentbasellmclient"><code>iris_agent.BaseLLMClient</code><a class="headerlink" href="#iris_agentbasellmclient" title="Permanent link">&para;</a></h3>
-<p>OpenAI-compatible client wrapper.</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">BaseLLMClient</span><span class="p">:</span>
+<h3 id="iris_agentsyncllmclient"><code>iris_agent.SyncLLMClient</code><a class="headerlink" href="#iris_agentsyncllmclient" title="Permanent link">&para;</a></h3>
+<p>OpenAI-compatible sync client wrapper.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">SyncLLMClient</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">LLMConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
+<h3 id="iris_agentasyncllmclient"><code>iris_agent.AsyncLLMClient</code><a class="headerlink" href="#iris_agentasyncllmclient" title="Permanent link">&para;</a></h3>
+<p>OpenAI-compatible async client wrapper.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">AsyncLLMClient</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">LLMConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+<h3 id="iris_agentbasellmclient"><code>iris_agent.BaseLLMClient</code><a class="headerlink" href="#iris_agentbasellmclient" title="Permanent link">&para;</a></h3>
+<p>Shared helper base class for the sync and async clients.</p>
 <h3 id="iris_agentllmconfig"><code>iris_agent.LLMConfig</code><a class="headerlink" href="#iris_agentllmconfig" title="Permanent link">&para;</a></h3>
 <p>Configuration dataclass.</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@dataclass</span>

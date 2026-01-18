@@ -20,7 +20,7 @@
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="assets/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
@@ -84,8 +84,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="." title="Iris Agent" class="md-header__button md-logo" aria-label="Iris Agent" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -196,8 +195,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="." title="Iris Agent" class="md-nav__button md-logo" aria-label="Iris Agent" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="assets/logo.png" alt="logo">
 
     </a>
     Iris Agent
@@ -695,9 +693,9 @@
 <p>Iris Agent is a lightweight, flexible, and provider-agnostic framework for building AI agents in Python. It simplifies the process of creating agents that can use tools, manage memory, and interact with various LLM providers.</p>
 <h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Provider Agnostic</strong>: Works with OpenAI, Google Gemini, Anthropic, or any OpenAI-compatible API (like LocalAI or vLLM).</li>
+<li><strong>Provider Agnostic</strong>: Works with OpenAI, Google Gemini, or any OpenAI-compatible API (like LocalAI or vLLM).</li>
 <li><strong>Tool Support</strong>: Easy-to-use <code>@tool</code> decorator that automatically infers JSON schemas from Python type hints.</li>
-<li><strong>Async &amp; Sync</strong>: Full <code>asyncio</code> support with a convenient synchronous wrapper.</li>
+<li><strong>Async &amp; Sync</strong>: First-class async and sync agents.</li>
 <li><strong>Streaming</strong>: Built-in support for streaming responses for real-time applications.</li>
 <li><strong>Memory Management</strong>: Automatic conversation history management with support for custom memory stores.</li>
 <li><strong>Prompt Management</strong>: Centralized <code>PromptRegistry</code> for reusable and template-based system prompts.</li>
@@ -707,7 +705,7 @@
 <h2 id="architecture-overview">Architecture Overview<a class="headerlink" href="#architecture-overview" title="Permanent link">&para;</a></h2>
 <p>Iris Agent is built around a few core components:</p>
 <pre class="mermaid"><code>graph TD
-    A[Agent/AsyncAgent] --&gt; B[BaseLLMClient]
+    A[Agent/AsyncAgent] --&gt; B[SyncLLMClient/AsyncLLMClient]
     A --&gt; C[ToolRegistry]
     A --&gt; D[PromptRegistry]
     A --&gt; E[Memory List]
@@ -721,7 +719,7 @@
 </ul>
 <h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
 <p>Here is a minimal example to get you running in seconds:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">BaseLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span><span class="p">,</span> <span class="n">PromptRegistry</span><span class="p">,</span> <span class="n">SyncLLMClient</span>
 
 <span class="c1"># 1. Configure the LLM</span>
 <span class="n">config</span> <span class="o">=</span> <span class="n">LLMConfig</span><span class="p">(</span>
@@ -729,14 +727,23 @@
     <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o&quot;</span><span class="p">,</span>
     <span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;sk-...&quot;</span>
 <span class="p">)</span>
-<span class="n">client</span> <span class="o">=</span> <span class="n">BaseLLMClient</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
 
-<span class="c1"># 2. Create the Agent</span>
-<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">)</span>
+<span class="c1"># 2. Create a prompt registry and add a system prompt</span>
+<span class="n">prompts</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<span class="n">prompts</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a helpful AI assistant.&quot;</span><span class="p">)</span>
 
-<span class="c1"># 3. Run</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;Hello! Who are you?&quot;</span><span class="p">)</span>
+<span class="c1"># 3. Create the Agent with the system prompt</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">prompts</span><span class="p">,</span>
+    <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;assistant&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># 4. Run</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;Hello! how are you doing today?&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<span class="c1"># I&#39;m doing great! How about you?</span>
 </code></pre></div>
 <h2 id="documentation-map">Documentation Map<a class="headerlink" href="#documentation-map" title="Permanent link">&para;</a></h2>
 <p>Explore the detailed documentation:</p>
