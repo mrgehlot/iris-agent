@@ -8,9 +8,9 @@ The core package source.
 
 | Module | Description |
 | :--- | :--- |
-| **`agent.py`** | Contains the `Agent` class (Synchronous wrapper). |
+| **`agent.py`** | Contains the `Agent` class (Synchronous agent). |
 | **`async_agent.py`** | Contains the `AsyncAgent` class (Core logic). |
-| **`llm.py`** | Contains `BaseLLMClient`, `LLMConfig` and provider logic. |
+| **`llm.py`** | Contains `BaseLLMClient`, `SyncLLMClient`, `AsyncLLMClient`, and provider logic. |
 | **`tools.py`** | Contains `ToolRegistry`, `@tool` decorator, and schema inference logic. |
 | **`prompts.py`** | Contains `PromptRegistry` for managing system prompts. |
 | **`messages.py`** | Helpers for creating messages (text, images). |

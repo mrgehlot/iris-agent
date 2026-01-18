@@ -8,9 +8,6 @@
 ### Is conversation history persisted to disk?
 **No.** By default, memory is stored in a Python list (`agent.memory`). If you restart the script, memory is lost. You can easily implement persistence by saving/loading `agent.memory` to a JSON file or database.
 
-### Can I use this with Anthropic Claude?
-**Yes**, but you currently need an adapter or a proxy that provides an OpenAI-compatible endpoint, OR you can implement a custom `BaseLLMClient` that calls the Anthropic SDK.
-
 ## Technical
 
 ### How do I clear the agent's memory?

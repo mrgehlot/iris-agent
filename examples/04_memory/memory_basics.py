@@ -5,7 +5,7 @@ Memory usage: inspect, seed, and clear agent memory.
 
 import os
 
-from iris_agent import Agent, BaseLLMClient, LLMConfig, LLMProvider, PromptRegistry, Role, create_message
+from iris_agent import Agent, SyncLLMClient, LLMConfig, LLMProvider, PromptRegistry, Role, create_message
 
 
 def main() -> int:
@@ -22,7 +22,7 @@ def main() -> int:
         api_key=api_key,
         base_url=base_url,
     )
-    client = BaseLLMClient(llm_config)
+    client = SyncLLMClient(llm_config)
 
     agent = Agent(llm_client=client, prompt_registry=prompts)
 

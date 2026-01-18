@@ -6,7 +6,7 @@ Streaming response example using AsyncAgent.
 import asyncio
 import os
 
-from iris_agent import AsyncAgent, BaseLLMClient, LLMConfig, LLMProvider, PromptRegistry
+from iris_agent import AsyncAgent, AsyncLLMClient, LLMConfig, LLMProvider, PromptRegistry
 
 
 async def main() -> int:
@@ -27,7 +27,7 @@ async def main() -> int:
         api_key=api_key,
         base_url=base_url,
     )
-    client = BaseLLMClient(llm_config)
+    client = AsyncLLMClient(llm_config)
 
     agent = AsyncAgent(llm_client=client, prompt_registry=prompts)
     async for chunk in agent.run_stream("Write a 3-sentence story about a robot."):

@@ -16,10 +16,12 @@ def check_imports():
         from iris_agent import (
             Agent,
             AsyncAgent,
+            AsyncLLMClient,
             BaseLLMClient,
             LLMConfig,
             LLMProvider,
             PromptRegistry,
+            SyncLLMClient,
             ToolRegistry,
             create_message,
             Role,

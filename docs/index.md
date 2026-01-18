@@ -6,9 +6,9 @@ Iris Agent is a lightweight, flexible, and provider-agnostic framework for build
 
 ## Key Features
 
-- **Provider Agnostic**: Works with OpenAI, Google Gemini, Anthropic, or any OpenAI-compatible API (like LocalAI or vLLM).
+- **Provider Agnostic**: Works with OpenAI, Google Gemini, or any OpenAI-compatible API (like LocalAI or vLLM).
 - **Tool Support**: Easy-to-use `@tool` decorator that automatically infers JSON schemas from Python type hints.
-- **Async & Sync**: Full `asyncio` support with a convenient synchronous wrapper.
+- **Async & Sync**: First-class async and sync agents.
 - **Streaming**: Built-in support for streaming responses for real-time applications.
 - **Memory Management**: Automatic conversation history management with support for custom memory stores.
 - **Prompt Management**: Centralized `PromptRegistry` for reusable and template-based system prompts.
@@ -21,7 +21,7 @@ Iris Agent is built around a few core components:
 
 ```mermaid
 graph TD
-    A[Agent/AsyncAgent] --> B[BaseLLMClient]
+    A[Agent/AsyncAgent] --> B[SyncLLMClient/AsyncLLMClient]
     A --> C[ToolRegistry]
     A --> D[PromptRegistry]
     A --> E[Memory List]
@@ -39,7 +39,7 @@ graph TD
 Here is a minimal example to get you running in seconds:
 
 ```python
-from iris_agent import Agent, BaseLLMClient, LLMConfig, LLMProvider
+from iris_agent import Agent, LLMConfig, LLMProvider, PromptRegistry, SyncLLMClient
 
 # 1. Configure the LLM
 config = LLMConfig(
@@ -47,14 +47,23 @@ config = LLMConfig(
     model="gpt-4o",
     api_key="sk-..."
 )
-client = BaseLLMClient(config)
+client = SyncLLMClient(config)
 
-# 2. Create the Agent
-agent = Agent(llm_client=client)
+# 2. Create a prompt registry and add a system prompt
+prompts = PromptRegistry()
+prompts.add_prompt("assistant", "You are a helpful AI assistant.")
 
-# 3. Run
-response = agent.run("Hello! Who are you?")
+# 3. Create the Agent with the system prompt
+agent = Agent(
+    llm_client=client,
+    prompt_registry=prompts,
+    system_prompt_name="assistant"
+)
+
+# 4. Run
+response = agent.run("Hello! how are you doing today?")
 print(response)
+# I'm doing great! How about you?
 ```
 
 ## Documentation Map

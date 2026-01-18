@@ -4,7 +4,7 @@ from typing import Any, AsyncGenerator, List, Optional
 
 from rich.logging import RichHandler
 
-from .llm import BaseLLMClient
+from .llm import AsyncLLMClient
 from .messages import create_message
 from .prompts import PromptRegistry
 from .tools import ToolRegistry
@@ -15,7 +15,7 @@ class AsyncAgent:
     """Async agent that manages memory, tools, and LLM calls."""
     def __init__(
         self,
-        llm_client: BaseLLMClient,
+        llm_client: AsyncLLMClient,
         prompt_registry: Optional[PromptRegistry] = None,
         tool_registry: Optional[ToolRegistry] = None,
         system_prompt_name: str = "assistant",

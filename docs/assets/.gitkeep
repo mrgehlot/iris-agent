@@ -1,0 +1,13 @@
+# Assets Directory
+
+Place your logo and favicon files here:
+
+- `logo.png` - Your logo image (recommended size: 200x50px or similar aspect ratio)
+- `favicon.ico` - Browser tab icon (16x16 or 32x32px)
+
+Supported formats for logo:
+- PNG (recommended)
+- SVG
+- JPG/JPEG
+
+The logo will appear in the top-left corner of your MkDocs site.

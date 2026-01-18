@@ -6,6 +6,12 @@ repo_name: mrgehlot/iris-agent
 
 theme:
   name: material
+  # Uncomment and add your logo file to docs/assets/logo.png
+  logo: assets/logo.png  # Path to your logo (relative to docs/ directory)
+  favicon: assets/favicon.ico  # Optional: favicon for browser tab
+  # Alternative: use an icon instead of a logo image
+  # icon:
+  #   repo: fontawesome/brands/github
   features:
     - content.code.copy
     - navigation.expand

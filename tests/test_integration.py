@@ -5,10 +5,11 @@ import os
 from iris_agent import (
     Agent,
     AsyncAgent,
-    BaseLLMClient,
+    AsyncLLMClient,
     LLMConfig,
     LLMProvider,
     PromptRegistry,
+    SyncLLMClient,
     ToolRegistry,
     tool,
 )
@@ -30,7 +31,7 @@ def test_agent_basic():
         model="gpt-4o-mini",
         api_key=api_key
     )
-    llm_client = BaseLLMClient(llm_config)
+    llm_client = SyncLLMClient(llm_config)
     
     agent = Agent(
         llm_client=llm_client,
@@ -81,7 +82,7 @@ def test_agent_with_tools():
         model="gpt-4o-mini",
         api_key=api_key
     )
-    llm_client = BaseLLMClient(llm_config)
+    llm_client = SyncLLMClient(llm_config)
     
     agent = Agent(
         llm_client=llm_client,
@@ -113,7 +114,7 @@ async def test_async_agent():
         model="gpt-4o-mini",
         api_key=api_key
     )
-    llm_client = BaseLLMClient(llm_config)
+    llm_client = AsyncLLMClient(llm_config)
     
     agent = AsyncAgent(
         llm_client=llm_client,
@@ -147,7 +148,7 @@ async def test_async_agent_streaming():
         model="gpt-4o-mini",
         api_key=api_key
     )
-    llm_client = BaseLLMClient(llm_config)
+    llm_client = AsyncLLMClient(llm_config)
     
     agent = AsyncAgent(
         llm_client=llm_client,

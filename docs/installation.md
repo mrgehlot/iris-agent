@@ -42,7 +42,7 @@ If you plan to run tests or build documentation:
 pip install -e ".[dev]"
 ```
 
-This installs tools like `pytest`, `black`, `isort`, and `mkdocs`.
+This installs tools like `pytest`, `black`, `isort`, `mkdocs`, `mkdocs-material`.
 
 ## Verifying Installation
 

@@ -4,13 +4,13 @@
 
 ### `iris_agent.Agent`
 
-Synchronous wrapper around `AsyncAgent` for non-async usage.
+Synchronous agent for non-async usage.
 
 ```python
 class Agent:
     def __init__(
         self,
-        llm_client: BaseLLMClient,
+        llm_client: SyncLLMClient,
         prompt_registry: Optional[PromptRegistry] = None,
         tool_registry: Optional[ToolRegistry] = None,
         system_prompt_name: str = "assistant",
@@ -21,7 +21,7 @@ class Agent:
 
 **Parameters:**
 
-- `llm_client` (`BaseLLMClient`): The initialized LLM client instance.
+- `llm_client` (`SyncLLMClient`): The initialized sync LLM client instance.
 - `prompt_registry` (`PromptRegistry`, optional): Registry for system prompts. Defaults to a new empty registry.
 - `tool_registry` (`ToolRegistry`, optional): Registry for tools. Defaults to a new empty registry.
 - `system_prompt_name` (`str`, default="assistant"): The key to look up in the prompt registry for the initial system message.
@@ -52,7 +52,7 @@ The core asynchronous agent class.
 class AsyncAgent:
     def __init__(
         self,
-        llm_client: BaseLLMClient,
+        llm_client: AsyncLLMClient,
         prompt_registry: Optional[PromptRegistry] = None,
         tool_registry: Optional[ToolRegistry] = None,
         system_prompt_name: str = "assistant",
@@ -88,14 +88,27 @@ under the hood. This cannot be called from within an active event loop.
 
 ## LLM Client
 
-### `iris_agent.BaseLLMClient`
+### `iris_agent.SyncLLMClient`
 
-OpenAI-compatible client wrapper.
+OpenAI-compatible sync client wrapper.
 
 ```python
-class BaseLLMClient:
+class SyncLLMClient:
     def __init__(self, config: LLMConfig) -> None
 ```
+
+### `iris_agent.AsyncLLMClient`
+
+OpenAI-compatible async client wrapper.
+
+```python
+class AsyncLLMClient:
+    def __init__(self, config: LLMConfig) -> None
+```
+
+### `iris_agent.BaseLLMClient`
+
+Shared helper base class for the sync and async clients.
 
 ### `iris_agent.LLMConfig`
 

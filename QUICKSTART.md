@@ -13,7 +13,7 @@ pip install iris-agent
 ### 1. Simple Agent
 
 ```python
-from iris_agent import Agent, BaseLLMClient, LLMConfig, LLMProvider, PromptRegistry
+from iris_agent import Agent, SyncLLMClient, LLMConfig, LLMProvider, PromptRegistry
 
 # Setup
 prompts = PromptRegistry()
@@ -24,7 +24,7 @@ llm_config = LLMConfig(
     model="gpt-4o-mini",
     api_key="your-api-key"
 )
-llm_client = BaseLLMClient(llm_config)
+llm_client = SyncLLMClient(llm_config)
 
 # Create agent
 agent = Agent(
@@ -40,7 +40,7 @@ print(response)
 ### 2. Agent with Tools
 
 ```python
-from iris_agent import Agent, BaseLLMClient, LLMConfig, LLMProvider, PromptRegistry, ToolRegistry, tool
+from iris_agent import Agent, SyncLLMClient, LLMConfig, LLMProvider, PromptRegistry, ToolRegistry, tool
 
 # Setup prompts
 prompts = PromptRegistry()
@@ -61,7 +61,7 @@ llm_config = LLMConfig(
     model="gpt-4o-mini",
     api_key="your-api-key"
 )
-llm_client = BaseLLMClient(llm_config)
+llm_client = SyncLLMClient(llm_config)
 
 agent = Agent(
     llm_client=llm_client,
@@ -78,7 +78,7 @@ print(response)
 
 ```python
 import asyncio
-from iris_agent import AsyncAgent, BaseLLMClient, LLMConfig, LLMProvider, PromptRegistry
+from iris_agent import AsyncAgent, AsyncLLMClient, LLMConfig, LLMProvider, PromptRegistry
 
 async def main():
     prompts = PromptRegistry()
@@ -89,7 +89,7 @@ async def main():
         model="gpt-4o-mini",
         api_key="your-api-key"
     )
-    llm_client = BaseLLMClient(llm_config)
+    llm_client = AsyncLLMClient(llm_config)
     
     agent = AsyncAgent(
         llm_client=llm_client,
@@ -110,7 +110,7 @@ asyncio.run(main())
 ### 4. With Rich Logging
 
 ```python
-from iris_agent import Agent, BaseLLMClient, LLMConfig, LLMProvider, PromptRegistry
+from iris_agent import Agent, SyncLLMClient, LLMConfig, LLMProvider, PromptRegistry
 
 prompts = PromptRegistry()
 prompts.add_prompt("assistant", "You are helpful.")
@@ -120,7 +120,7 @@ llm_config = LLMConfig(
     model="gpt-4o-mini",
     api_key="your-api-key"
 )
-llm_client = BaseLLMClient(llm_config)
+llm_client = SyncLLMClient(llm_config)
 
 agent = Agent(
     llm_client=llm_client,

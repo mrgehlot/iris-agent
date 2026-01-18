@@ -5,7 +5,7 @@ Simple synchronous agent example.
 
 import os
 
-from iris_agent import Agent, BaseLLMClient, LLMConfig, LLMProvider, PromptRegistry
+from iris_agent import Agent, SyncLLMClient, LLMConfig, LLMProvider, PromptRegistry
 
 
 def main() -> int:
@@ -26,7 +26,7 @@ def main() -> int:
         api_key=api_key,
         base_url=base_url,
     )
-    client = BaseLLMClient(llm_config)
+    client = SyncLLMClient(llm_config)
 
     agent = Agent(llm_client=client, prompt_registry=prompts)
     response = agent.run("Say hello in one sentence.")

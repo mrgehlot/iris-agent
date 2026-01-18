@@ -2,7 +2,7 @@
 
 from .agent import Agent
 from .async_agent import AsyncAgent
-from .llm import LLMConfig, LLMProvider, BaseLLMClient
+from .llm import LLMConfig, LLMProvider, BaseLLMClient, AsyncLLMClient, SyncLLMClient
 from .messages import create_message
 from .prompts import PromptRegistry
 from .tools import ToolRegistry, tool
@@ -14,6 +14,8 @@ __all__ = [
     "LLMConfig",
     "LLMProvider",
     "BaseLLMClient",
+    "AsyncLLMClient",
+    "SyncLLMClient",
     "create_message",
     "PromptRegistry",
     "ToolRegistry",

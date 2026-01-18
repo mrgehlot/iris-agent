@@ -6,7 +6,7 @@ Set OPENAI_API_KEY and optionally OPENAI_MODEL/OPENAI_BASE_URL.
 
 import os
 
-from iris_agent import Agent, BaseLLMClient, LLMConfig, LLMProvider
+from iris_agent import Agent, SyncLLMClient, LLMConfig, LLMProvider
 
 
 def main() -> int:
@@ -24,7 +24,7 @@ def main() -> int:
         api_key=api_key,
         base_url=base_url,
     )
-    client = BaseLLMClient(config)
+    client = SyncLLMClient(config)
     agent = Agent(llm_client=client)
 
     for chunk in agent.run_stream("Tell me a short story about a robot."):

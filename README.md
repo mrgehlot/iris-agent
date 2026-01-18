@@ -32,7 +32,7 @@ from iris_agent import (
     Agent,
     LLMConfig,
     LLMProvider,
-    BaseLLMClient,
+    SyncLLMClient,
     PromptRegistry,
     ToolRegistry,
     tool,
@@ -49,7 +49,7 @@ def add(a: int, b: int) -> int:
 
 tools.register(add)
 
-client = BaseLLMClient(
+client = SyncLLMClient(
     LLMConfig(
         provider=LLMProvider.OPENAI,
         model="gpt-4o-mini",
@@ -131,7 +131,7 @@ The project documentation is available on:
 `LLMConfig` supports multiple providers:
 - OpenAI
 - Google Gemini
-- Additional providers can be added by implementing `BaseLLMClient`.
+- Additional providers can be added by implementing a custom client based on `BaseLLMClient`.
 
 ## Logging (Rich)
 You can enable step-by-step agent logging using the `rich` package:
