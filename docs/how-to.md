@@ -812,18 +812,10 @@ print(response)
 When an agent is initialized or when you manually render:
 
 ```python
-# 1. Lookup
-prompt_template = registry.get_prompt("assistant")
+# 1. Lookup & render (callables are called, strings are formatted)
+rendered = registry.get_prompt("assistant", **kwargs)
 
-# 2. Render (if needed)
-if callable(prompt_template):
-    rendered = prompt_template(**kwargs)  # Call the function
-elif isinstance(prompt_template, str) and kwargs:
-    rendered = prompt_template.format(**kwargs)  # Format string
-else:
-    rendered = prompt_template  # Use as-is
-
-# 3. Use in agent memory
+# 2. Use in agent memory
 agent.memory[0] = {"role": "developer", "content": rendered}
 ```
 

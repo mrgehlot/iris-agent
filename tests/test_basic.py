@@ -62,9 +62,16 @@ def test_prompt_registry():
     # Test non-existent prompt
     assert registry.render("nonexistent") is None
     
-    # Test get_prompt
+    # Test get_prompt with string template
     prompt = registry.get_prompt("test")
     assert prompt == "You are a test assistant."
+
+    # Test get_prompt with callable
+    prompt = registry.get_prompt("dynamic", name="John")
+    assert prompt == "You are John's assistant."
+
+    # Test get_prompt non-existent
+    assert registry.get_prompt("nonexistent") is None
 
 
 def test_tool_registry():
