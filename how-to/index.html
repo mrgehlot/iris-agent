@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -2203,18 +2203,10 @@ and reads <code>GEMINI_API_KEY</code> if <code>api_key</code> is not provided.</
 </ol>
 <h3 id="prompt-rendering-flow">Prompt Rendering Flow<a class="headerlink" href="#prompt-rendering-flow" title="Permanent link">&para;</a></h3>
 <p>When an agent is initialized or when you manually render:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># 1. Lookup</span>
-<span class="n">prompt_template</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">get_prompt</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Lookup &amp; render (callables are called, strings are formatted)</span>
+<span class="n">rendered</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">get_prompt</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-<span class="c1"># 2. Render (if needed)</span>
-<span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">prompt_template</span><span class="p">):</span>
-    <span class="n">rendered</span> <span class="o">=</span> <span class="n">prompt_template</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># Call the function</span>
-<span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">prompt_template</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">:</span>
-    <span class="n">rendered</span> <span class="o">=</span> <span class="n">prompt_template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># Format string</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">rendered</span> <span class="o">=</span> <span class="n">prompt_template</span>  <span class="c1"># Use as-is</span>
-
-<span class="c1"># 3. Use in agent memory</span>
+<span class="c1"># 2. Use in agent memory</span>
 <span class="n">agent</span><span class="o">.</span><span class="n">memory</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;developer&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">rendered</span><span class="p">}</span>
 </code></pre></div>
 <h2 id="how-to-manage-memory">How to Manage Memory<a class="headerlink" href="#how-to-manage-memory" title="Permanent link">&para;</a></h2>
@@ -2437,6 +2429,8 @@ and reads <code>GEMINI_API_KEY</code> if <code>api_key</code> is not provided.</
         <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
       
         <script src="../js/mermaid-init.js"></script>
+      
+        <script src="../js/copy-page.js"></script>
       
     
   </body>
