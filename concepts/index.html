@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Lightweight, provider-agnostic framework for building AI agents.">
+        <meta name="description" content="Modular cognitive architecture framework for building AI agents in Python.">
       
       
       
@@ -314,24 +314,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Core Concepts
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -348,258 +330,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#the-agent-loop" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Agent Loop
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#memory" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Memory
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tools-and-type-inference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tools and Type Inference
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Tools and Type Inference">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#the-tool-decorator" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The @tool Decorator
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#registries" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Registries
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Registries">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toolregistry" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ToolRegistry
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#promptregistry" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        PromptRegistry
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#llm-client-architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LLM Client Architecture
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="LLM Client Architecture">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#llmconfig" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LLMConfig
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#provider-compatibility" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Provider Compatibility
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#messages-and-roles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Messages and Roles
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Messages and Roles">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#message-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Message Structure
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#roles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Roles
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#creating-messages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Creating Messages
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tool-execution-and-error-handling" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tool Execution and Error Handling
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#streaming-architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Streaming Architecture
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#advanced-llm-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Advanced LLM Parameters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#logging" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Logging
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sync-vs-async" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Sync vs Async
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -638,6 +368,66 @@
   
   
   
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../modules/" class="md-nav__link">
         
@@ -658,9 +448,10 @@
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
@@ -682,6 +473,14 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -720,6 +519,93 @@
   
   
     <li class="md-nav__item">
+      <a href="../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Help
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Help
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../troubleshooting/" class="md-nav__link">
         
   
@@ -739,9 +625,10 @@
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
@@ -766,6 +653,14 @@
     </li>
   
 
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
     
   </ul>
 </nav>
@@ -787,247 +682,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#the-agent-loop" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Agent Loop
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#memory" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Memory
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tools-and-type-inference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tools and Type Inference
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Tools and Type Inference">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#the-tool-decorator" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The @tool Decorator
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#registries" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Registries
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Registries">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toolregistry" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ToolRegistry
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#promptregistry" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        PromptRegistry
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#llm-client-architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LLM Client Architecture
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="LLM Client Architecture">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#llmconfig" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LLMConfig
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#provider-compatibility" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Provider Compatibility
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#messages-and-roles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Messages and Roles
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Messages and Roles">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#message-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Message Structure
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#roles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Roles
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#creating-messages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Creating Messages
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tool-execution-and-error-handling" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tool Execution and Error Handling
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#streaming-architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Streaming Architecture
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#advanced-llm-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Advanced LLM Parameters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#logging" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Logging
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sync-vs-async" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Sync vs Async
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1047,52 +701,344 @@
 
 
 <h1 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">&para;</a></h1>
-<p>Understanding how Iris Agent works under the hood will help you build more robust applications.</p>
+<p>Iris Agent offers two levels of architecture. For structured reasoning, use the <strong>cognitive pipeline</strong> orchestrated by <code>Mind</code>. For simpler needs, the classic <strong>agent loop</strong> (<code>Agent</code>/<code>AsyncAgent</code>) is always available.</p>
+<p>This page covers both, starting with the cognitive architecture.</p>
+<hr />
+<h1 id="cognitive-architecture">Cognitive Architecture<a class="headerlink" href="#cognitive-architecture" title="Permanent link">&para;</a></h1>
+<p>The <code>iris_agent.cognition</code> package provides a modular cognitive architecture inspired by Marvin Minsky's <em>Society of Mind</em> — intelligence emerges from the interaction of many specialized mental processes.</p>
+<h2 id="mind-the-cognitive-orchestrator">Mind — The Cognitive Orchestrator<a class="headerlink" href="#mind-the-cognitive-orchestrator" title="Permanent link">&para;</a></h2>
+<p><code>Mind</code> (and <code>AsyncMind</code>) is the top-level orchestrator. Instead of a simple request-response loop, it runs a pipeline of <strong>cognitive modules</strong>:</p>
+<pre class="mermaid"><code>flowchart TD
+    Input([User Input]) --&gt; Observer
+    Observer --&gt; Thinker
+    Thinker --&gt; Planner
+    Planner --&gt; Critic
+    Critic --&gt;|Plan approved| LLM[LLM + Tool Execution]
+    Critic --&gt;|Revision needed| Planner
+    LLM --&gt; Reflector
+    Reflector --&gt; Beliefs[Beliefs + Confidence]
+    Beliefs --&gt; Decisions[Decision Log]
+    Decisions --&gt; Output([Response])</code></pre>
+<p><strong>Pipeline stages:</strong></p>
+<ol>
+<li><strong>Observer</strong> — Converts raw input into structured Observations and Experiences. If <code>WorldModelAware</code>, it also extracts entities (file paths, URLs, tool mentions) into the Knowledge Graph.</li>
+<li><strong>Thinker</strong> — Selects applicable mental models (First Principles, OODA, SWOT, etc.) and injects their reasoning framework into the system prompt.</li>
+<li><strong>Planner</strong> — Decomposes the goal into a plan of action steps. If <code>WorldModelAware</code>, creates task entities linked to the current goal.</li>
+<li><strong>Critic</strong> — Self-evaluates the plan. If revision is needed, loops back to the Planner. When approved, proceeds to execution.</li>
+<li><strong>LLM + Tool Execution</strong> — The LLM generates responses and calls tools. Results are appended to memory.</li>
+<li><strong>Reflector</strong> — Post-action analysis. Records lessons learned and updates beliefs. If <code>WorldModelAware</code>, stores lesson entities in the Knowledge Graph.</li>
+<li><strong>Belief Update</strong> — <code>BeliefSystem</code> updates probabilistic beliefs with new evidence.</li>
+<li><strong>Decision Log</strong> — Records the decision for auditability.</li>
+</ol>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">SyncLLMClient</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent.cognition</span><span class="w"> </span><span class="kn">import</span> <span class="n">Mind</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="n">LLMConfig</span><span class="p">(</span><span class="n">provider</span><span class="o">=</span><span class="s2">&quot;openai&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;sk-...&quot;</span><span class="p">)</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
+<span class="n">mind</span> <span class="o">=</span> <span class="n">Mind</span><span class="p">(</span><span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">mind</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;What is the capital of France?&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">response</span><span class="p">)</span>       <span class="c1"># &quot;The capital of France is Paris&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">confidence</span><span class="p">)</span>     <span class="c1"># 0.85</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">mental_model</span><span class="p">)</span>   <span class="c1"># &quot;first_principles&quot;</span>
+</code></pre></div>
+<h3 id="mindresult">MindResult<a class="headerlink" href="#mindresult" title="Permanent link">&para;</a></h3>
+<p><code>Mind.run()</code> returns a <code>MindResult</code> with these fields:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>response</code></td>
+<td style="text-align: left;"><code>str</code></td>
+<td style="text-align: left;">Final text response</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>confidence</code></td>
+<td style="text-align: left;"><code>float</code></td>
+<td style="text-align: left;">Estimated confidence (0–1)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>mental_model</code></td>
+<td style="text-align: left;"><code>str \| None</code></td>
+<td style="text-align: left;">The mental model selected by the Thinker</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>context</code></td>
+<td style="text-align: left;"><code>dict</code></td>
+<td style="text-align: left;">Full cognitive context from all modules</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>plan</code></td>
+<td style="text-align: left;"><code>list[dict] \| None</code></td>
+<td style="text-align: left;">The plan produced by Planner</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>lessons</code></td>
+<td style="text-align: left;"><code>list[str]</code></td>
+<td style="text-align: left;">Lessons recorded by Reflector</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>message_history</code></td>
+<td style="text-align: left;"><code>list[dict]</code></td>
+<td style="text-align: left;">Full LLM message history</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cognitive-modules">Cognitive Modules<a class="headerlink" href="#cognitive-modules" title="Permanent link">&para;</a></h2>
+<p>All modules inherit from <code>CognitiveModule</code> and implement <code>process(context) -&gt; context</code>. They communicate via a shared context dict.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Module</th>
+<th style="text-align: left;">File</th>
+<th style="text-align: left;">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Observer</strong></td>
+<td style="text-align: left;"><code>observer.py</code></td>
+<td style="text-align: left;">Input → Observation → Experience</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Thinker</strong></td>
+<td style="text-align: left;"><code>thinker.py</code></td>
+<td style="text-align: left;">Mental model selection and execution</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Planner</strong></td>
+<td style="text-align: left;"><code>planner.py</code></td>
+<td style="text-align: left;">Goal decomposition into plan steps</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Critic</strong></td>
+<td style="text-align: left;"><code>critic.py</code></td>
+<td style="text-align: left;">Self-evaluation and revision</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Reflector</strong></td>
+<td style="text-align: left;"><code>reflector.py</code></td>
+<td style="text-align: left;">Post-action analysis → lessons</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Attention</strong></td>
+<td style="text-align: left;"><code>attention.py</code></td>
+<td style="text-align: left;">Focus / priority management</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Debate</strong></td>
+<td style="text-align: left;"><code>debate.py</code></td>
+<td style="text-align: left;">Multi-perspective reasoning</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Simulation</strong></td>
+<td style="text-align: left;"><code>simulation.py</code></td>
+<td style="text-align: left;">Counterfactual evaluation</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Learning</strong></td>
+<td style="text-align: left;"><code>learning.py</code></td>
+<td style="text-align: left;">Strategy adaptation from experience</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>HypothesisGenerator</strong></td>
+<td style="text-align: left;"><code>hypothesis.py</code></td>
+<td style="text-align: left;">Hypothesis generation and testing</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>BeliefSystem</strong></td>
+<td style="text-align: left;"><code>beliefs.py</code></td>
+<td style="text-align: left;">Probabilistic beliefs with evidence tracking</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ConfidenceTracker</strong></td>
+<td style="text-align: left;"><code>confidence.py</code></td>
+<td style="text-align: left;">Confidence estimation</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>DecisionLog</strong></td>
+<td style="text-align: left;"><code>decisions.py</code></td>
+<td style="text-align: left;">Decision recording</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ExperienceStore</strong></td>
+<td style="text-align: left;"><code>experiences.py</code></td>
+<td style="text-align: left;">Experience creation and storage</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EventBus</strong></td>
+<td style="text-align: left;"><code>events.py</code></td>
+<td style="text-align: left;">Simplified pub/sub for in-pipeline events</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>KnowledgeGraph</strong></td>
+<td style="text-align: left;"><code>graph.py</code></td>
+<td style="text-align: left;">Entity/Relation CRUD, traversal, serialization</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>WorldModel</strong></td>
+<td style="text-align: left;"><code>world_model.py</code></td>
+<td style="text-align: left;">Facade over KnowledgeGraph</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>WorldModelAware</strong></td>
+<td style="text-align: left;"><code>world_model_aware.py</code></td>
+<td style="text-align: left;">Mixin for modules needing graph access</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MentalModel</strong></td>
+<td style="text-align: left;"><code>mental_models.py</code></td>
+<td style="text-align: left;">ABC + 6 built-in models</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mental-models">Mental Models<a class="headerlink" href="#mental-models" title="Permanent link">&para;</a></h2>
+<p>Mental models are reasoning frameworks that the Thinker selects and automatically injects into the system prompt. You never manually manage reasoning prompts.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Model</th>
+<th style="text-align: left;">Strategy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>First Principles</strong></td>
+<td style="text-align: left;">Break down to fundamental truths, build up from there</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Root Cause Analysis</strong></td>
+<td style="text-align: left;">Trace symptoms to root causes via 5 Whys</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>OODA Loop</strong></td>
+<td style="text-align: left;">Observe → Orient → Decide → Act</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SWOT</strong></td>
+<td style="text-align: left;">Strengths, Weaknesses, Opportunities, Threats</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Second-Order Thinking</strong></td>
+<td style="text-align: left;">Consider consequences of consequences</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Bayesian Updating</strong></td>
+<td style="text-align: left;">Update beliefs with prior probability and new evidence</td>
+</tr>
+</tbody>
+</table>
+<h2 id="world-model-knowledge-graph">World Model &amp; Knowledge Graph<a class="headerlink" href="#world-model-knowledge-graph" title="Permanent link">&para;</a></h2>
+<p>The World Model replaces flat message history with a structured <strong>Knowledge Graph</strong> of typed entities and relations. This gives the agent persistent, queryable awareness across turns.</p>
+<h3 id="knowledge-graph">Knowledge Graph<a class="headerlink" href="#knowledge-graph" title="Permanent link">&para;</a></h3>
+<p>Entities are typed (goal, task, file, tool, message, etc.) and connected by typed relations (subgoal_of, depends_on, produces, references, etc.).</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent.cognition</span><span class="w"> </span><span class="kn">import</span> <span class="n">KnowledgeGraph</span>
+
+<span class="n">kg</span> <span class="o">=</span> <span class="n">KnowledgeGraph</span><span class="p">()</span>
+
+<span class="n">goal_id</span> <span class="o">=</span> <span class="n">kg</span><span class="o">.</span><span class="n">add_entity</span><span class="p">(</span><span class="s2">&quot;goal&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Build a feature&quot;</span><span class="p">})</span>
+<span class="n">task_id</span> <span class="o">=</span> <span class="n">kg</span><span class="o">.</span><span class="n">add_entity</span><span class="p">(</span><span class="s2">&quot;task&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Implement API&quot;</span><span class="p">})</span>
+<span class="n">kg</span><span class="o">.</span><span class="n">add_relation</span><span class="p">(</span><span class="n">task_id</span><span class="p">,</span> <span class="n">goal_id</span><span class="p">,</span> <span class="s2">&quot;subgoal_of&quot;</span><span class="p">)</span>
+
+<span class="n">related</span> <span class="o">=</span> <span class="n">kg</span><span class="o">.</span><span class="n">get_related</span><span class="p">(</span><span class="n">goal_id</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="worldmodel-facade">WorldModel Facade<a class="headerlink" href="#worldmodel-facade" title="Permanent link">&para;</a></h3>
+<p><code>WorldModel</code> wraps <code>KnowledgeGraph</code> with higher-level methods and is automatically integrated into <code>Mind</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">wm</span> <span class="o">=</span> <span class="n">WorldModel</span><span class="p">()</span>
+<span class="n">wm</span><span class="o">.</span><span class="n">set_goal</span><span class="p">(</span><span class="s2">&quot;Refactor code&quot;</span><span class="p">)</span>
+<span class="n">wm</span><span class="o">.</span><span class="n">ingest_message</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;List all .py files in src/&quot;</span><span class="p">)</span>
+<span class="n">wm</span><span class="o">.</span><span class="n">add_task</span><span class="p">(</span><span class="s2">&quot;Find all Python files&quot;</span><span class="p">)</span>
+
+<span class="n">context_summary</span> <span class="o">=</span> <span class="n">wm</span><span class="o">.</span><span class="n">get_context</span><span class="p">()</span>
+<span class="c1"># &quot;Current Goal: Refactor code\nKnown entities:\n  - [message] ...&quot;</span>
+</code></pre></div>
+<h3 id="how-it-integrates">How It Integrates<a class="headerlink" href="#how-it-integrates" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Observer</strong> (WorldModelAware) — auto-extracts file paths, URLs, tool mentions from user input into the graph</li>
+<li><strong>Planner</strong> (WorldModelAware) — creates task entities linked to the current goal</li>
+<li><strong>Reflector</strong> (WorldModelAware) — records lesson entities after each run</li>
+<li><strong>World state appended to prompt</strong> — <code>get_context()</code> output is injected into the system prompt</li>
+</ul>
+<h3 id="cross-turn-persistence">Cross-Turn Persistence<a class="headerlink" href="#cross-turn-persistence" title="Permanent link">&para;</a></h3>
+<p>WorldModel state persists across <code>mind.run()</code> calls via JSON files:</p>
+<div class="highlight"><pre><span></span><code><span class="n">mind</span> <span class="o">=</span> <span class="n">Mind</span><span class="p">(</span>
+    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+    <span class="n">world_model_path</span><span class="o">=</span><span class="s2">&quot;./memory/world_model.json&quot;</span>
+<span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">mind</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;First message&quot;</span><span class="p">)</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="n">mind</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;Second message&quot;</span><span class="p">)</span>  <span class="c1"># carries knowledge forward</span>
+</code></pre></div>
+<hr />
+<h1 id="underlying-engine">Underlying Engine<a class="headerlink" href="#underlying-engine" title="Permanent link">&para;</a></h1>
+<p>The cognitive pipeline is built on a robust, provider-agnostic engine. This same engine powers the simpler <code>Agent</code>/<code>AsyncAgent</code> for backward compatibility.</p>
 <h2 id="the-agent-loop">The Agent Loop<a class="headerlink" href="#the-agent-loop" title="Permanent link">&para;</a></h2>
-<p>At its core, an <code>Agent</code> (or <code>AsyncAgent</code>) implements a <strong>Loop</strong> that continues until the AI produces a final answer.</p>
+<p>At its simplest, the engine runs a loop that continues until the LLM produces a final answer:</p>
 <pre class="mermaid"><code>flowchart TD
     Start([User Input]) --&gt; Receive[Receive Input]
     Receive --&gt; UpdateMemory[Update Memory]
     UpdateMemory --&gt; LLMCall[LLM Call&lt;br/&gt;Send history + tool definitions]
     LLMCall --&gt; Decision{LLM Decision}
     Decision --&gt;|Generate Response| Respond[Generate Text Response]
-    Decision --&gt;|Use Tool| CallTool[Call Tool&lt;br/&gt;Request function execution]
+    Decision --&gt;|Use Tool| CallTool[Call Tool]
     CallTool --&gt; Execute[Execute Tool&lt;br/&gt;Run Python function]
     Execute --&gt; AddToolResult[Add Tool Result&lt;br/&gt;to Memory as Tool message]
     AddToolResult --&gt; LLMCall
     Respond --&gt; CheckToolCalls{More Tool Calls?}
     CheckToolCalls --&gt;|Yes| CallTool
-    CheckToolCalls --&gt;|No| FinalOutput([Return Final Response])
-
-    style Start fill:#e1f5ff
-    style FinalOutput fill:#c8e6c9
-    style Decision fill:#fff9c4
-    style CheckToolCalls fill:#fff9c4</code></pre>
-<ol>
-<li><strong>Receive Input</strong>: The agent accepts a user message (text or multimodal).</li>
-<li><strong>Update Memory</strong>: The message is added to the agent's conversation history (<code>self.memory</code>).</li>
-<li><strong>LLM Call</strong>: The agent sends the full history + available tool definitions to the LLM.</li>
-<li><strong>Decision</strong>: The LLM decides to either:<ul>
-<li><strong>Respond</strong>: Generate a text response.</li>
-<li><strong>Call Tool</strong>: Request execution of a specific tool with specific arguments.</li>
-</ul>
-</li>
-<li><strong>Execution (if Tool)</strong>:<ul>
-<li>The agent executes the requested Python function.</li>
-<li>The result is captured and added to memory as a <code>Tool</code> message.</li>
-<li>The loop repeats (Go to Step 3).</li>
-</ul>
-</li>
-<li><strong>Final Output</strong>: When the LLM generates a text response (and no more tool calls), the text is returned to the user.</li>
-</ol>
+    CheckToolCalls --&gt;|No| FinalOutput([Return Final Response])</code></pre>
+<p>This loop is used by both <code>Agent.run()</code> and <code>Mind</code>'s LLM + Tool Execution stage.</p>
+<h2 id="llm-clients">LLM Clients<a class="headerlink" href="#llm-clients" title="Permanent link">&para;</a></h2>
+<p><code>SyncLLMClient</code> and <code>AsyncLLMClient</code> wrap the OpenAI Python SDK and share common behavior via <code>BaseLLMClient</code>.</p>
+<h3 id="llmconfig">LLMConfig<a class="headerlink" href="#llmconfig" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>provider</code></td>
+<td style="text-align: left;"><code>LLMProvider.OPENAI</code> or <code>LLMProvider.GOOGLE</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>model</code></td>
+<td style="text-align: left;">Model name (e.g., <code>"gpt-4o-mini"</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>api_key</code></td>
+<td style="text-align: left;">API key</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>base_url</code></td>
+<td style="text-align: left;">Optional override (local models, Gemini endpoint)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>reasoning_effort</code></td>
+<td style="text-align: left;">For reasoning models (o1, etc.)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>web_search_options</code></td>
+<td style="text-align: left;">For models that support web search</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>extra_body</code></td>
+<td style="text-align: left;">Provider-specific overrides</td>
+</tr>
+</tbody>
+</table>
+<h3 id="provider-compatibility">Provider Compatibility<a class="headerlink" href="#provider-compatibility" title="Permanent link">&para;</a></h3>
+<p>The clients work with OpenAI, Google Gemini (via OpenAI-compatible <code>base_url</code>), and any OpenAI-compatible API (Ollama, vLLM, LocalAI).</p>
 <h2 id="memory">Memory<a class="headerlink" href="#memory" title="Permanent link">&para;</a></h2>
-<p>Iris Agent uses a simple list-based memory structure compatible with OpenAI's chat format.</p>
-<ul>
-<li><strong>System Message</strong>: The initial instruction (e.g., "You are a helpful assistant"). Always kept at index 0.</li>
-<li><strong>User Message</strong>: Input from the human.</li>
-<li><strong>Assistant Message</strong>: Output from the AI.</li>
-<li><strong>Tool Message</strong>: Results from function calls.</li>
-</ul>
+<p>Conversation history is a list of message dicts compatible with OpenAI's chat format:</p>
 <div class="highlight"><pre><span></span><code><span class="p">[</span>
   <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;developer&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;You are a helpful assistant.&quot;</span><span class="p">},</span>
   <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;What is the date?&quot;</span><span class="p">},</span>
@@ -1101,16 +1047,58 @@
   <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;It is October 27, 2023.&quot;</span><span class="p">}</span>
 <span class="p">]</span>
 </code></pre></div>
-<h2 id="tools-and-type-inference">Tools and Type Inference<a class="headerlink" href="#tools-and-type-inference" title="Permanent link">&para;</a></h2>
-<p>One of the most powerful features of Iris Agent is how it handles tools. Instead of manually writing JSON schemas, you write standard Python functions with type hints.</p>
-<h3 id="the-tool-decorator">The <code>@tool</code> Decorator<a class="headerlink" href="#the-tool-decorator" title="Permanent link">&para;</a></h3>
-<p>When you decorate a function with <code>@tool</code>, Iris Agent inspects the signature:</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@tool</span>
+<p>System prompts use role <code>developer</code> (OpenAI o-series compatible), not <code>system</code>.</p>
+<h2 id="messages-roles">Messages &amp; Roles<a class="headerlink" href="#messages-roles" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Role</th>
+<th style="text-align: left;">Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>DEVELOPER</code> / <code>SYSTEM</code></td>
+<td style="text-align: left;">System instructions (kept at index 0)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>USER</code></td>
+<td style="text-align: left;">Human input</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ASSISTANT</code></td>
+<td style="text-align: left;">AI responses (may include <code>tool_calls</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>TOOL</code></td>
+<td style="text-align: left;">Function call results (must include <code>tool_call_id</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>Use <code>create_message()</code> for properly formatted messages:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_message</span><span class="p">,</span> <span class="n">Role</span>
+
+<span class="n">user_msg</span> <span class="o">=</span> <span class="n">create_message</span><span class="p">(</span><span class="n">Role</span><span class="o">.</span><span class="n">USER</span><span class="p">,</span> <span class="s2">&quot;What&#39;s the weather?&quot;</span><span class="p">)</span>
+
+<span class="n">image_msg</span> <span class="o">=</span> <span class="n">create_message</span><span class="p">(</span>
+    <span class="n">role</span><span class="o">=</span><span class="n">Role</span><span class="o">.</span><span class="n">USER</span><span class="p">,</span>
+    <span class="n">content</span><span class="o">=</span><span class="s2">&quot;Describe this image&quot;</span><span class="p">,</span>
+    <span class="n">images</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;https://example.com/photo.jpg&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</code></pre></div>
+<h2 id="tools-toolregistry">Tools &amp; ToolRegistry<a class="headerlink" href="#tools-toolregistry" title="Permanent link">&para;</a></h2>
+<p>Tools are Python functions with type hints. The <code>@tool</code> decorator automatically infers the JSON schema for the LLM.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">tool</span><span class="p">,</span> <span class="n">ToolRegistry</span>
+
+<span class="nd">@tool</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">calculate_tax</span><span class="p">(</span><span class="n">amount</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">rate</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate tax for a given amount.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">amount</span> <span class="o">*</span> <span class="n">rate</span>
+
+<span class="n">registry</span> <span class="o">=</span> <span class="n">ToolRegistry</span><span class="p">()</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">calculate_tax</span><span class="p">)</span>
 </code></pre></div>
-<p>This is automatically converted to:
+<p>This produces the schema automatically:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;calculate_tax&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Calculate tax for a given amount.&quot;</span><span class="p">,</span>
@@ -1123,61 +1111,25 @@
 <span class="w">    </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;amount&quot;</span><span class="p">]</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></p>
-<p>The <code>ToolRegistry</code> handles this conversion and the subsequent execution validation.</p>
-<h2 id="registries">Registries<a class="headerlink" href="#registries" title="Permanent link">&para;</a></h2>
-<p>To keep your code organized, Iris Agent uses Registries.</p>
-<ul>
-<li><strong><code>ToolRegistry</code></strong>: A collection of available tools. You can share registries between multiple agents.</li>
-<li><strong><code>PromptRegistry</code></strong>: A collection of system prompts or templates. This allows you to dynamically switch personas or update prompts without changing application code.</li>
-</ul>
-<h3 id="toolregistry">ToolRegistry<a class="headerlink" href="#toolregistry" title="Permanent link">&para;</a></h3>
-<p>The <code>ToolRegistry</code> manages tool registration, validation, and execution. You can register individual tools or scan entire objects for decorated tools.</p>
-<p><strong>Basic Usage:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">ToolRegistry</span><span class="p">,</span> <span class="n">tool</span>
-
-<span class="n">registry</span> <span class="o">=</span> <span class="n">ToolRegistry</span><span class="p">()</span>
-
-<span class="nd">@tool</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">calculate_tax</span><span class="p">(</span><span class="n">amount</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">rate</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate tax for a given amount.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">amount</span> <span class="o">*</span> <span class="n">rate</span>
-
-<span class="c1"># Register a single tool</span>
-<span class="n">registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">calculate_tax</span><span class="p">)</span>
-
-<span class="c1"># Get OpenAI-compatible schemas</span>
-<span class="n">schemas</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">schemas</span><span class="p">()</span>
-
-<span class="c1"># Call the tool directly</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s2">&quot;calculate_tax&quot;</span><span class="p">,</span> <span class="n">amount</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mf">0.15</span><span class="p">)</span>
 </code></pre></div>
-<p><strong>Registering Multiple Tools from an Object:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MathTools</span><span class="p">:</span>
-    <span class="nd">@tool</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add two numbers.&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-
-    <span class="nd">@tool</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Multiply two numbers.&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
-
-<span class="n">math_tools</span> <span class="o">=</span> <span class="n">MathTools</span><span class="p">()</span>
-<span class="n">tool_registry</span> <span class="o">=</span> <span class="n">ToolRegistry</span><span class="p">()</span>
-<span class="n">tool_registry</span><span class="o">.</span><span class="n">register_from</span><span class="p">(</span><span class="n">math_tools</span><span class="p">)</span>  <span class="c1"># Registers both add and multiply</span>
-
-<span class="c1"># List all registered tools</span>
-<span class="n">all_tools</span> <span class="o">=</span> <span class="n">tool_registry</span><span class="o">.</span><span class="n">list_tools</span><span class="p">()</span>
-
-<span class="c1"># Create an agent with the tool registry</span>
-<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span> <span class="n">tool_registry</span><span class="o">=</span><span class="n">tool_registry</span><span class="p">)</span>
+<h3 id="core-built-in-tools">Core Built-in Tools<a class="headerlink" href="#core-built-in-tools" title="Permanent link">&para;</a></h3>
+<p>Quick-start with common file-system tools:</p>
+<div class="highlight"><pre><span></span><code><span class="n">tools</span> <span class="o">=</span> <span class="n">ToolRegistry</span><span class="p">()</span>
+<span class="n">tools</span><span class="o">.</span><span class="n">include_core</span><span class="p">()</span>  <span class="c1"># read_file, list_dir, glob_files, grep_files, run_command</span>
 </code></pre></div>
-<p><strong>Async Tools:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
+<p>Or import individually:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">CORE_TOOLS</span>  <span class="c1"># dict of {name: function}</span>
 
-<span class="nd">@tool</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent.tools</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">core_read_file</span><span class="p">,</span>
+    <span class="n">core_list_dir</span><span class="p">,</span>
+    <span class="n">core_glob_files</span><span class="p">,</span>
+    <span class="n">core_grep_files</span><span class="p">,</span>
+    <span class="n">core_run_command</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<h3 id="async-tools">Async Tools<a class="headerlink" href="#async-tools" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nd">@tool</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">fetch_url</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Fetch content from a URL.&quot;&quot;&quot;</span>
     <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
@@ -1185,398 +1137,80 @@
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
 
 <span class="n">registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">fetch_url</span><span class="p">)</span>
-
-<span class="c1"># Call async tool</span>
 <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">registry</span><span class="o">.</span><span class="n">call_async</span><span class="p">(</span><span class="s2">&quot;fetch_url&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://example.com&quot;</span><span class="p">)</span>
 </code></pre></div>
-<p><strong>Sharing Registries Between Agents:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create a shared tool registry</span>
-<span class="n">shared_tools</span> <span class="o">=</span> <span class="n">ToolRegistry</span><span class="p">()</span>
+<h3 id="sharing-registries">Sharing Registries<a class="headerlink" href="#sharing-registries" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">shared_tools</span> <span class="o">=</span> <span class="n">ToolRegistry</span><span class="p">()</span>
 <span class="n">shared_tools</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">calculate_tax</span><span class="p">)</span>
 <span class="n">shared_tools</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">fetch_url</span><span class="p">)</span>
 
-<span class="c1"># Use with multiple agents</span>
 <span class="n">agent1</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="n">llm_client</span><span class="o">=</span><span class="n">client1</span><span class="p">,</span> <span class="n">tool_registry</span><span class="o">=</span><span class="n">shared_tools</span><span class="p">)</span>
 <span class="n">agent2</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="n">llm_client</span><span class="o">=</span><span class="n">client2</span><span class="p">,</span> <span class="n">tool_registry</span><span class="o">=</span><span class="n">shared_tools</span><span class="p">)</span>
 </code></pre></div>
-<h3 id="promptregistry">PromptRegistry<a class="headerlink" href="#promptregistry" title="Permanent link">&para;</a></h3>
-<p>The <code>PromptRegistry</code> provides flexible prompt management with support for static strings, templates, and dynamic callable prompts.</p>
-<p><strong>1. Static Prompts (Simple Strings):</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">PromptRegistry</span><span class="p">,</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span>
-
-<span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<h2 id="promptregistry">PromptRegistry<a class="headerlink" href="#promptregistry" title="Permanent link">&para;</a></h2>
+<p>Manage system prompts with support for static strings, templates, and callable prompts.</p>
+<h3 id="static-prompts">Static Prompts<a class="headerlink" href="#static-prompts" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
 <span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a helpful AI assistant.&quot;</span><span class="p">)</span>
 
-<span class="c1"># Get the prompt</span>
-<span class="n">prompt</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">get_prompt</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">)</span>
-<span class="c1"># Returns: &quot;You are a helpful AI assistant.&quot;</span>
-
-<span class="c1"># Create an agent with the prompt registry</span>
-<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">LLMConfig</span><span class="p">(</span><span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">OPENAI</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="p">))</span>
 <span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
     <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
     <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span>
     <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;assistant&quot;</span>
 <span class="p">)</span>
-
-<span class="c1"># Use the agent</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;Hello, how are you?&quot;</span><span class="p">)</span>
 </code></pre></div>
-<p><strong>2. Template Prompts (String Formatting):</strong></p>
-<p>Template prompts use Python's <code>.format()</code> syntax for variable substitution. Since agents render prompts without arguments, you have two options:</p>
-<p><strong>Option A: Pre-render and add to registry</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">PromptRegistry</span><span class="p">,</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span>
-
-<span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
-<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span>
-    <span class="s2">&quot;personal_assistant&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;You are </span><span class="si">{name}</span><span class="s2">&#39;s personal assistant. Today is </span><span class="si">{date}</span><span class="s2">.&quot;</span>
-<span class="p">)</span>
-
-<span class="c1"># Render with variables</span>
-<span class="n">rendered</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;personal_assistant&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="s2">&quot;2024-01-15&quot;</span><span class="p">)</span>
-<span class="c1"># Returns: &quot;You are Alice&#39;s personal assistant. Today is 2024-01-15.&quot;</span>
-
-<span class="c1"># Add the rendered prompt back to the registry with a new name</span>
-<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;alice_assistant&quot;</span><span class="p">,</span> <span class="n">rendered</span><span class="p">)</span>
-
-<span class="c1"># Create agent with the rendered prompt</span>
-<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
-    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
-    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span>
-    <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;alice_assistant&quot;</span>
-<span class="p">)</span>
-
-<span class="c1"># Use the agent</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;What can you help me with today?&quot;</span><span class="p">)</span>
+<h3 id="template-prompts">Template Prompts<a class="headerlink" href="#template-prompts" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;personal&quot;</span><span class="p">,</span> <span class="s2">&quot;You are </span><span class="si">{name}</span><span class="s2">&#39;s assistant. Today is </span><span class="si">{date}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="n">rendered</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;personal&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="s2">&quot;2024-01-15&quot;</span><span class="p">)</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;alice&quot;</span><span class="p">,</span> <span class="n">rendered</span><span class="p">)</span>
 </code></pre></div>
-<p><strong>Option B: Use callable prompts (recommended for templates with variables)</strong></p>
-<p>For templates that need variables, callable prompts are more flexible:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">PromptRegistry</span><span class="p">,</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">personal_assistant_prompt</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;User&quot;</span><span class="p">,</span> <span class="n">date</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate personalized assistant prompt.&quot;&quot;&quot;</span>
-    <span class="n">date_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot; Today is </span><span class="si">{</span><span class="n">date</span><span class="si">}</span><span class="s2">.&quot;</span> <span class="k">if</span> <span class="n">date</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
-    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;You are </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;s personal assistant.</span><span class="si">{</span><span class="n">date_str</span><span class="si">}</span><span class="s2">&quot;</span>
-
-<span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
-<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;personal_assistant&quot;</span><span class="p">,</span> <span class="n">personal_assistant_prompt</span><span class="p">)</span>
-
-<span class="c1"># Create client</span>
-<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">LLMConfig</span><span class="p">(</span><span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">OPENAI</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="p">))</span>
-
-<span class="c1"># Option 1: Use with defaults (if function has defaults)</span>
-<span class="c1"># Since this function has defaults, it will work without arguments</span>
-<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
-    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
-    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span>
-    <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;personal_assistant&quot;</span>
-<span class="p">)</span>
-
-<span class="c1"># Option 2: Render with specific values and add to registry</span>
-<span class="n">rendered</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;personal_assistant&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="s2">&quot;2024-01-15&quot;</span><span class="p">)</span>
-<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;alice_assistant&quot;</span><span class="p">,</span> <span class="n">rendered</span><span class="p">)</span>
-<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
-    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
-    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span>
-    <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;alice_assistant&quot;</span>
-<span class="p">)</span>
-
-<span class="c1"># Use the agent</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;What can you help me with?&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p><strong>3. Callable Prompts (Function-Based):</strong></p>
-<p>For maximum flexibility, register functions that generate prompts dynamically:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">PromptRegistry</span><span class="p">,</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">create_assistant_prompt</span><span class="p">(</span><span class="n">user_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate a personalized assistant prompt.&quot;&quot;&quot;</span>
-    <span class="n">base</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;You are </span><span class="si">{</span><span class="n">user_name</span><span class="si">}</span><span class="s2">&#39;s assistant.&quot;</span>
-    <span class="k">if</span> <span class="n">context</span><span class="p">:</span>
-        <span class="n">base</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; Context: </span><span class="si">{</span><span class="n">context</span><span class="si">}</span><span class="s2">&quot;</span>
-    <span class="k">return</span> <span class="n">base</span>
-
-<span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
-<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="n">create_assistant_prompt</span><span class="p">)</span>
-
-<span class="c1"># Option 1: Use with default arguments (if function has defaults)</span>
-<span class="c1"># Since create_assistant_prompt requires user_name, we need to pre-render</span>
-
-<span class="c1"># Render with function arguments</span>
-<span class="n">prompt</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="n">user_name</span><span class="o">=</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="s2">&quot;coding session&quot;</span><span class="p">)</span>
-<span class="c1"># Returns: &quot;You are Bob&#39;s assistant. Context: coding session&quot;</span>
-
-<span class="c1"># Add the rendered prompt to registry</span>
-<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;bob_assistant&quot;</span><span class="p">,</span> <span class="n">prompt</span><span class="p">)</span>
-
-<span class="c1"># Create agent with the rendered prompt</span>
-<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
-    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
-    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span>
-    <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;bob_assistant&quot;</span>
-<span class="p">)</span>
-
-<span class="c1"># Now use the agent</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;What can you help me with?&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p><strong>Better approach: Use callable with defaults</strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">create_assistant_prompt</span><span class="p">(</span><span class="n">user_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;User&quot;</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate a personalized assistant prompt.&quot;&quot;&quot;</span>
-    <span class="n">base</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;You are </span><span class="si">{</span><span class="n">user_name</span><span class="si">}</span><span class="s2">&#39;s assistant.&quot;</span>
-    <span class="k">if</span> <span class="n">context</span><span class="p">:</span>
-        <span class="n">base</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; Context: </span><span class="si">{</span><span class="n">context</span><span class="si">}</span><span class="s2">&quot;</span>
-    <span class="k">return</span> <span class="n">base</span>
-
-<span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
-<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="n">create_assistant_prompt</span><span class="p">)</span>
-
-<span class="c1"># Now it works directly with agent (uses defaults)</span>
-<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
-    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
-    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span>
-    <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;assistant&quot;</span>
-<span class="p">)</span>
-
-<span class="c1"># Or render with specific values and add to registry</span>
-<span class="n">rendered</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="n">user_name</span><span class="o">=</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="s2">&quot;coding session&quot;</span><span class="p">)</span>
-<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;bob_assistant&quot;</span><span class="p">,</span> <span class="n">rendered</span><span class="p">)</span>
-<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
-    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
-    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span>
-    <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;bob_assistant&quot;</span>
-<span class="p">)</span>
-</code></pre></div>
-<p><strong>4. Context-Aware Dynamic Prompts:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">PromptRegistry</span><span class="p">,</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">contextual_prompt</span><span class="p">(</span><span class="n">current_time</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">user_location</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;You are a helpful assistant.</span>
-<span class="s2">Current time: </span><span class="si">{</span><span class="n">current_time</span><span class="si">}</span>
-<span class="s2">User location: </span><span class="si">{</span><span class="n">user_location</span><span class="si">}</span>
-<span class="s2">Adjust your responses based on timezone and location.&quot;&quot;&quot;</span>
+<h3 id="callable-prompts">Callable Prompts<a class="headerlink" href="#callable-prompts" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">contextual_prompt</span><span class="p">(</span><span class="n">current_time</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">user_location</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;You are a helpful assistant. Time: </span><span class="si">{</span><span class="n">current_time</span><span class="si">}</span><span class="s2">, Location: </span><span class="si">{</span><span class="n">user_location</span><span class="si">}</span><span class="s2">&quot;</span>
 
 <span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
 <span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;contextual&quot;</span><span class="p">,</span> <span class="n">contextual_prompt</span><span class="p">)</span>
-
-<span class="c1"># Render with current context</span>
-<span class="n">prompt</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">render</span><span class="p">(</span>
-    <span class="s2">&quot;contextual&quot;</span><span class="p">,</span>
-    <span class="n">current_time</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span>
-    <span class="n">user_location</span><span class="o">=</span><span class="s2">&quot;New York&quot;</span>
-<span class="p">)</span>
-
-<span class="c1"># Add the rendered prompt to registry</span>
-<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;contextual_ny&quot;</span><span class="p">,</span> <span class="n">prompt</span><span class="p">)</span>
-
-<span class="c1"># Create agent with the context-aware prompt</span>
-<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
-    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
-    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span>
-    <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;contextual_ny&quot;</span>
-<span class="p">)</span>
-
-<span class="c1"># Use the agent - it will have context about time and location</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;What&#39;s the weather like?&quot;</span><span class="p">)</span>
 </code></pre></div>
-<p><strong>5. Multiple Personas:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">PromptRegistry</span><span class="p">,</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span>
-
-<span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
-<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;friendly&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a friendly and cheerful assistant.&quot;</span><span class="p">)</span>
+<h3 id="multiple-personas">Multiple Personas<a class="headerlink" href="#multiple-personas" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;friendly&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a friendly assistant.&quot;</span><span class="p">)</span>
 <span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;professional&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a professional business assistant.&quot;</span><span class="p">)</span>
 <span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;pirate&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a friendly pirate assistant. Arr!&quot;</span><span class="p">)</span>
 
-<span class="c1"># Create client</span>
-<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">LLMConfig</span><span class="p">(</span><span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">OPENAI</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="p">))</span>
-
-<span class="c1"># Switch personas dynamically</span>
-<span class="n">persona</span> <span class="o">=</span> <span class="s2">&quot;pirate&quot;</span>  <span class="c1"># Could come from user preference</span>
 <span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
     <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
     <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span>
-    <span class="n">system_prompt_name</span><span class="o">=</span><span class="n">persona</span>
-<span class="p">)</span>
-
-<span class="c1"># Use the agent with the selected persona</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;Tell me about yourself.&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p><strong>6. Template with Conditional Logic:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">PromptRegistry</span><span class="p">,</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">SyncLLMClient</span><span class="p">,</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">LLMProvider</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">smart_prompt</span><span class="p">(</span><span class="n">user_level</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">language</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;en&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate prompt based on user expertise level.&quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">user_level</span> <span class="o">==</span> <span class="s2">&quot;beginner&quot;</span><span class="p">:</span>
-        <span class="n">instruction</span> <span class="o">=</span> <span class="s2">&quot;Explain concepts in simple terms with examples.&quot;</span>
-    <span class="k">elif</span> <span class="n">user_level</span> <span class="o">==</span> <span class="s2">&quot;expert&quot;</span><span class="p">:</span>
-        <span class="n">instruction</span> <span class="o">=</span> <span class="s2">&quot;Use technical terminology and advanced concepts.&quot;</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">instruction</span> <span class="o">=</span> <span class="s2">&quot;Provide balanced explanations.&quot;</span>
-
-    <span class="n">lang_note</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot; Respond in </span><span class="si">{</span><span class="n">language</span><span class="si">}</span><span class="s2">.&quot;</span> <span class="k">if</span> <span class="n">language</span> <span class="o">!=</span> <span class="s2">&quot;en&quot;</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
-    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;You are a helpful assistant.</span><span class="si">{</span><span class="n">lang_note</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">instruction</span><span class="si">}</span><span class="s2">&quot;</span>
-
-<span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
-<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;smart&quot;</span><span class="p">,</span> <span class="n">smart_prompt</span><span class="p">)</span>
-
-<span class="c1"># Render for different users</span>
-<span class="n">beginner_prompt</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;smart&quot;</span><span class="p">,</span> <span class="n">user_level</span><span class="o">=</span><span class="s2">&quot;beginner&quot;</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s2">&quot;en&quot;</span><span class="p">)</span>
-<span class="n">expert_prompt</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;smart&quot;</span><span class="p">,</span> <span class="n">user_level</span><span class="o">=</span><span class="s2">&quot;expert&quot;</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s2">&quot;es&quot;</span><span class="p">)</span>
-
-<span class="c1"># Add rendered prompts to registry</span>
-<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;beginner_assistant&quot;</span><span class="p">,</span> <span class="n">beginner_prompt</span><span class="p">)</span>
-<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;expert_assistant_es&quot;</span><span class="p">,</span> <span class="n">expert_prompt</span><span class="p">)</span>
-
-<span class="c1"># Create agents for different user types</span>
-<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">LLMConfig</span><span class="p">(</span><span class="n">provider</span><span class="o">=</span><span class="n">LLMProvider</span><span class="o">.</span><span class="n">OPENAI</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="p">))</span>
-
-<span class="c1"># Agent for beginners</span>
-<span class="n">beginner_agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
-    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
-    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span>
-    <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;beginner_assistant&quot;</span>
-<span class="p">)</span>
-
-<span class="c1"># Agent for experts (Spanish)</span>
-<span class="n">expert_agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
-    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
-    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span>
-    <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;expert_assistant_es&quot;</span>
-<span class="p">)</span>
-
-<span class="c1"># Use the agents</span>
-<span class="n">beginner_response</span> <span class="o">=</span> <span class="n">beginner_agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;What is machine learning?&quot;</span><span class="p">)</span>
-<span class="n">expert_response</span> <span class="o">=</span> <span class="n">expert_agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;Explain transformer architecture.&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p><strong>7. Retrieving and Checking Prompts:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
-<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;Test prompt&quot;</span><span class="p">)</span>
-
-<span class="c1"># Get prompt (returns None if not found)</span>
-<span class="n">prompt</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">get_prompt</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>  <span class="c1"># Returns: &quot;Test prompt&quot;</span>
-<span class="n">missing</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">get_prompt</span><span class="p">(</span><span class="s2">&quot;nonexistent&quot;</span><span class="p">)</span>  <span class="c1"># Returns: None</span>
-
-<span class="c1"># Render (returns None if prompt not found)</span>
-<span class="n">rendered</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>  <span class="c1"># Returns: &quot;Test prompt&quot;</span>
-<span class="n">missing_rendered</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;nonexistent&quot;</span><span class="p">)</span>  <span class="c1"># Returns: None</span>
-</code></pre></div>
-<p><strong>Key Points:</strong>
-- <strong>Static prompts</strong>: Work directly with agents
-- <strong>Template prompts with variables</strong>: Must be pre-rendered and added back to registry, or use callable prompts
-- <strong>Callable prompts</strong>: Work best if they have default arguments, otherwise pre-render them</p>
-<h2 id="llm-client-architecture">LLM Client Architecture<a class="headerlink" href="#llm-client-architecture" title="Permanent link">&para;</a></h2>
-<p>The <code>SyncLLMClient</code> and <code>AsyncLLMClient</code> are the interface between your agent and the AI provider. They share common behavior via <code>BaseLLMClient</code>.</p>
-<h3 id="llmconfig">LLMConfig<a class="headerlink" href="#llmconfig" title="Permanent link">&para;</a></h3>
-<p>The <code>LLMConfig</code> dataclass contains all the information needed to connect to an LLM:</p>
-<ul>
-<li><strong><code>provider</code></strong>: The provider identifier (e.g., <code>LLMProvider.OPENAI</code>, <code>LLMProvider.GOOGLE</code>)</li>
-<li><strong><code>model</code></strong>: The specific model name (e.g., <code>"gpt-4o"</code>, <code>"gpt-4o-mini"</code>)</li>
-<li><strong><code>api_key</code></strong>: Your API key (can be <code>None</code> if using environment variables)</li>
-<li><strong><code>base_url</code></strong>: Optional override for custom endpoints (useful for local models, proxies, or Gemini via OpenAI-compatible API)</li>
-<li><strong><code>reasoning_effort</code></strong>: Optional hint for models that support reasoning (e.g., <code>"high"</code>, <code>"medium"</code>, <code>"low"</code>)</li>
-<li><strong><code>web_search_options</code></strong>: Optional configuration for models that support web search</li>
-<li><strong><code>extra_body</code></strong>: Optional provider-specific request overrides (e.g., Gemini <code>thinking_config</code>)</li>
-</ul>
-<h3 id="provider-compatibility">Provider Compatibility<a class="headerlink" href="#provider-compatibility" title="Permanent link">&para;</a></h3>
-<p>The LLM clients use the OpenAI SDK under the hood, which means they work with:
-- <strong>OpenAI</strong>: Direct API access
-- <strong>Google Gemini</strong>: Via OpenAI-compatible base URL (<code>https://generativelanguage.googleapis.com/v1beta/openai/</code>)
-- <strong>Local Models</strong>: Any OpenAI-compatible API (Ollama, vLLM, LocalAI, etc.)</p>
-<p>The client automatically handles differences in API capabilities (e.g., JSON mode support detection).</p>
-<h2 id="messages-and-roles">Messages and Roles<a class="headerlink" href="#messages-and-roles" title="Permanent link">&para;</a></h2>
-<p>Iris Agent uses a message-based conversation format compatible with OpenAI's chat completions API.</p>
-<h3 id="message-structure">Message Structure<a class="headerlink" href="#message-structure" title="Permanent link">&para;</a></h3>
-<p>Messages are dictionaries with a <code>role</code> field and optional <code>content</code>, <code>name</code>, <code>images</code>, and <code>tool_calls</code> fields:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-  <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello!&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span>  <span class="c1"># Optional: for multi-user conversations</span>
-  <span class="s2">&quot;images&quot;</span><span class="p">:</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span>   <span class="c1"># Optional: for multimodal messages</span>
-<span class="p">}</span>
-</code></pre></div>
-<h3 id="roles">Roles<a class="headerlink" href="#roles" title="Permanent link">&para;</a></h3>
-<p>The framework supports five roles (defined in <code>Role</code> class):</p>
-<ul>
-<li><strong><code>SYSTEM</code> / <code>DEVELOPER</code></strong>: System instructions. The agent uses <code>DEVELOPER</code> by default for prompts from <code>PromptRegistry</code>. Both are treated identically and always kept at index 0 in memory.</li>
-<li><strong><code>USER</code></strong>: Human input messages.</li>
-<li><strong><code>ASSISTANT</code></strong>: AI-generated responses. Can include <code>tool_calls</code> when the model wants to use tools.</li>
-<li><strong><code>TOOL</code></strong>: Results from function calls. Must include <code>tool_call_id</code> to link back to the original request.</li>
-</ul>
-<h3 id="creating-messages">Creating Messages<a class="headerlink" href="#creating-messages" title="Permanent link">&para;</a></h3>
-<p>Use the <code>create_message()</code> helper function to create properly formatted messages:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_message</span><span class="p">,</span> <span class="n">Role</span>
-
-<span class="c1"># Simple text message</span>
-<span class="n">user_msg</span> <span class="o">=</span> <span class="n">create_message</span><span class="p">(</span><span class="n">Role</span><span class="o">.</span><span class="n">USER</span><span class="p">,</span> <span class="s2">&quot;What&#39;s the weather?&quot;</span><span class="p">)</span>
-
-<span class="c1"># Multimodal message with images</span>
-<span class="n">image_msg</span> <span class="o">=</span> <span class="n">create_message</span><span class="p">(</span>
-    <span class="n">role</span><span class="o">=</span><span class="n">Role</span><span class="o">.</span><span class="n">USER</span><span class="p">,</span>
-    <span class="n">content</span><span class="o">=</span><span class="s2">&quot;Describe this image&quot;</span><span class="p">,</span>
-    <span class="n">images</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;https://example.com/photo.jpg&quot;</span><span class="p">]</span>
-<span class="p">)</span>
-
-<span class="c1"># Image-only message (no text)</span>
-<span class="n">image_only</span> <span class="o">=</span> <span class="n">create_message</span><span class="p">(</span>
-    <span class="n">role</span><span class="o">=</span><span class="n">Role</span><span class="o">.</span><span class="n">USER</span><span class="p">,</span>
-    <span class="n">content</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># Empty string for image-only</span>
-    <span class="n">images</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;https://example.com/chart.png&quot;</span><span class="p">]</span>
+    <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;pirate&quot;</span>
 <span class="p">)</span>
 </code></pre></div>
-<h2 id="tool-execution-and-error-handling">Tool Execution and Error Handling<a class="headerlink" href="#tool-execution-and-error-handling" title="Permanent link">&para;</a></h2>
-<p>When the LLM requests a tool call, the agent:</p>
-<ol>
-<li><strong>Parses Arguments</strong>: Extracts JSON arguments from the tool call</li>
-<li><strong>Validates</strong>: Checks arguments against the tool's schema (type checking, required fields, enum values)</li>
-<li><strong>Executes</strong>: Calls the Python function (sync or async)</li>
-<li><strong>Handles Errors</strong>: If an exception occurs, the error message is captured and sent back to the LLM as the tool response, allowing the model to retry or adjust</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="c1"># If a tool raises an exception:</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">tool_registry</span><span class="o">.</span><span class="n">call_async</span><span class="p">(</span><span class="s2">&quot;get_weather&quot;</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="s2">&quot;Tokyo&quot;</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-    <span class="c1"># The agent automatically wraps this as:</span>
-    <span class="c1"># {&quot;role&quot;: &quot;tool&quot;, &quot;content&quot;: f&quot;Tool error: {exc}&quot;}</span>
+<h2 id="tool-execution-error-handling">Tool Execution &amp; Error Handling<a class="headerlink" href="#tool-execution-error-handling" title="Permanent link">&para;</a></h2>
+<p>When the LLM requests a tool call, the engine:
+1. Parses and validates arguments against the schema
+2. Executes the Python function
+3. Captures errors and returns them to the LLM as tool messages, allowing retry</p>
+<h2 id="streaming">Streaming<a class="headerlink" href="#streaming" title="Permanent link">&para;</a></h2>
+<p><code>run_stream()</code> yields tokens as they're generated and buffers tool calls for execution after the stream completes.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Sync</span>
+<span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">agent</span><span class="o">.</span><span class="n">run_stream</span><span class="p">(</span><span class="s2">&quot;Tell me a story.&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">chunk</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Async</span>
+<span class="k">async</span> <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">agent</span><span class="o">.</span><span class="n">run_stream</span><span class="p">(</span><span class="s2">&quot;Tell me a story.&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">chunk</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
-<p>This error handling allows the LLM to understand what went wrong and potentially try a different approach.</p>
-<h2 id="streaming-architecture">Streaming Architecture<a class="headerlink" href="#streaming-architecture" title="Permanent link">&para;</a></h2>
-<p>When using <code>run_stream()</code>, the agent handles streaming differently from <code>run()</code>:</p>
-<ol>
-<li><strong>Stream Collection</strong>: Instead of waiting for the full response, chunks are yielded immediately to the caller</li>
-<li><strong>Tool Call Buffering</strong>: Tool calls arrive incrementally in the stream. The agent buffers these chunks until the stream completes</li>
-<li><strong>Tool Execution</strong>: After the stream ends, if tool calls were detected, they are executed (just like in <code>run()</code>)</li>
-<li><strong>Loop Continuation</strong>: The agent continues the loop, sending tool results back and streaming the next response</li>
-</ol>
-<p>This allows for real-time user feedback while still supporting the full tool-calling workflow.</p>
 <h2 id="advanced-llm-parameters">Advanced LLM Parameters<a class="headerlink" href="#advanced-llm-parameters" title="Permanent link">&para;</a></h2>
-<p>The agent supports several advanced parameters that can be passed to <code>run()</code> or <code>run_stream()</code>:</p>
+<p>Pass to <code>run()</code> or <code>run_stream()</code>:</p>
 <ul>
-<li><strong><code>json_response</code></strong>: Forces the model to output valid JSON only (requires model support)</li>
-<li><strong><code>seed</code></strong>: Sets a random seed for deterministic outputs (useful for testing)</li>
-<li><strong><code>max_completion_tokens</code> / <code>max_tokens</code></strong>: Limits the response length</li>
-<li><strong><code>reasoning_effort</code></strong>: Hints to models like o1 about how much reasoning to perform</li>
-<li><strong><code>web_search_options</code></strong>: Enables web search for models that support it</li>
+<li><code>json_response</code> — Force JSON output (requires model support)</li>
+<li><code>seed</code> — Deterministic output (for testing)</li>
+<li><code>max_completion_tokens</code> / <code>max_tokens</code> — Response length limit</li>
+<li><code>reasoning_effort</code> — For reasoning models (e.g., o1)</li>
+<li><code>web_search_options</code> — Enable web search for supported models</li>
 </ul>
-<p>These parameters are passed through to the underlying LLM client and may not be supported by all providers.</p>
 <h2 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h2>
-<p>Iris Agent includes built-in support for Rich logging, which provides beautiful, colorized terminal output showing:</p>
-<ul>
-<li>User messages (cyan)</li>
-<li>LLM calls (dim)</li>
-<li>Tool calls (magenta)</li>
-<li>Tool responses (green)</li>
-<li>Assistant responses (bold green)</li>
-<li>Finish reasons (dim)</li>
-</ul>
-<p>Enable logging by setting <code>enable_logging=True</code> when creating an agent:</p>
+<p>Enable Rich logging for colorized terminal output:</p>
 <div class="highlight"><pre><span></span><code><span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">enable_logging</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
-<p>You can also provide a custom logger instance for integration with your existing logging infrastructure.</p>
-<h2 id="sync-vs-async">Sync vs Async<a class="headerlink" href="#sync-vs-async" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong><code>AsyncAgent</code></strong>: Async agent that uses <code>asyncio</code> for non-blocking I/O (HTTP requests to LLMs, database calls in tools). Ideal for web servers (FastAPI, Quart). Supports both <code>run()</code> and <code>run_stream()</code>.</li>
-<li><strong><code>Agent</code></strong>: Synchronous agent that uses the sync client. Ideal for scripts, CLI tools, or data science notebooks where <code>async/await</code> syntax might be cumbersome. Supports both <code>run()</code> and <code>run_stream()</code>.</li>
-</ul>
+<p>Shows user messages, LLM calls, tool calls/results, and final responses with distinct colors.</p>
 
 
 

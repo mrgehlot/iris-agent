@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Lightweight, provider-agnostic framework for building AI agents.">
+        <meta name="description" content="Modular cognitive architecture framework for building AI agents in Python.">
       
       
       
@@ -360,6 +360,66 @@
   
   
   
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
@@ -430,6 +490,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#srciris_agentcognition-phase-1-cognitive-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        src/iris_agent/cognition/ (Phase 1 — Cognitive Architecture)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#examples" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -458,9 +529,10 @@
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
@@ -482,6 +554,14 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -520,6 +600,93 @@
   
   
     <li class="md-nav__item">
+      <a href="../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Help
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Help
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../troubleshooting/" class="md-nav__link">
         
   
@@ -539,9 +706,10 @@
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
@@ -563,6 +731,14 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -598,6 +774,17 @@
     <span class="md-ellipsis">
       
         src/iris_agent/
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#srciris_agentcognition-phase-1-cognitive-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        src/iris_agent/cognition/ (Phase 1 — Cognitive Architecture)
       
     </span>
   </a>
@@ -685,6 +872,106 @@
 <tr>
 <td style="text-align: left;"><strong><code>types.py</code></strong></td>
 <td style="text-align: left;">Type definitions and constants (e.g., <code>Role</code>).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="srciris_agentcognition-phase-1-cognitive-architecture"><code>src/iris_agent/cognition/</code> (Phase 1 — Cognitive Architecture)<a class="headerlink" href="#srciris_agentcognition-phase-1-cognitive-architecture" title="Permanent link">&para;</a></h2>
+<p>The cognitive package (opt-in, import from <code>iris_agent.cognition</code>):</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Module</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>mind.py</code></strong></td>
+<td style="text-align: left;"><code>Mind</code> — synchronous orchestrator for the cognitive pipeline</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>async_mind.py</code></strong></td>
+<td style="text-align: left;"><code>AsyncMind</code> — asynchronous orchestrator</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>observer.py</code></strong></td>
+<td style="text-align: left;"><code>Observer</code> — input → observation → experience</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>thinker.py</code></strong></td>
+<td style="text-align: left;"><code>Thinker</code> — mental model selection and execution</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>mental_models.py</code></strong></td>
+<td style="text-align: left;"><code>MentalModel</code> ABC + 6 built-in models (First Principles, RCA, OODA, SWOT, Second-Order Thinking, Bayesian)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>planner.py</code></strong></td>
+<td style="text-align: left;"><code>Planner</code> — goal decomposition into plan steps</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>critic.py</code></strong></td>
+<td style="text-align: left;"><code>Critic</code> — self-evaluation and revision</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>reflector.py</code></strong></td>
+<td style="text-align: left;"><code>Reflector</code> — post-action analysis and lesson recording</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>attention.py</code></strong></td>
+<td style="text-align: left;"><code>AttentionController</code> — focus/priority management</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>debate.py</code></strong></td>
+<td style="text-align: left;"><code>DebateModule</code> — multi-perspective reasoning</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>simulation.py</code></strong></td>
+<td style="text-align: left;"><code>SimulationModule</code> — counterfactual evaluation</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>learning.py</code></strong></td>
+<td style="text-align: left;"><code>LearningModule</code> — strategy adaptation</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>hypothesis.py</code></strong></td>
+<td style="text-align: left;"><code>HypothesisGenerator</code> — hypothesis generation and testing</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>beliefs.py</code></strong></td>
+<td style="text-align: left;"><code>BeliefSystem</code> — probabilistic beliefs with evidence tracking</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>confidence.py</code></strong></td>
+<td style="text-align: left;"><code>ConfidenceTracker</code> — confidence estimation</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>decisions.py</code></strong></td>
+<td style="text-align: left;"><code>DecisionLog</code> — decision recording</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>events.py</code></strong></td>
+<td style="text-align: left;"><code>EventBus</code> — simplified pub/sub for in-pipeline events</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>experiences.py</code></strong></td>
+<td style="text-align: left;"><code>ExperienceStore</code> — experience creation and storage</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>graph.py</code></strong></td>
+<td style="text-align: left;"><code>KnowledgeGraph</code> — Entity/Relation CRUD, traversal, serialization</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>world_model.py</code></strong></td>
+<td style="text-align: left;"><code>WorldModel</code> — facade over KnowledgeGraph with high-level API</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>world_model_aware.py</code></strong></td>
+<td style="text-align: left;"><code>WorldModelAware</code> — mixin for modules that need world model access</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>base.py</code></strong></td>
+<td style="text-align: left;"><code>CognitiveModule</code> ABC — all modules inherit this</td>
 </tr>
 </tbody>
 </table>
