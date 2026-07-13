@@ -2,8 +2,11 @@ from __future__ import annotations
 
 import asyncio
 import inspect
+import os
+import pathlib
 from dataclasses import dataclass
-from typing import Any, Callable, Dict, Optional, get_args, get_origin, Mapping, Sequence
+from types import UnionType
+from typing import Any, Callable, Dict, List, Literal, Mapping, Optional, Sequence, Union, get_args, get_origin
 
 
 @dataclass
@@ -62,14 +65,14 @@ def _schema_for_type(tp: Any) -> Dict[str, Any]:
         additional = _schema_for_type(args[1]) if len(args) > 1 else {}
         return {"type": "object", "additionalProperties": additional}
 
-    if origin is not None and str(origin).endswith("Literal"):
+    if origin is Literal:
         values = list(args)
         if values:
             value_type = type(values[0])
             return {"type": _schema_for_type(value_type).get("type", "string"), "enum": values}
         return {"type": "string"}
 
-    if origin is not None and str(origin).endswith("Union"):
+    if origin in (Union, UnionType):
         schemas = [_schema_for_type(arg) for arg in args]
         return {"anyOf": schemas}
 
@@ -155,6 +158,106 @@ def tool(
     return decorator
 
 
+# ---------------------------------------------------------------------------
+# Core built-in tools
+# ---------------------------------------------------------------------------
+
+
+@tool(description="Read a file from the filesystem. Returns up to `limit` lines starting at `offset` (1-indexed).")
+def read_file(file_path: str, offset: int = 1, limit: int = 2000) -> str:
+    file_path = os.path.expanduser(file_path)
+    if not os.path.isfile(file_path):
+        return f"Error: file not found at {file_path}"
+    try:
+        with open(file_path, "r") as f:
+            lines = f.readlines()
+        total = len(lines)
+        start = max(0, offset - 1)
+        end = start + limit
+        selected = lines[start:end]
+        result = "".join(selected)
+        if total > end:
+            result += f"\n... ({total - end} more lines)"
+        return result.rstrip("\n")
+    except Exception as exc:
+        return f"Error reading file: {exc}"
+
+
+@tool(description="List files and directories in a given path.")
+def list_dir(path: str = ".") -> str:
+    path = os.path.expanduser(path)
+    if not os.path.isdir(path):
+        return f"Error: directory not found at {path}"
+    try:
+        entries = sorted(os.listdir(path))
+        parts = []
+        for e in entries:
+            full = os.path.join(path, e)
+            if os.path.isdir(full):
+                parts.append(f"{e}/")
+            else:
+                parts.append(e)
+        return "\n".join(parts) if parts else "(empty)"
+    except Exception as exc:
+        return f"Error listing directory: {exc}"
+
+
+@tool(description="Search for files matching a glob pattern. Example: **/*.py")
+def glob_files(pattern: str, path: str = ".") -> str:
+    path = os.path.expanduser(path)
+    try:
+        import glob as glob_module
+        matches = glob_module.glob(os.path.join(path, pattern), recursive=True)
+        if not matches:
+            return "(no matches)"
+        return "\n".join(sorted(matches))
+    except Exception as exc:
+        return f"Error during glob: {exc}"
+
+
+@tool(description="Search file contents with a regex pattern. Returns matching lines with file paths.")
+def grep_files(pattern: str, include: str = "*", path: str = ".") -> str:
+    path = os.path.expanduser(path)
+    try:
+        import subprocess
+        result = subprocess.run(
+            ["grep", "-rn", "--include=" + include, pattern, path],
+            capture_output=True, text=True, timeout=30,
+        )
+        output = (result.stdout or "").strip()
+        return output if output else "(no matches)"
+    except subprocess.TimeoutExpired:
+        return "Error: grep timed out after 30s"
+    except Exception as exc:
+        return f"Error during grep: {exc}"
+
+
+@tool(description="Execute a shell command and return its output. Use with caution.")
+def run_command(command: str, timeout: int = 30) -> str:
+    try:
+        import subprocess
+        result = subprocess.run(
+            command, shell=True, capture_output=True, text=True, timeout=timeout,
+        )
+        output = (result.stdout or "").strip()
+        error = (result.stderr or "").strip()
+        if output and error:
+            return f"{output}\n\nSTDERR:\n{error}"
+        return output or error or "(no output)"
+    except subprocess.TimeoutExpired:
+        return f"Error: command timed out after {timeout}s"
+    except Exception as exc:
+        return f"Error executing command: {exc}"
+
+
+CORE_TOOLS: List[Callable] = [read_file, list_dir, glob_files, grep_files, run_command]
+
+
+def core_tools() -> List[Callable]:
+    """Return a list of all core built-in tool functions (pre-decorated)."""
+    return list(CORE_TOOLS)
+
+
 class ToolRegistry:
     """Register, validate, and call tools."""
     def __init__(self) -> None:
@@ -194,6 +297,11 @@ class ToolRegistry:
             if callable(member) and hasattr(member, "_tool_spec"):
                 self.register(member)
 
+    def include_core(self) -> None:
+        """Register all core built-in tools (read_file, list_dir, glob_files, grep_files, run_command)."""
+        for func in CORE_TOOLS:
+            self.register(func)
+
     def list_tools(self) -> Dict[str, ToolSpec]:
         """
         Return a copy of the tool mapping.
@@ -230,6 +338,10 @@ class ToolRegistry:
         missing = [r for r in required if r not in args]
         if missing:
             raise ValueError(f"Missing required args for '{name}': {', '.join(missing)}")
+
+        unknown = [key for key in args if key not in props]
+        if unknown:
+            raise ValueError(f"Unknown args for '{name}': {', '.join(unknown)}")
 
         for key, value in args.items():
             if key not in props:

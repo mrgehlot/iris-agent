@@ -16,6 +16,35 @@ The core package source.
 | **`messages.py`** | Helpers for creating messages (text, images). |
 | **`types.py`** | Type definitions and constants (e.g., `Role`). |
 
+## `src/iris_agent/cognition/` (Phase 1 — Cognitive Architecture)
+
+The cognitive package (opt-in, import from `iris_agent.cognition`):
+
+| Module | Description |
+| :--- | :--- |
+| **`mind.py`** | `Mind` — synchronous orchestrator for the cognitive pipeline |
+| **`async_mind.py`** | `AsyncMind` — asynchronous orchestrator |
+| **`observer.py`** | `Observer` — input → observation → experience |
+| **`thinker.py`** | `Thinker` — mental model selection and execution |
+| **`mental_models.py`** | `MentalModel` ABC + 6 built-in models (First Principles, RCA, OODA, SWOT, Second-Order Thinking, Bayesian) |
+| **`planner.py`** | `Planner` — goal decomposition into plan steps |
+| **`critic.py`** | `Critic` — self-evaluation and revision |
+| **`reflector.py`** | `Reflector` — post-action analysis and lesson recording |
+| **`attention.py`** | `AttentionController` — focus/priority management |
+| **`debate.py`** | `DebateModule` — multi-perspective reasoning |
+| **`simulation.py`** | `SimulationModule` — counterfactual evaluation |
+| **`learning.py`** | `LearningModule` — strategy adaptation |
+| **`hypothesis.py`** | `HypothesisGenerator` — hypothesis generation and testing |
+| **`beliefs.py`** | `BeliefSystem` — probabilistic beliefs with evidence tracking |
+| **`confidence.py`** | `ConfidenceTracker` — confidence estimation |
+| **`decisions.py`** | `DecisionLog` — decision recording |
+| **`events.py`** | `EventBus` — simplified pub/sub for in-pipeline events |
+| **`experiences.py`** | `ExperienceStore` — experience creation and storage |
+| **`graph.py`** | `KnowledgeGraph` — Entity/Relation CRUD, traversal, serialization |
+| **`world_model.py`** | `WorldModel` — facade over KnowledgeGraph with high-level API |
+| **`world_model_aware.py`** | `WorldModelAware` — mixin for modules that need world model access |
+| **`base.py`** | `CognitiveModule` ABC — all modules inherit this |
+
 ## `examples/`
 
 Contains reference implementations.

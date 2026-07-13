@@ -2,6 +2,105 @@
 
 This section provides practical guides for common tasks.
 
+## How to Use Mind
+
+`Mind` is the cognitive orchestrator. Create it with an LLM client and optional tool registry and World Model path.
+
+```python
+from iris_agent import LLMConfig, LLMProvider, SyncLLMClient
+from iris_agent.cognition import Mind
+
+config = LLMConfig(
+    provider=LLMProvider.OPENAI,
+    model="gpt-4o-mini",
+    api_key="sk-...",
+)
+client = SyncLLMClient(config)
+
+mind = Mind(llm_client=client)
+
+result = mind.run("Explain quantum computing in simple terms.")
+print(result.response)
+print(f"Confidence: {result.confidence}")
+print(f"Mental model: {result.mental_model}")
+```
+
+## How to Configure World Model Persistence
+
+Pass a file path to auto-save and load the Knowledge Graph across runs:
+
+```python
+mind = Mind(
+    llm_client=client,
+    world_model_path="./memory/world_model.json"
+)
+
+result1 = mind.run("Find all configuration files.")
+result2 = mind.run("What did we find in the previous step?")
+# World Model carries forward entities and relations
+```
+
+The file is loaded on `__init__` and saved after each `run()` or `run_stream()`.
+
+## How to Use Core Built-in Tools
+
+Register common file-system tools in one call:
+
+```python
+from iris_agent import ToolRegistry
+
+tools = ToolRegistry()
+tools.include_core()  # read_file, list_dir, glob_files, grep_files, run_command
+
+mind = Mind(llm_client=client, tool_registry=tools)
+result = mind.run("List all .py files in the current directory.")
+```
+
+## How to Run a Mind in a Server (Async)
+
+Use `AsyncMind` for non-blocking execution in web servers:
+
+```python
+from iris_agent import AsyncLLMClient
+from iris_agent.cognition import AsyncMind
+
+async def handle_request(user_input: str) -> str:
+    client = AsyncLLMClient(config)
+    mind = AsyncMind(llm_client=client)
+    result = await mind.run(user_input)
+    return result.response
+```
+
+## How to Customize the Cognitive Pipeline
+
+Disable specific cognitive modules by name:
+
+```python
+from iris_agent.cognition import Mind
+
+mind = Mind(
+    llm_client=client,
+    disabled_modules={"critic", "reflector"}  # skip self-evaluation and reflection
+)
+```
+
+Available module names: `observer`, `thinker`, `planner`, `critic`, `reflector`, `attention`, `debate`, `simulation`, `learning`, `hypothesis_generator`.
+
+## How to Inspect the Knowledge Graph Directly
+
+Access the World Model's underlying graph for debugging or custom queries:
+
+```python
+mind = Mind(llm_client=client, world_model_path="./wm.json")
+result = mind.run("List all files in src/")
+
+# Access the graph after run
+graph = mind.world_model.graph
+all_entities = graph.get_all_entities()
+for entity in all_entities:
+    print(f"  [{entity.entity_type}] {entity.properties.get('description', '')}")
+```
+
 ## How to Define Tools
 
 Tools are the primary way your agent interacts with the world.

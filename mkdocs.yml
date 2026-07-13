@@ -1,17 +1,13 @@
 site_name: Iris Agent
-site_description: Lightweight, provider-agnostic framework for building AI agents.
+site_description: Modular cognitive architecture framework for building AI agents in Python.
 site_url: https://mrgehlot.github.io/iris-agent/
 repo_url: https://github.com/mrgehlot/iris-agent
 repo_name: mrgehlot/iris-agent
 
 theme:
   name: material
-  # Uncomment and add your logo file to docs/assets/logo.png
-  logo: assets/logo.png  # Path to your logo (relative to docs/ directory)
-  favicon: assets/favicon.ico  # Optional: favicon for browser tab
-  # Alternative: use an icon instead of a logo image
-  # icon:
-  #   repo: fontawesome/brands/github
+  logo: assets/logo.png
+  favicon: assets/favicon.ico
   features:
     - content.code.copy
     - navigation.expand
@@ -45,11 +41,14 @@ nav:
   - Installation: installation.md
   - Core Concepts: concepts.md
   - How-To Guides: how-to.md
-  - Modules Reference: modules.md
-  - API Reference: api.md
+  - Reference:
+    - Modules Reference: modules.md
+    - API Reference: api.md
   - Examples: examples.md
-  - Troubleshooting: troubleshooting.md
-  - FAQ: faq.md
+  - Roadmap: roadmap.md
+  - Help:
+    - Troubleshooting: troubleshooting.md
+    - FAQ: faq.md
 
 extra_javascript:
   - https://unpkg.com/mermaid@10/dist/mermaid.min.js

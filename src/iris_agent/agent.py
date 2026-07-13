@@ -1,8 +1,7 @@
 import logging
 from typing import Any, Generator, List, Optional
 
-from rich.logging import RichHandler
-
+from ._utils import safe_json_loads, setup_agent_logger, truncate
 from .llm import SyncLLMClient
 from .messages import create_message
 from .prompts import PromptRegistry
@@ -37,7 +36,7 @@ class Agent:
         self.tool_registry = tool_registry or ToolRegistry()
         self.system_prompt_name = system_prompt_name
         self._memory: List[dict] = []
-        self.logger = logger or (self._setup_logger() if enable_logging else None)
+        self.logger = logger or (setup_agent_logger() if enable_logging else None)
         self._ensure_system_prompt()
 
     @property
@@ -74,48 +73,9 @@ class Agent:
         else:
             self._memory[0] = self.create_message(Role.DEVELOPER, prompt)
 
-    def _setup_logger(self) -> logging.Logger:
-        """
-        Configure Rich logger for step-by-step output.
-
-        Returns:
-            Configured logger instance.
-        """
-        logger = logging.getLogger("iris_agent")
-        logger.setLevel(logging.INFO)
-        if not logger.handlers:
-            handler = RichHandler(rich_tracebacks=True, markup=True, show_time=False)
-            handler.setFormatter(logging.Formatter("%(message)s"))
-            logger.addHandler(handler)
-        logger.propagate = False
-        return logger
-
     def _log(self, message: str) -> None:
-        """
-        Emit a log message when logging is enabled.
-
-        Args:
-            message: Formatted log message.
-        """
         if self.logger:
             self.logger.info(message)
-
-    @staticmethod
-    def _truncate(value: Any, limit: int = 200) -> str:
-        """
-        Truncate long values for log readability.
-
-        Args:
-            value: Value to truncate.
-            limit: Maximum length before truncation.
-
-        Returns:
-            Truncated string representation.
-        """
-        text = str(value)
-        if len(text) <= limit:
-            return text
-        return f"{text[:limit]}…"
 
     @staticmethod
     def _normalize_user_message(message: str | dict) -> dict:
@@ -131,24 +91,6 @@ class Agent:
         if isinstance(message, dict):
             return message
         return create_message(role=Role.USER, content=message)
-
-    @staticmethod
-    def _safe_json_loads(value: str) -> dict:
-        """
-        Parse tool arguments safely, returning empty dict on errors.
-
-        Args:
-            value: JSON string of tool arguments.
-
-        Returns:
-            Parsed dict or empty dict if parsing fails.
-        """
-        try:
-            import json
-
-            return json.loads(value) if value else {}
-        except Exception:
-            return {}
 
     def run(
         self,
@@ -178,7 +120,7 @@ class Agent:
         message = self._normalize_user_message(user_message)
         self._memory.append(message)
         tools = self.tool_registry.schemas() if self.tool_registry else None
-        self._log(f"[bold cyan]User[/]: {self._truncate(message.get('content'))}")
+        self._log(f"[bold cyan]User[/]: {truncate(message.get('content') or '')}")
 
         while True:
             self._log("[dim]Calling LLM...[/]")
@@ -229,16 +171,16 @@ class Agent:
                     tool_args = tc.function.arguments
                     self._log(
                         f"[magenta]Running tool[/] {tool_name} "
-                        f"args={self._truncate(tool_args)}"
+                        f"args={truncate(tool_args)}"
                     )
-                    tool_kwargs = self._safe_json_loads(tool_args)
+                    tool_kwargs = safe_json_loads(tool_args)
                     try:
                         tool_response = self.tool_registry.call(tool_name, **tool_kwargs)
                     except Exception as exc:
                         tool_response = f"Tool error: {exc}"
                     self._log(
                         f"[green]Tool response[/] {tool_name}: "
-                        f"{self._truncate(tool_response)}"
+                        f"{truncate(tool_response)}"
                     )
                     self._memory.append(
                         {
@@ -251,12 +193,12 @@ class Agent:
                 continue
 
             if finish_reason == "stop" and content:
-                self._log(f"[bold green]Assistant[/]: {self._truncate(content)}")
+                self._log(f"[bold green]Assistant[/]: {truncate(content)}")
                 self._memory.append(self.create_message(Role.ASSISTANT, content))
                 return content
 
             if content:
-                self._log(f"[bold green]Assistant[/]: {self._truncate(content)}")
+                self._log(f"[bold green]Assistant[/]: {truncate(content)}")
                 self._memory.append(self.create_message(Role.ASSISTANT, content))
                 return content
             return ""
@@ -265,7 +207,7 @@ class Agent:
         self,
         user_message: str | dict,
         json_response: bool = False,
-        max_tokens: int | None = None,
+        max_completion_tokens: int | None = None,
         seed: int | None = None,
         reasoning_effort: str | None = None,
         web_search_options: dict | None = None,
@@ -277,7 +219,7 @@ class Agent:
         Args:
             user_message: User input text or a pre-built message dict.
             json_response: Request JSON-only response when supported.
-            max_tokens: Cap the streamed completion tokens.
+            max_completion_tokens: Cap the completion token count.
             seed: Optional seed for deterministic sampling.
             reasoning_effort: Optional reasoning effort hint for supported models.
             web_search_options: Optional web search options for supported models.
@@ -287,7 +229,7 @@ class Agent:
             message = self._normalize_user_message(user_message)
             self._memory.append(message)
             tools = self.tool_registry.schemas() if self.tool_registry else None
-            self._log(f"[bold cyan]User[/]: {self._truncate(message.get('content'))}")
+            self._log(f"[bold cyan]User[/]: {truncate(message.get('content') or '')}")
 
             while True:
                 tool_call_chunks: dict[int, dict] = {}
@@ -299,7 +241,7 @@ class Agent:
                     tools=tools,
                     temperature=1.0,
                     json_response=json_response,
-                    max_tokens=max_tokens,
+                    max_completion_tokens=max_completion_tokens,
                     seed=seed,
                     reasoning_effort=reasoning_effort,
                     web_search_options=web_search_options,
@@ -341,7 +283,7 @@ class Agent:
 
                 if not tool_calls:
                     if full_response:
-                        self._log(f"[bold green]Assistant[/]: {self._truncate(full_response)}")
+                        self._log(f"[bold green]Assistant[/]: {truncate(full_response)}")
                     break
 
                 for tool_call in tool_calls:
@@ -349,16 +291,16 @@ class Agent:
                     tool_args = tool_call["function"]["arguments"]
                     self._log(
                         f"[magenta]Running tool[/] {tool_name} "
-                        f"args={self._truncate(tool_args)}"
+                        f"args={truncate(tool_args)}"
                     )
-                    tool_kwargs = self._safe_json_loads(tool_args)
+                    tool_kwargs = safe_json_loads(tool_args)
                     try:
                         tool_response = self.tool_registry.call(tool_name, **tool_kwargs)
                     except Exception as exc:
                         tool_response = f"Tool error: {exc}"
                     self._log(
                         f"[green]Tool response[/] {tool_name}: "
-                        f"{self._truncate(tool_response)}"
+                        f"{truncate(tool_response)}"
                     )
                     self._memory.append(
                         {
