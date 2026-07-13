@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import logging
 from dataclasses import dataclass
 import os
 from typing import Any, Optional
@@ -80,8 +81,13 @@ class BaseLLMClient:
         if tools:
             completion_object["tools"] = tools
             completion_object["tool_choice"] = "auto"
-        if json_response and self._supports_json_response():
-            completion_object["response_format"] = {"type": "json_object"}
+        if json_response:
+            if self._supports_json_response():
+                completion_object["response_format"] = {"type": "json_object"}
+            else:
+                logging.getLogger("iris_agent").warning(
+                    "json_response=True is not supported by the current provider; ignoring."
+                )
         if seed is not None:
             completion_object["seed"] = seed
         if max_completion_tokens is not None:
@@ -147,7 +153,7 @@ class AsyncLLMClient(BaseLLMClient):
         tools: list[dict] | None = None,
         temperature: float = 1.0,
         json_response: bool = False,
-        max_tokens: int | None = None,
+        max_completion_tokens: int | None = None,
         seed: int | None = None,
         reasoning_effort: str | None = None,
         web_search_options: dict | None = None,
@@ -163,7 +169,7 @@ class AsyncLLMClient(BaseLLMClient):
             web_search_options,
             extra_body,
             stream=True,
-            max_tokens=max_tokens,
+            max_completion_tokens=max_completion_tokens,
         )
         response = await self._client.chat.completions.create(**completion_object)
         async for chunk in response:
@@ -210,7 +216,7 @@ class SyncLLMClient(BaseLLMClient):
         tools: list[dict] | None = None,
         temperature: float = 1.0,
         json_response: bool = False,
-        max_tokens: int | None = None,
+        max_completion_tokens: int | None = None,
         seed: int | None = None,
         reasoning_effort: str | None = None,
         web_search_options: dict | None = None,
@@ -226,7 +232,7 @@ class SyncLLMClient(BaseLLMClient):
             web_search_options,
             extra_body,
             stream=True,
-            max_tokens=max_tokens,
+            max_completion_tokens=max_completion_tokens,
         )
         response = self._client.chat.completions.create(**completion_object)
         for chunk in response:

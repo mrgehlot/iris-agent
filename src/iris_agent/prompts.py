@@ -17,24 +17,6 @@ class PromptRegistry:
         """
         self._prompts[name] = template
 
-    def get_prompt(self, prompt_name: str, **kwargs) -> Optional[str]:
-        """
-        Fetch a prompt by name, or None if missing.
-
-        Args:
-            prompt_name: Prompt identifier.
-            **kwargs: Values passed to the prompt template or callable.
-
-        Returns:
-            The rendered prompt string or None if not found.
-        """
-        prompt = self._prompts.get(prompt_name)
-        if prompt is None:
-            return None
-        if callable(prompt):
-            return prompt(**kwargs)
-        return prompt.format(**kwargs) if kwargs else prompt
-
     def render(self, prompt_name: str, **kwargs) -> Optional[str]:
         """
         Render a prompt with optional formatting kwargs.
@@ -46,4 +28,9 @@ class PromptRegistry:
         Returns:
             Rendered prompt string or None if the prompt is missing.
         """
-        return self.get_prompt(prompt_name, **kwargs)
+        prompt = self._prompts.get(prompt_name)
+        if prompt is None:
+            return None
+        if callable(prompt):
+            return prompt(**kwargs)
+        return prompt.format(**kwargs) if kwargs else prompt

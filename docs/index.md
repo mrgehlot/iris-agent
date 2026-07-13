@@ -1,55 +1,63 @@
 # Iris Agent Documentation
 
-Welcome to the documentation for **Iris Agent**!
+Welcome to **Iris Agent** — a modular cognitive architecture framework for building AI agents in Python.
 
-Iris Agent is a lightweight, flexible, and provider-agnostic framework for building AI agents in Python. It simplifies the process of creating agents that can use tools, manage memory, and interact with various LLM providers.
+Inspired by Marvin Minsky's *Society of Mind*, Iris Agent replaces rigid chains and graphs with a **pipeline of cognitive modules** — Observer, Thinker, Planner, Critic, Reflector — that work together like a society of specialized mental processes.
 
 ## Motivation
 
-In the rapidly evolving landscape of AI development, many frameworks have grown increasingly complex, introducing heavy abstractions, custom DSLs (Domain Specific Languages), and "magic" that can obscure what's actually happening under the hood. While powerful, these "batteries-included" approaches often lead to:
+Most agent frameworks lock you into a specific orchestration pattern — chains, DAGs, or graphs. They grow complex, opaque, and rigid. Iris Agent takes a different approach: **the architecture is the blueprint of the agent's thought process.**
 
-- **Bloat**: Including massive dependencies and logic for features you don't use.
-- **Opacity**: Making it difficult to debug prompts or understand exactly what is being sent to the LLM.
-- **Rigidity**: Locking you into specific orchestration patterns (chains, DAGs) that may not fit your use case.
+Different problems need different modes of cognition:
 
-**Iris Agent** was built to be the antidote to framework fatigue. We encourage developers to **build only what you need**.
+- **Simple tasks**: A straightforward `Prompt → Response` loop (use `Agent`).
+- **Complex reasoning**: A structured pipeline with mental models, planning, and self-evaluation (use `Mind`).
+- **Knowledge-aware tasks**: A cognitive pipeline backed by a persistent World Model and Knowledge Graph.
 
-### Architectures as Blueprints for Thought
+Iris Agent provides the primitive components — LLM clients, tool registries, cognitive modules — and lets **you** choose the right architecture for your problem.
 
-We believe that **an agent's architecture is effectively the blueprint of its thought process**. 
+### The Iris Difference
 
-Different problems require different modes of cognition:
-- **Simple Tasks**: Might need a straightforward `Prompt -> Response` chain.
-- **Complex Reasoning**: Might require a `ReAct` (Reason+Act) loop or `Plan-and-Solve` strategy.
-- **Creative Work**: Might benefit from a `Brainstorm -> Critique -> Refine` workflow.
-
-Frameworks that lock you into a specific "Graph" or "Chain" structure often constrain how you can model this decision-making process. Iris Agent provides the primitive components—LLM clients, tool registries, memory stores—and lets **you** determine the cognitive architecture. 
-
-Whether you are building a simple chatbot or a complex multi-step reasoning agent, the flow of control remains in standard, readable Python code.
-
-### The Iris Difference: Transparency & Type Safety
-
-The key thing that separates Iris Agent from other major frameworks is its **commitment to zero-overhead abstractions**. 
-
-Instead of wrapping simple API calls in complex "Chains" or "Runnables", Iris Agent exposes the raw power of Python:
-1.  **Standard Python Types**: Tools are defined using standard Python type hints, not complex configuration objects.
-2.  **Direct Control**: You have full visibility into the message history and prompt construction.
-3.  **No Hidden Magic**: If you want to customize the loop, you can. The framework gets out of your way.
+- **Transparency**: No hidden magic. You control prompt construction and message history.
+- **Type Safety**: Tools are defined with Python type hints — JSON schemas are inferred automatically.
+- **Zero Overhead**: No complex wrappers. The framework gets out of your way.
 
 ## Key Features
 
-- **Provider Agnostic**: Works with OpenAI, Google Gemini, or any OpenAI-compatible API (like LocalAI or vLLM).
-- **Tool Support**: Easy-to-use `@tool` decorator that automatically infers JSON schemas from Python type hints.
-- **Async & Sync**: First-class async and sync agents.
-- **Streaming**: Built-in support for streaming responses for real-time applications.
-- **Memory Management**: Automatic conversation history management with support for custom memory stores.
-- **Prompt Management**: Centralized `PromptRegistry` for reusable and template-based system prompts.
-- **Type Safety**: Built with strict type hints for better developer experience and tooling support.
-- **Logging**: Integrated Rich logging for beautiful, readable debug output.
+- **Cognitive Architecture**: 18 modular cognitive modules (Observer, Thinker, Planner, Critic, Reflector, etc.) orchestrated by `Mind`.
+- **Mental Models**: Built-in reasoning frameworks (First Principles, OODA, SWOT, RCA, Bayesian) auto-injected into prompts.
+- **World Model + Knowledge Graph**: Structured entity/relation graph replaces flat message history. Persists across turns via JSON.
+- **Provider Agnostic**: OpenAI, Google Gemini, or any OpenAI-compatible API.
+- **Tool Support**: `@tool` decorator with automatic JSON schema inference from type hints.
+- **Async & Sync**: First-class support for both synchronous and asynchronous agents.
+- **Streaming**: Built-in streaming for real-time applications.
+- **Backward Compatible**: Existing `Agent`/`AsyncAgent` users are unaffected.
 
 ## Architecture Overview
 
-Iris Agent is built around a few core components:
+Iris Agent offers two levels of architecture:
+
+### Cognitive Pipeline (Mind)
+
+```mermaid
+flowchart TD
+    Input([User Input]) --> Observer
+    Observer --> Thinker
+    Thinker --> Planner
+    Planner --> Critic
+    Critic -->|Plan approved| LLM[LLM + Tool Execution]
+    Critic -->|Revision needed| Planner
+    LLM --> Reflector
+    Reflector --> Beliefs[Beliefs + Confidence]
+    Beliefs --> Decisions[Decision Log]
+    Decisions --> Output([Response])
+```
+
+The `Mind` orchestrator runs a pipeline of cognitive modules, each with a specialized role. The World Model provides structured knowledge that flows across turns.
+
+### Simple Agent Loop (Agent)
+
+For simpler use cases, the classic `Agent` loop remains available:
 
 ```mermaid
 graph TD
@@ -61,19 +69,35 @@ graph TD
     C --> G[Python Functions]
 ```
 
-- **Agent**: The central controller that orchestrates the LLM, tools, and memory.
-- **LLM Client**: Handles communication with the AI provider.
-- **Tool Registry**: Manages available tools and executes them when requested by the model.
-- **Prompt Registry**: Stores system instructions and templates.
+## Quick Start — Cognitive
 
-## Quick Start
+```python
+from iris_agent import LLMConfig, LLMProvider, SyncLLMClient
+from iris_agent.cognition import Mind
 
-Here is a minimal example to get you running in seconds:
+config = LLMConfig(
+    provider=LLMProvider.OPENAI,
+    model="gpt-4o-mini",
+    api_key="sk-..."
+)
+client = SyncLLMClient(config)
+
+mind = Mind(
+    llm_client=client,
+    world_model_path="./world_model.json"
+)
+
+result = mind.run("Analyze the trade-offs between microservices and monoliths.")
+print(result.response)
+print(f"Confidence: {result.confidence}")
+```
+
+<details>
+<summary>Quick Start — Simple Agent (legacy)</summary>
 
 ```python
 from iris_agent import Agent, LLMConfig, LLMProvider, PromptRegistry, SyncLLMClient
 
-# 1. Configure the LLM
 config = LLMConfig(
     provider=LLMProvider.OPENAI,
     model="gpt-4o",
@@ -81,35 +105,30 @@ config = LLMConfig(
 )
 client = SyncLLMClient(config)
 
-# 2. Create a prompt registry and add a system prompt
 prompts = PromptRegistry()
 prompts.add_prompt("assistant", "You are a helpful AI assistant.")
 
-# 3. Create the Agent with the system prompt
 agent = Agent(
     llm_client=client,
     prompt_registry=prompts,
     system_prompt_name="assistant"
 )
 
-# 4. Run
 response = agent.run("Hello! how are you doing today?")
 print(response)
-# I'm doing great! How about you?
 ```
+
+</details>
 
 ## Documentation Map
 
-Explore the detailed documentation:
-
-- **[Getting Started](getting-started.md)**: Your first steps with Iris Agent.
-- **[Installation](installation.md)**: Setup guide for different environments.
-- **[Core Concepts](concepts.md)**: Deep dive into Agents, Tools, and Memory.
-- **[How-To Guides](how-to.md)**: Practical recipes for common tasks (Tools, Streaming, etc.).
-- **[Modules Reference](modules.md)**: Project structure overview.
+- **[Getting Started](getting-started.md)**: Build your first cognitive agent.
+- **[Core Concepts](concepts.md)**: Deep dive into the cognitive pipeline, World Model, and underlying engine.
+- **[How-To Guides](how-to.md)**: Practical recipes for tools, streaming, and cognitive features.
+- **[Modules Reference](modules.md)**: Full list of cognitive modules and core components.
 - **[API Reference](api.md)**: Detailed class and function documentation.
 - **[Examples](examples.md)**: Code examples for various use cases.
-- **[Troubleshooting](troubleshooting.md)**: Solutions to common problems.
+- **[Roadmap](roadmap.md)**: What's coming next.
 - **[FAQ](faq.md)**: Frequently asked questions.
 
 ## License

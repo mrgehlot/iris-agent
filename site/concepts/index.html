@@ -1,0 +1,1282 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Modular cognitive architecture framework for building AI agents in Python.">
+      
+      
+      
+        <link rel="canonical" href="https://mrgehlot.github.io/iris-agent/concepts/">
+      
+      
+        <link rel="prev" href="../installation/">
+      
+      
+        <link rel="next" href="../how-to/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Core Concepts - Iris Agent</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#core-concepts" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Iris Agent" class="md-header__button md-logo" aria-label="Iris Agent" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Iris Agent
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Core Concepts
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mrgehlot/iris-agent" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    mrgehlot/iris-agent
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Iris Agent" class="md-nav__button md-logo" aria-label="Iris Agent" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    Iris Agent
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mrgehlot/iris-agent" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    mrgehlot/iris-agent
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How-To Guides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modules Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Help
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Help
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">&para;</a></h1>
+<p>Iris Agent offers two levels of architecture. For structured reasoning, use the <strong>cognitive pipeline</strong> orchestrated by <code>Mind</code>. For simpler needs, the classic <strong>agent loop</strong> (<code>Agent</code>/<code>AsyncAgent</code>) is always available.</p>
+<p>This page covers both, starting with the cognitive architecture.</p>
+<hr />
+<h1 id="cognitive-architecture">Cognitive Architecture<a class="headerlink" href="#cognitive-architecture" title="Permanent link">&para;</a></h1>
+<p>The <code>iris_agent.cognition</code> package provides a modular cognitive architecture inspired by Marvin Minsky's <em>Society of Mind</em> — intelligence emerges from the interaction of many specialized mental processes.</p>
+<h2 id="mind-the-cognitive-orchestrator">Mind — The Cognitive Orchestrator<a class="headerlink" href="#mind-the-cognitive-orchestrator" title="Permanent link">&para;</a></h2>
+<p><code>Mind</code> (and <code>AsyncMind</code>) is the top-level orchestrator. Instead of a simple request-response loop, it runs a pipeline of <strong>cognitive modules</strong>:</p>
+<pre class="mermaid"><code>flowchart TD
+    Input([User Input]) --&gt; Observer
+    Observer --&gt; Thinker
+    Thinker --&gt; Planner
+    Planner --&gt; Critic
+    Critic --&gt;|Plan approved| LLM[LLM + Tool Execution]
+    Critic --&gt;|Revision needed| Planner
+    LLM --&gt; Reflector
+    Reflector --&gt; Beliefs[Beliefs + Confidence]
+    Beliefs --&gt; Decisions[Decision Log]
+    Decisions --&gt; Output([Response])</code></pre>
+<p><strong>Pipeline stages:</strong></p>
+<ol>
+<li><strong>Observer</strong> — Converts raw input into structured Observations and Experiences. If <code>WorldModelAware</code>, it also extracts entities (file paths, URLs, tool mentions) into the Knowledge Graph.</li>
+<li><strong>Thinker</strong> — Selects applicable mental models (First Principles, OODA, SWOT, etc.) and injects their reasoning framework into the system prompt.</li>
+<li><strong>Planner</strong> — Decomposes the goal into a plan of action steps. If <code>WorldModelAware</code>, creates task entities linked to the current goal.</li>
+<li><strong>Critic</strong> — Self-evaluates the plan. If revision is needed, loops back to the Planner. When approved, proceeds to execution.</li>
+<li><strong>LLM + Tool Execution</strong> — The LLM generates responses and calls tools. Results are appended to memory.</li>
+<li><strong>Reflector</strong> — Post-action analysis. Records lessons learned and updates beliefs. If <code>WorldModelAware</code>, stores lesson entities in the Knowledge Graph.</li>
+<li><strong>Belief Update</strong> — <code>BeliefSystem</code> updates probabilistic beliefs with new evidence.</li>
+<li><strong>Decision Log</strong> — Records the decision for auditability.</li>
+</ol>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">LLMConfig</span><span class="p">,</span> <span class="n">SyncLLMClient</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent.cognition</span><span class="w"> </span><span class="kn">import</span> <span class="n">Mind</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="n">LLMConfig</span><span class="p">(</span><span class="n">provider</span><span class="o">=</span><span class="s2">&quot;openai&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;sk-...&quot;</span><span class="p">)</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">SyncLLMClient</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
+<span class="n">mind</span> <span class="o">=</span> <span class="n">Mind</span><span class="p">(</span><span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">mind</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;What is the capital of France?&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">response</span><span class="p">)</span>       <span class="c1"># &quot;The capital of France is Paris&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">confidence</span><span class="p">)</span>     <span class="c1"># 0.85</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">mental_model</span><span class="p">)</span>   <span class="c1"># &quot;first_principles&quot;</span>
+</code></pre></div>
+<h3 id="mindresult">MindResult<a class="headerlink" href="#mindresult" title="Permanent link">&para;</a></h3>
+<p><code>Mind.run()</code> returns a <code>MindResult</code> with these fields:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>response</code></td>
+<td style="text-align: left;"><code>str</code></td>
+<td style="text-align: left;">Final text response</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>confidence</code></td>
+<td style="text-align: left;"><code>float</code></td>
+<td style="text-align: left;">Estimated confidence (0–1)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>mental_model</code></td>
+<td style="text-align: left;"><code>str \| None</code></td>
+<td style="text-align: left;">The mental model selected by the Thinker</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>context</code></td>
+<td style="text-align: left;"><code>dict</code></td>
+<td style="text-align: left;">Full cognitive context from all modules</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>plan</code></td>
+<td style="text-align: left;"><code>list[dict] \| None</code></td>
+<td style="text-align: left;">The plan produced by Planner</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>lessons</code></td>
+<td style="text-align: left;"><code>list[str]</code></td>
+<td style="text-align: left;">Lessons recorded by Reflector</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>message_history</code></td>
+<td style="text-align: left;"><code>list[dict]</code></td>
+<td style="text-align: left;">Full LLM message history</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cognitive-modules">Cognitive Modules<a class="headerlink" href="#cognitive-modules" title="Permanent link">&para;</a></h2>
+<p>All modules inherit from <code>CognitiveModule</code> and implement <code>process(context) -&gt; context</code>. They communicate via a shared context dict.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Module</th>
+<th style="text-align: left;">File</th>
+<th style="text-align: left;">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Observer</strong></td>
+<td style="text-align: left;"><code>observer.py</code></td>
+<td style="text-align: left;">Input → Observation → Experience</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Thinker</strong></td>
+<td style="text-align: left;"><code>thinker.py</code></td>
+<td style="text-align: left;">Mental model selection and execution</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Planner</strong></td>
+<td style="text-align: left;"><code>planner.py</code></td>
+<td style="text-align: left;">Goal decomposition into plan steps</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Critic</strong></td>
+<td style="text-align: left;"><code>critic.py</code></td>
+<td style="text-align: left;">Self-evaluation and revision</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Reflector</strong></td>
+<td style="text-align: left;"><code>reflector.py</code></td>
+<td style="text-align: left;">Post-action analysis → lessons</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Attention</strong></td>
+<td style="text-align: left;"><code>attention.py</code></td>
+<td style="text-align: left;">Focus / priority management</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Debate</strong></td>
+<td style="text-align: left;"><code>debate.py</code></td>
+<td style="text-align: left;">Multi-perspective reasoning</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Simulation</strong></td>
+<td style="text-align: left;"><code>simulation.py</code></td>
+<td style="text-align: left;">Counterfactual evaluation</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Learning</strong></td>
+<td style="text-align: left;"><code>learning.py</code></td>
+<td style="text-align: left;">Strategy adaptation from experience</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>HypothesisGenerator</strong></td>
+<td style="text-align: left;"><code>hypothesis.py</code></td>
+<td style="text-align: left;">Hypothesis generation and testing</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>BeliefSystem</strong></td>
+<td style="text-align: left;"><code>beliefs.py</code></td>
+<td style="text-align: left;">Probabilistic beliefs with evidence tracking</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ConfidenceTracker</strong></td>
+<td style="text-align: left;"><code>confidence.py</code></td>
+<td style="text-align: left;">Confidence estimation</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>DecisionLog</strong></td>
+<td style="text-align: left;"><code>decisions.py</code></td>
+<td style="text-align: left;">Decision recording</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ExperienceStore</strong></td>
+<td style="text-align: left;"><code>experiences.py</code></td>
+<td style="text-align: left;">Experience creation and storage</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EventBus</strong></td>
+<td style="text-align: left;"><code>events.py</code></td>
+<td style="text-align: left;">Simplified pub/sub for in-pipeline events</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>KnowledgeGraph</strong></td>
+<td style="text-align: left;"><code>graph.py</code></td>
+<td style="text-align: left;">Entity/Relation CRUD, traversal, serialization</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>WorldModel</strong></td>
+<td style="text-align: left;"><code>world_model.py</code></td>
+<td style="text-align: left;">Facade over KnowledgeGraph</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>WorldModelAware</strong></td>
+<td style="text-align: left;"><code>world_model_aware.py</code></td>
+<td style="text-align: left;">Mixin for modules needing graph access</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MentalModel</strong></td>
+<td style="text-align: left;"><code>mental_models.py</code></td>
+<td style="text-align: left;">ABC + 6 built-in models</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mental-models">Mental Models<a class="headerlink" href="#mental-models" title="Permanent link">&para;</a></h2>
+<p>Mental models are reasoning frameworks that the Thinker selects and automatically injects into the system prompt. You never manually manage reasoning prompts.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Model</th>
+<th style="text-align: left;">Strategy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>First Principles</strong></td>
+<td style="text-align: left;">Break down to fundamental truths, build up from there</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Root Cause Analysis</strong></td>
+<td style="text-align: left;">Trace symptoms to root causes via 5 Whys</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>OODA Loop</strong></td>
+<td style="text-align: left;">Observe → Orient → Decide → Act</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SWOT</strong></td>
+<td style="text-align: left;">Strengths, Weaknesses, Opportunities, Threats</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Second-Order Thinking</strong></td>
+<td style="text-align: left;">Consider consequences of consequences</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Bayesian Updating</strong></td>
+<td style="text-align: left;">Update beliefs with prior probability and new evidence</td>
+</tr>
+</tbody>
+</table>
+<h2 id="world-model-knowledge-graph">World Model &amp; Knowledge Graph<a class="headerlink" href="#world-model-knowledge-graph" title="Permanent link">&para;</a></h2>
+<p>The World Model replaces flat message history with a structured <strong>Knowledge Graph</strong> of typed entities and relations. This gives the agent persistent, queryable awareness across turns.</p>
+<h3 id="knowledge-graph">Knowledge Graph<a class="headerlink" href="#knowledge-graph" title="Permanent link">&para;</a></h3>
+<p>Entities are typed (goal, task, file, tool, message, etc.) and connected by typed relations (subgoal_of, depends_on, produces, references, etc.).</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent.cognition</span><span class="w"> </span><span class="kn">import</span> <span class="n">KnowledgeGraph</span>
+
+<span class="n">kg</span> <span class="o">=</span> <span class="n">KnowledgeGraph</span><span class="p">()</span>
+
+<span class="n">goal_id</span> <span class="o">=</span> <span class="n">kg</span><span class="o">.</span><span class="n">add_entity</span><span class="p">(</span><span class="s2">&quot;goal&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Build a feature&quot;</span><span class="p">})</span>
+<span class="n">task_id</span> <span class="o">=</span> <span class="n">kg</span><span class="o">.</span><span class="n">add_entity</span><span class="p">(</span><span class="s2">&quot;task&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Implement API&quot;</span><span class="p">})</span>
+<span class="n">kg</span><span class="o">.</span><span class="n">add_relation</span><span class="p">(</span><span class="n">task_id</span><span class="p">,</span> <span class="n">goal_id</span><span class="p">,</span> <span class="s2">&quot;subgoal_of&quot;</span><span class="p">)</span>
+
+<span class="n">related</span> <span class="o">=</span> <span class="n">kg</span><span class="o">.</span><span class="n">get_related</span><span class="p">(</span><span class="n">goal_id</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="worldmodel-facade">WorldModel Facade<a class="headerlink" href="#worldmodel-facade" title="Permanent link">&para;</a></h3>
+<p><code>WorldModel</code> wraps <code>KnowledgeGraph</code> with higher-level methods and is automatically integrated into <code>Mind</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">wm</span> <span class="o">=</span> <span class="n">WorldModel</span><span class="p">()</span>
+<span class="n">wm</span><span class="o">.</span><span class="n">set_goal</span><span class="p">(</span><span class="s2">&quot;Refactor code&quot;</span><span class="p">)</span>
+<span class="n">wm</span><span class="o">.</span><span class="n">ingest_message</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;List all .py files in src/&quot;</span><span class="p">)</span>
+<span class="n">wm</span><span class="o">.</span><span class="n">add_task</span><span class="p">(</span><span class="s2">&quot;Find all Python files&quot;</span><span class="p">)</span>
+
+<span class="n">context_summary</span> <span class="o">=</span> <span class="n">wm</span><span class="o">.</span><span class="n">get_context</span><span class="p">()</span>
+<span class="c1"># &quot;Current Goal: Refactor code\nKnown entities:\n  - [message] ...&quot;</span>
+</code></pre></div>
+<h3 id="how-it-integrates">How It Integrates<a class="headerlink" href="#how-it-integrates" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Observer</strong> (WorldModelAware) — auto-extracts file paths, URLs, tool mentions from user input into the graph</li>
+<li><strong>Planner</strong> (WorldModelAware) — creates task entities linked to the current goal</li>
+<li><strong>Reflector</strong> (WorldModelAware) — records lesson entities after each run</li>
+<li><strong>World state appended to prompt</strong> — <code>get_context()</code> output is injected into the system prompt</li>
+</ul>
+<h3 id="cross-turn-persistence">Cross-Turn Persistence<a class="headerlink" href="#cross-turn-persistence" title="Permanent link">&para;</a></h3>
+<p>WorldModel state persists across <code>mind.run()</code> calls via JSON files:</p>
+<div class="highlight"><pre><span></span><code><span class="n">mind</span> <span class="o">=</span> <span class="n">Mind</span><span class="p">(</span>
+    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+    <span class="n">world_model_path</span><span class="o">=</span><span class="s2">&quot;./memory/world_model.json&quot;</span>
+<span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">mind</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;First message&quot;</span><span class="p">)</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="n">mind</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;Second message&quot;</span><span class="p">)</span>  <span class="c1"># carries knowledge forward</span>
+</code></pre></div>
+<hr />
+<h1 id="underlying-engine">Underlying Engine<a class="headerlink" href="#underlying-engine" title="Permanent link">&para;</a></h1>
+<p>The cognitive pipeline is built on a robust, provider-agnostic engine. This same engine powers the simpler <code>Agent</code>/<code>AsyncAgent</code> for backward compatibility.</p>
+<h2 id="the-agent-loop">The Agent Loop<a class="headerlink" href="#the-agent-loop" title="Permanent link">&para;</a></h2>
+<p>At its simplest, the engine runs a loop that continues until the LLM produces a final answer:</p>
+<pre class="mermaid"><code>flowchart TD
+    Start([User Input]) --&gt; Receive[Receive Input]
+    Receive --&gt; UpdateMemory[Update Memory]
+    UpdateMemory --&gt; LLMCall[LLM Call&lt;br/&gt;Send history + tool definitions]
+    LLMCall --&gt; Decision{LLM Decision}
+    Decision --&gt;|Generate Response| Respond[Generate Text Response]
+    Decision --&gt;|Use Tool| CallTool[Call Tool]
+    CallTool --&gt; Execute[Execute Tool&lt;br/&gt;Run Python function]
+    Execute --&gt; AddToolResult[Add Tool Result&lt;br/&gt;to Memory as Tool message]
+    AddToolResult --&gt; LLMCall
+    Respond --&gt; CheckToolCalls{More Tool Calls?}
+    CheckToolCalls --&gt;|Yes| CallTool
+    CheckToolCalls --&gt;|No| FinalOutput([Return Final Response])</code></pre>
+<p>This loop is used by both <code>Agent.run()</code> and <code>Mind</code>'s LLM + Tool Execution stage.</p>
+<h2 id="llm-clients">LLM Clients<a class="headerlink" href="#llm-clients" title="Permanent link">&para;</a></h2>
+<p><code>SyncLLMClient</code> and <code>AsyncLLMClient</code> wrap the OpenAI Python SDK and share common behavior via <code>BaseLLMClient</code>.</p>
+<h3 id="llmconfig">LLMConfig<a class="headerlink" href="#llmconfig" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>provider</code></td>
+<td style="text-align: left;"><code>LLMProvider.OPENAI</code> or <code>LLMProvider.GOOGLE</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>model</code></td>
+<td style="text-align: left;">Model name (e.g., <code>"gpt-4o-mini"</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>api_key</code></td>
+<td style="text-align: left;">API key</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>base_url</code></td>
+<td style="text-align: left;">Optional override (local models, Gemini endpoint)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>reasoning_effort</code></td>
+<td style="text-align: left;">For reasoning models (o1, etc.)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>web_search_options</code></td>
+<td style="text-align: left;">For models that support web search</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>extra_body</code></td>
+<td style="text-align: left;">Provider-specific overrides</td>
+</tr>
+</tbody>
+</table>
+<h3 id="provider-compatibility">Provider Compatibility<a class="headerlink" href="#provider-compatibility" title="Permanent link">&para;</a></h3>
+<p>The clients work with OpenAI, Google Gemini (via OpenAI-compatible <code>base_url</code>), and any OpenAI-compatible API (Ollama, vLLM, LocalAI).</p>
+<h2 id="memory">Memory<a class="headerlink" href="#memory" title="Permanent link">&para;</a></h2>
+<p>Conversation history is a list of message dicts compatible with OpenAI's chat format:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+  <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;developer&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;You are a helpful assistant.&quot;</span><span class="p">},</span>
+  <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;What is the date?&quot;</span><span class="p">},</span>
+  <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;tool_calls&quot;</span><span class="p">:</span> <span class="p">[</span><span class="o">...</span><span class="p">]},</span>
+  <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;tool&quot;</span><span class="p">,</span> <span class="s2">&quot;tool_call_id&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;2023-10-27&quot;</span><span class="p">},</span>
+  <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;It is October 27, 2023.&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>System prompts use role <code>developer</code> (OpenAI o-series compatible), not <code>system</code>.</p>
+<h2 id="messages-roles">Messages &amp; Roles<a class="headerlink" href="#messages-roles" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Role</th>
+<th style="text-align: left;">Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>DEVELOPER</code> / <code>SYSTEM</code></td>
+<td style="text-align: left;">System instructions (kept at index 0)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>USER</code></td>
+<td style="text-align: left;">Human input</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ASSISTANT</code></td>
+<td style="text-align: left;">AI responses (may include <code>tool_calls</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>TOOL</code></td>
+<td style="text-align: left;">Function call results (must include <code>tool_call_id</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>Use <code>create_message()</code> for properly formatted messages:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_message</span><span class="p">,</span> <span class="n">Role</span>
+
+<span class="n">user_msg</span> <span class="o">=</span> <span class="n">create_message</span><span class="p">(</span><span class="n">Role</span><span class="o">.</span><span class="n">USER</span><span class="p">,</span> <span class="s2">&quot;What&#39;s the weather?&quot;</span><span class="p">)</span>
+
+<span class="n">image_msg</span> <span class="o">=</span> <span class="n">create_message</span><span class="p">(</span>
+    <span class="n">role</span><span class="o">=</span><span class="n">Role</span><span class="o">.</span><span class="n">USER</span><span class="p">,</span>
+    <span class="n">content</span><span class="o">=</span><span class="s2">&quot;Describe this image&quot;</span><span class="p">,</span>
+    <span class="n">images</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;https://example.com/photo.jpg&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</code></pre></div>
+<h2 id="tools-toolregistry">Tools &amp; ToolRegistry<a class="headerlink" href="#tools-toolregistry" title="Permanent link">&para;</a></h2>
+<p>Tools are Python functions with type hints. The <code>@tool</code> decorator automatically infers the JSON schema for the LLM.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">tool</span><span class="p">,</span> <span class="n">ToolRegistry</span>
+
+<span class="nd">@tool</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_tax</span><span class="p">(</span><span class="n">amount</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">rate</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate tax for a given amount.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">amount</span> <span class="o">*</span> <span class="n">rate</span>
+
+<span class="n">registry</span> <span class="o">=</span> <span class="n">ToolRegistry</span><span class="p">()</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">calculate_tax</span><span class="p">)</span>
+</code></pre></div>
+<p>This produces the schema automatically:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;calculate_tax&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Calculate tax for a given amount.&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;parameters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;rate&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;amount&quot;</span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="core-built-in-tools">Core Built-in Tools<a class="headerlink" href="#core-built-in-tools" title="Permanent link">&para;</a></h3>
+<p>Quick-start with common file-system tools:</p>
+<div class="highlight"><pre><span></span><code><span class="n">tools</span> <span class="o">=</span> <span class="n">ToolRegistry</span><span class="p">()</span>
+<span class="n">tools</span><span class="o">.</span><span class="n">include_core</span><span class="p">()</span>  <span class="c1"># read_file, list_dir, glob_files, grep_files, run_command</span>
+</code></pre></div>
+<p>Or import individually:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">CORE_TOOLS</span>  <span class="c1"># dict of {name: function}</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">iris_agent.tools</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">core_read_file</span><span class="p">,</span>
+    <span class="n">core_list_dir</span><span class="p">,</span>
+    <span class="n">core_glob_files</span><span class="p">,</span>
+    <span class="n">core_grep_files</span><span class="p">,</span>
+    <span class="n">core_run_command</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<h3 id="async-tools">Async Tools<a class="headerlink" href="#async-tools" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nd">@tool</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">fetch_url</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Fetch content from a URL.&quot;&quot;&quot;</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
+
+<span class="n">registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">fetch_url</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">registry</span><span class="o">.</span><span class="n">call_async</span><span class="p">(</span><span class="s2">&quot;fetch_url&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://example.com&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="sharing-registries">Sharing Registries<a class="headerlink" href="#sharing-registries" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">shared_tools</span> <span class="o">=</span> <span class="n">ToolRegistry</span><span class="p">()</span>
+<span class="n">shared_tools</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">calculate_tax</span><span class="p">)</span>
+<span class="n">shared_tools</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">fetch_url</span><span class="p">)</span>
+
+<span class="n">agent1</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="n">llm_client</span><span class="o">=</span><span class="n">client1</span><span class="p">,</span> <span class="n">tool_registry</span><span class="o">=</span><span class="n">shared_tools</span><span class="p">)</span>
+<span class="n">agent2</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="n">llm_client</span><span class="o">=</span><span class="n">client2</span><span class="p">,</span> <span class="n">tool_registry</span><span class="o">=</span><span class="n">shared_tools</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="promptregistry">PromptRegistry<a class="headerlink" href="#promptregistry" title="Permanent link">&para;</a></h2>
+<p>Manage system prompts with support for static strings, templates, and callable prompts.</p>
+<h3 id="static-prompts">Static Prompts<a class="headerlink" href="#static-prompts" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a helpful AI assistant.&quot;</span><span class="p">)</span>
+
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span>
+    <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;assistant&quot;</span>
+<span class="p">)</span>
+</code></pre></div>
+<h3 id="template-prompts">Template Prompts<a class="headerlink" href="#template-prompts" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;personal&quot;</span><span class="p">,</span> <span class="s2">&quot;You are </span><span class="si">{name}</span><span class="s2">&#39;s assistant. Today is </span><span class="si">{date}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="n">rendered</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;personal&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="s2">&quot;2024-01-15&quot;</span><span class="p">)</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;alice&quot;</span><span class="p">,</span> <span class="n">rendered</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="callable-prompts">Callable Prompts<a class="headerlink" href="#callable-prompts" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">contextual_prompt</span><span class="p">(</span><span class="n">current_time</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">user_location</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;You are a helpful assistant. Time: </span><span class="si">{</span><span class="n">current_time</span><span class="si">}</span><span class="s2">, Location: </span><span class="si">{</span><span class="n">user_location</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistry</span><span class="p">()</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;contextual&quot;</span><span class="p">,</span> <span class="n">contextual_prompt</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="multiple-personas">Multiple Personas<a class="headerlink" href="#multiple-personas" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;friendly&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a friendly assistant.&quot;</span><span class="p">)</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;professional&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a professional business assistant.&quot;</span><span class="p">)</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">add_prompt</span><span class="p">(</span><span class="s2">&quot;pirate&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a friendly pirate assistant. Arr!&quot;</span><span class="p">)</span>
+
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+    <span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+    <span class="n">prompt_registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span>
+    <span class="n">system_prompt_name</span><span class="o">=</span><span class="s2">&quot;pirate&quot;</span>
+<span class="p">)</span>
+</code></pre></div>
+<h2 id="tool-execution-error-handling">Tool Execution &amp; Error Handling<a class="headerlink" href="#tool-execution-error-handling" title="Permanent link">&para;</a></h2>
+<p>When the LLM requests a tool call, the engine:
+1. Parses and validates arguments against the schema
+2. Executes the Python function
+3. Captures errors and returns them to the LLM as tool messages, allowing retry</p>
+<h2 id="streaming">Streaming<a class="headerlink" href="#streaming" title="Permanent link">&para;</a></h2>
+<p><code>run_stream()</code> yields tokens as they're generated and buffers tool calls for execution after the stream completes.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Sync</span>
+<span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">agent</span><span class="o">.</span><span class="n">run_stream</span><span class="p">(</span><span class="s2">&quot;Tell me a story.&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">chunk</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Async</span>
+<span class="k">async</span> <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">agent</span><span class="o">.</span><span class="n">run_stream</span><span class="p">(</span><span class="s2">&quot;Tell me a story.&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">chunk</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="advanced-llm-parameters">Advanced LLM Parameters<a class="headerlink" href="#advanced-llm-parameters" title="Permanent link">&para;</a></h2>
+<p>Pass to <code>run()</code> or <code>run_stream()</code>:</p>
+<ul>
+<li><code>json_response</code> — Force JSON output (requires model support)</li>
+<li><code>seed</code> — Deterministic output (for testing)</li>
+<li><code>max_completion_tokens</code> / <code>max_tokens</code> — Response length limit</li>
+<li><code>reasoning_effort</code> — For reasoning models (e.g., o1)</li>
+<li><code>web_search_options</code> — Enable web search for supported models</li>
+</ul>
+<h2 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h2>
+<p>Enable Rich logging for colorized terminal output:</p>
+<div class="highlight"><pre><span></span><code><span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">enable_logging</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<p>Shows user messages, LLM calls, tool calls/results, and final responses with distinct colors.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy", "navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.top", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="../js/mermaid-init.js"></script>
+      
+        <script src="../js/copy-page.js"></script>
+      
+    
+  </body>
+</html>

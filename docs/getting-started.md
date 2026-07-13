@@ -1,16 +1,14 @@
 # Getting Started
 
-This guide will help you build your first AI agent using Iris Agent.
+This guide will help you build your first cognitive agent using Iris Agent.
 
 ## Prerequisites
 
 - Python 3.10 or higher.
 - An `api_key` if you want to use OpenAI or Google Gemini.
-- An `api_key` with `base_url` if you want to use other model providers or local models which are compatible with OpenAI SDK.
+- An `api_key` with `base_url` if you want to use other model providers or local models compatible with the OpenAI SDK.
 
 ## 1. Installation
-
-First, install the package:
 
 ```bash
 pip install iris-agent
@@ -18,13 +16,12 @@ pip install iris-agent
 
 ## 2. Create a Client
 
-To create an agent, you need an `LLMConfig` and a `SyncLLMClient`.
+All agents share the same underlying LLM infrastructure.
 
 ```python
 import os
 from iris_agent import LLMConfig, LLMProvider, SyncLLMClient
 
-# Ideally, load API keys from environment variables
 api_key = os.getenv("OPENAI_API_KEY")
 
 config = LLMConfig(
@@ -36,131 +33,135 @@ config = LLMConfig(
 client = SyncLLMClient(config)
 ```
 
-## 3. Add a System Prompt
+## 3. Your First Cognitive Agent
 
-Define system instructions using the `PromptRegistry` to customize your agent's behavior.
-
-```python
-from iris_agent import PromptRegistry
-
-# Define system instructions
-prompt_registry = PromptRegistry()
-prompt_registry.add_prompt("assistant", "You are a friendly pirate assistant. Arr!")
-```
-
-## 4. Creating Your First Agent
-
-Combine the client with an `Agent` instance and the prompt registry.
+`Mind` is the cognitive orchestrator. It runs a pipeline of specialized modules — Observer, Thinker, Planner, Critic, Reflector — and optionally maintains a structured World Model across turns.
 
 ```python
-from iris_agent import Agent
+from iris_agent.cognition import Mind
 
-agent = Agent(
-    llm_client=client,
-    prompt_registry=prompt_registry,
-    system_prompt_name="assistant"
-)
+mind = Mind(llm_client=client)
 
-response = agent.run("What is the capital of France?")
-print(response)
-# Output: Arr! The capital of France be Paris, matey!
+result = mind.run("What is the capital of France?")
+print(result.response)
+# The capital of France is Paris.
+print(result.confidence)
+# 0.85
+print(result.mental_model)
+# first_principles
 ```
 
-## 5. Adding Tools
+`Mind` returns a `MindResult` with `.response`, `.confidence`, `.mental_model`, and the full `.context` dict.
 
-Tools allow your agent to interact with the outside world. Use the `@tool` decorator.
+## 4. Add Tools
+
+Use the `@tool` decorator and pass a `ToolRegistry` to `Mind`. Core file-system tools are available via `include_core()`.
 
 ```python
 from iris_agent import tool, ToolRegistry
 
-tool_registry = ToolRegistry()
+tools = ToolRegistry()
+tools.include_core()  # read_file, list_dir, glob_files, grep_files, run_command
 
 @tool
 def get_weather(location: str) -> str:
     """Get the current weather for a location."""
-    # In a real app, call an API here
     return f"The weather in {location} is sunny and 25°C."
 
-tool_registry.register(get_weather)
+tools.register(get_weather)
 
-# Update the agent with the tool registry
-agent = Agent(
+mind = Mind(
     llm_client=client,
-    tool_registry=tool_registry,
-    prompt_registry=prompt_registry,
-    system_prompt_name="assistant"
+    tool_registry=tools
 )
 
-response = agent.run("What's the weather in Tokyo?")
-print(response)
-# Arr! The weather in Tokyo be sunny and a toasty 25°C, matey!
+result = mind.run("What's the weather in Tokyo?")
+print(result.response)
+```
+
+## 5. Persist Knowledge Across Turns
+
+The World Model saves and loads structured knowledge (entities, relations, goals, lessons) to a JSON file, so each run builds on previous context.
+
+```python
+mind = Mind(
+    llm_client=client,
+    tool_registry=tools,
+    world_model_path="./memory/world_model.json"
+)
+
+result1 = mind.run("List all .py files in the project.")
+result2 = mind.run("Summarize what we learned about the codebase.")
+# Second call carries forward entities extracted by the Observer
 ```
 
 ## 6. Async Support
 
-For high-performance applications (e.g., web servers), use `AsyncAgent`.
+For high-performance applications (web servers, concurrent requests), use `AsyncMind`:
 
 ```python
 import asyncio
-from iris_agent import AsyncAgent, AsyncLLMClient
+from iris_agent import AsyncLLMClient
+from iris_agent.cognition import AsyncMind
 
 async def main():
-    api_key = os.getenv("OPENAI_API_KEY")
-    model = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
-    config = LLMConfig(
-        provider=LLMProvider.OPENAI,
-        model=model,
-        api_key=api_key
-    )
-    prompt_registry = PromptRegistry()
-    prompt_registry.add_prompt("assistant", "You are a helpful assistant.")
     client = AsyncLLMClient(config)
-    agent = AsyncAgent(
-        llm_client=client, 
-        prompt_registry=prompt_registry, 
-        system_prompt_name="assistant"
-        )
-    response = await agent.run("Tell me a quick joke.")
-    print(response)
-    # Hey, what do you call a function that only tells the truth? A literal... function.
-
-
+    mind = AsyncMind(
+        llm_client=client,
+        world_model_path="./memory/wm.json"
+    )
+    result = await mind.run("Tell me a quick joke.")
+    print(result.response)
 
 asyncio.run(main())
 ```
 
 ## 7. Streaming
 
-Stream responses to get tokens as they're generated. Both sync and async agents support streaming.
-
-**Sync Streaming:**
+Both `Mind` and `Agent` support streaming. Use `run_stream()` to receive tokens as they're generated:
 
 ```python
-from iris_agent import Agent
-
-agent = Agent(llm_client=client)
-for chunk in agent.run_stream("Tell me a short story."):
+for chunk in mind.run_stream("Tell me a short story."):
     print(chunk, end="", flush=True)
 print()
 ```
 
-**Async Streaming:**
+Async streaming works similarly:
 
 ```python
-import asyncio
-from iris_agent import AsyncAgent
-
-async def main():
-    agent = AsyncAgent(llm_client=client)
-    async for chunk in agent.run_stream("Tell me a short story."):
-        print(chunk, end="", flush=True)
-    print()
-
-asyncio.run(main())
+async for chunk in mind.run_stream("Tell me a short story."):
+    print(chunk, end="", flush=True)
+print()
 ```
+
+---
+
+## Alternative: Using the Simple Agent
+
+If you don't need the cognitive pipeline, the classic `Agent` loop provides a lightweight alternative. It works the same way as `Mind` but skips the cognitive modules and World Model.
+
+```python
+from iris_agent import Agent, PromptRegistry
+
+# Add a system prompt
+prompts = PromptRegistry()
+prompts.add_prompt("assistant", "You are a friendly pirate assistant. Arr!")
+
+agent = Agent(
+    llm_client=client,
+    prompt_registry=prompts,
+    system_prompt_name="assistant"
+)
+
+response = agent.run("What is the capital of France?")
+print(response)
+# Arr! The capital of France be Paris, matey!
+```
+
+`Agent` supports all the same features — tools, streaming, async (`AsyncAgent`), JSON mode, and memory management. See the [How-To Guides](how-to.md) for details.
 
 ## Next Steps
 
-- Learn about **[Core Concepts](concepts.md)** like Memory and Tools.
-- See more **[Examples](examples.md)** including multi-agent setups.
+- Dive into **[Core Concepts](concepts.md)** — the full cognitive pipeline and World Model.
+- Explore **[Examples](examples.md)** including the basic Mind example.
 - Check the **[API Reference](api.md)** for detailed documentation.

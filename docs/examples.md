@@ -10,6 +10,7 @@ This page contains complete, runnable examples demonstrating how to use Iris Age
 - [Memory](#memory)
 - [Multi-Agent](#multi-agent)
 - [Streaming](#streaming)
+- [Cognitive Architecture](#cognitive-architecture)
 - [Advanced Features](#advanced-features)
 
 ## Basic Usage
@@ -526,6 +527,54 @@ def main() -> int:
 if __name__ == "__main__":
     raise SystemExit(main())
 ```
+
+## Cognitive Architecture
+
+Use `Mind` for structured reasoning with mental models, self-evaluation, and persistent World Model state.
+
+**File:** `examples/basic_mind.py`
+
+```python
+import os
+from iris_agent import LLMConfig, SyncLLMClient, ToolRegistry
+from iris_agent.cognition import Mind
+
+def main():
+    config = LLMConfig(
+        provider="openai",
+        model="gpt-4o-mini",
+        api_key=os.getenv("OPENAI_API_KEY"),
+    )
+    client = SyncLLMClient(config)
+
+    tools = ToolRegistry()
+    tools.include_core()
+
+    mind = Mind(
+        llm_client=client,
+        tool_registry=tools,
+        world_model_path="/tmp/world_model.json",
+    )
+
+    result = mind.run("List all .py files in the current directory.")
+    print(result.response)
+
+    result2 = mind.run(
+        "Summarize what we learned about this project."
+    )
+
+if __name__ == "__main__":
+    main()
+```
+
+The Mind pipeline automatically:
+1. Observes input — extracts entities (file paths, URLs, tool mentions)
+2. Thinks — selects relevant mental model
+3. Plans — decomposes goals into tasks
+4. Critiques — self-evaluates plans
+5. Executes — LLM + tool calls
+6. Reflects — records lessons in the Knowledge Graph
+7. Persists — saves World Model state between turns
 
 ## Advanced Features
 

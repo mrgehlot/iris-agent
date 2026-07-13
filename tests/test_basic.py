@@ -1,11 +1,16 @@
 """Basic unit tests for iris-agent-framework."""
 
+from unittest.mock import MagicMock, patch
+
 import pytest
 from iris_agent import (
+    Agent,
+    LLMConfig,
     PromptRegistry,
+    Role,
+    SyncLLMClient,
     ToolRegistry,
     create_message,
-    Role,
     tool,
 )
 
@@ -62,16 +67,9 @@ def test_prompt_registry():
     # Test non-existent prompt
     assert registry.render("nonexistent") is None
     
-    # Test get_prompt with string template
-    prompt = registry.get_prompt("test")
-    assert prompt == "You are a test assistant."
-
-    # Test get_prompt with callable
-    prompt = registry.get_prompt("dynamic", name="John")
-    assert prompt == "You are John's assistant."
-
-    # Test get_prompt non-existent
-    assert registry.get_prompt("nonexistent") is None
+    # Test render with callable
+    rendered = registry.render("dynamic", name="John")
+    assert rendered == "You are John's assistant."
 
 
 def test_tool_registry():
@@ -190,6 +188,37 @@ def test_role_constants():
     assert Role.USER == "user"
     assert Role.ASSISTANT == "assistant"
     assert Role.TOOL == "tool"
+
+
+def test_sync_run_stream():
+    """Test sync agent streaming with mocked LLM client."""
+    prompts = PromptRegistry()
+    prompts.add_prompt("assistant", "You are a helpful assistant.")
+
+    config = LLMConfig(provider="openai", model="gpt-4o-mini", api_key="sk-test")
+    client = SyncLLMClient(config)
+    agent = Agent(llm_client=client, prompt_registry=prompts)
+
+    def _fake_stream(*args, **kwargs):
+        class FakeChoice:
+            def __init__(self, content):
+                self.delta = MagicMock()
+                self.delta.content = content
+                self.delta.tool_calls = None
+
+        class FakeChunk:
+            def __init__(self, content):
+                self.choices = [FakeChoice(content)]
+
+        yield FakeChunk("Hello")
+        yield FakeChunk(", ")
+        yield FakeChunk("world!")
+
+    with patch.object(client, "chat_completion_stream", _fake_stream):
+        result = list(agent.run_stream("Test message"))
+
+    assert "".join(result) == "Hello, world!"
+    assert len(agent.memory) == 3  # developer prompt + user + assistant
 
 
 if __name__ == "__main__":

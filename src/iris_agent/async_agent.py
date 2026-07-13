@@ -2,8 +2,7 @@ import asyncio
 import logging
 from typing import Any, AsyncGenerator, List, Optional
 
-from rich.logging import RichHandler
-
+from ._utils import safe_json_loads, setup_agent_logger, truncate
 from .llm import AsyncLLMClient
 from .messages import create_message
 from .prompts import PromptRegistry
@@ -37,9 +36,14 @@ class AsyncAgent:
         self.prompt_registry = prompt_registry or PromptRegistry()
         self.tool_registry = tool_registry or ToolRegistry()
         self.system_prompt_name = system_prompt_name
-        self.memory: List[dict] = []
-        self.logger = logger or (self._setup_logger() if enable_logging else None)
+        self._memory: List[dict] = []
+        self.logger = logger or (setup_agent_logger() if enable_logging else None)
         self._ensure_system_prompt()
+
+    @property
+    def memory(self):
+        """Expose the underlying agent memory."""
+        return self._memory
 
     @staticmethod
     def create_message(role: str, content: str | None) -> dict:
@@ -60,10 +64,10 @@ class AsyncAgent:
         prompt = self.prompt_registry.render(self.system_prompt_name)
         if not prompt:
             return
-        if not self.memory or self.memory[0].get("role") not in (Role.SYSTEM, Role.DEVELOPER):
-            self.memory.insert(0, self.create_message(Role.DEVELOPER, prompt))
+        if not self._memory or self._memory[0].get("role") not in (Role.SYSTEM, Role.DEVELOPER):
+            self._memory.insert(0, self.create_message(Role.DEVELOPER, prompt))
         else:
-            self.memory[0] = self.create_message(Role.DEVELOPER, prompt)
+            self._memory[0] = self.create_message(Role.DEVELOPER, prompt)
 
     @staticmethod
     def _normalize_user_message(message: str | dict) -> dict:
@@ -80,22 +84,6 @@ class AsyncAgent:
             return message
         return create_message(role=Role.USER, content=message)
 
-    def _setup_logger(self) -> logging.Logger:
-        """
-        Configure Rich logger for step-by-step output.
-
-        Returns:
-            Configured logger instance.
-        """
-        logger = logging.getLogger("iris_agent")
-        logger.setLevel(logging.INFO)
-        if not logger.handlers:
-            handler = RichHandler(rich_tracebacks=True, markup=True, show_time=False)
-            handler.setFormatter(logging.Formatter("%(message)s"))
-            logger.addHandler(handler)
-        logger.propagate = False
-        return logger
-
     def _log(self, message: str) -> None:
         """
         Emit a log message when logging is enabled.
@@ -105,23 +93,6 @@ class AsyncAgent:
         """
         if self.logger:
             self.logger.info(message)
-
-    @staticmethod
-    def _truncate(value: Any, limit: int = 200) -> str:
-        """
-        Truncate long values for log readability.
-
-        Args:
-            value: Value to truncate.
-            limit: Maximum length before truncation.
-
-        Returns:
-            Truncated string representation.
-        """
-        text = str(value)
-        if len(text) <= limit:
-            return text
-        return f"{text[:limit]}…"
 
     async def run(
         self,
@@ -149,14 +120,14 @@ class AsyncAgent:
             The assistant response content.
         """
         message = self._normalize_user_message(user_message)
-        self.memory.append(message)
+        self._memory.append(message)
         tools = self.tool_registry.schemas() if self.tool_registry else None
-        self._log(f"[bold cyan]User[/]: {self._truncate(message.get('content'))}")
+        self._log(f"[bold cyan]User[/]: {truncate(message.get('content') or '')}")
 
         while True:
             self._log("[dim]Calling LLM...[/]")
             result = await self.llm_client.chat_completion(
-                messages=self.memory,
+                messages=self._memory,
                 tools=tools,
                 temperature=1.0,
                 json_response=json_response,
@@ -175,7 +146,7 @@ class AsyncAgent:
                 self._log(f"[dim]Finish reason[/]: {finish_reason}")
 
             if tool_calls:
-                self.memory.append(
+                self._memory.append(
                     {
                         "role": Role.ASSISTANT,
                         "content": content,
@@ -202,18 +173,18 @@ class AsyncAgent:
                     tool_args = tc.function.arguments
                     self._log(
                         f"[magenta]Running tool[/] {tool_name} "
-                        f"args={self._truncate(tool_args)}"
+                        f"args={truncate(tool_args)}"
                     )
-                    tool_kwargs = self._safe_json_loads(tool_args)
+                    tool_kwargs = safe_json_loads(tool_args)
                     try:
                         tool_response = await self.tool_registry.call_async(tool_name, **tool_kwargs)
                     except Exception as exc:
                         tool_response = f"Tool error: {exc}"
                     self._log(
                         f"[green]Tool response[/] {tool_name}: "
-                        f"{self._truncate(tool_response)}"
+                        f"{truncate(tool_response)}"
                     )
-                    self.memory.append(
+                    self._memory.append(
                         {
                             **({"tool_call_id": tc.id} if hasattr(tc, "id") else {}),
                             "role": Role.TOOL,
@@ -224,13 +195,13 @@ class AsyncAgent:
                 continue
 
             if finish_reason == "stop" and content:
-                self._log(f"[bold green]Assistant[/]: {self._truncate(content)}")
-                self.memory.append(self.create_message(Role.ASSISTANT, content))
+                self._log(f"[bold green]Assistant[/]: {truncate(content)}")
+                self._memory.append(self.create_message(Role.ASSISTANT, content))
                 return content
 
             if content:
-                self._log(f"[bold green]Assistant[/]: {self._truncate(content)}")
-                self.memory.append(self.create_message(Role.ASSISTANT, content))
+                self._log(f"[bold green]Assistant[/]: {truncate(content)}")
+                self._memory.append(self.create_message(Role.ASSISTANT, content))
                 return content
             return ""
 
@@ -238,7 +209,7 @@ class AsyncAgent:
         self,
         user_message: str | dict,
         json_response: bool = False,
-        max_tokens: int | None = None,
+        max_completion_tokens: int | None = None,
         seed: int | None = None,
         reasoning_effort: str | None = None,
         web_search_options: dict | None = None,
@@ -250,7 +221,7 @@ class AsyncAgent:
         Args:
             user_message: User input text or a pre-built message dict.
             json_response: Request JSON-only response when supported.
-            max_tokens: Cap the streamed completion tokens.
+            max_completion_tokens: Cap the completion token count.
             seed: Optional seed for deterministic sampling.
             reasoning_effort: Optional reasoning effort hint for supported models.
             web_search_options: Optional web search options for supported models.
@@ -260,9 +231,9 @@ class AsyncAgent:
             Response text chunks as they stream in.
         """
         message = self._normalize_user_message(user_message)
-        self.memory.append(message)
+        self._memory.append(message)
         tools = self.tool_registry.schemas() if self.tool_registry else None
-        self._log(f"[bold cyan]User[/]: {self._truncate(message.get('content'))}")
+        self._log(f"[bold cyan]User[/]: {truncate(message.get('content') or '')}")
 
         while True:
             tool_call_chunks: dict[int, dict] = {}
@@ -270,11 +241,11 @@ class AsyncAgent:
 
             self._log("[dim]Streaming LLM response...[/]")
             async for chunk in self.llm_client.chat_completion_stream(
-                messages=self.memory,
+                messages=self._memory,
                 tools=tools,
                 temperature=1.0,
                 json_response=json_response,
-                max_tokens=max_tokens,
+                max_completion_tokens=max_completion_tokens,
                 seed=seed,
                 reasoning_effort=reasoning_effort,
                 web_search_options=web_search_options,
@@ -312,11 +283,11 @@ class AsyncAgent:
             assistant_message = {"role": Role.ASSISTANT, "content": full_response}
             if tool_calls:
                 assistant_message["tool_calls"] = tool_calls
-            self.memory.append(assistant_message)
+            self._memory.append(assistant_message)
 
             if not tool_calls:
                 if full_response:
-                    self._log(f"[bold green]Assistant[/]: {self._truncate(full_response)}")
+                    self._log(f"[bold green]Assistant[/]: {truncate(full_response)}")
                 break
 
             for tool_call in tool_calls:
@@ -324,18 +295,18 @@ class AsyncAgent:
                 tool_args = tool_call["function"]["arguments"]
                 self._log(
                     f"[magenta]Running tool[/] {tool_name} "
-                    f"args={self._truncate(tool_args)}"
+                    f"args={truncate(tool_args)}"
                 )
-                tool_kwargs = self._safe_json_loads(tool_args)
+                tool_kwargs = safe_json_loads(tool_args)
                 try:
                     tool_response = await self.tool_registry.call_async(tool_name, **tool_kwargs)
                 except Exception as exc:
                     tool_response = f"Tool error: {exc}"
                 self._log(
                     f"[green]Tool response[/] {tool_name}: "
-                    f"{self._truncate(tool_response)}"
+                    f"{truncate(tool_response)}"
                 )
-                self.memory.append(
+                self._memory.append(
                     {
                         "tool_call_id": tool_call["id"],
                         "role": Role.TOOL,
@@ -357,20 +328,4 @@ class AsyncAgent:
         """
         return await self.tool_registry.call_async(name, **kwargs)
 
-    @staticmethod
-    def _safe_json_loads(value: str) -> dict:
-        """
-        Parse tool arguments safely, returning empty dict on errors.
 
-        Args:
-            value: JSON string of tool arguments.
-
-        Returns:
-            Parsed dict or empty dict if parsing fails.
-        """
-        try:
-            import json
-
-            return json.loads(value) if value else {}
-        except Exception:
-            return {}
